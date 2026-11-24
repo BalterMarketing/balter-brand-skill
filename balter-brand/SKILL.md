@@ -316,9 +316,11 @@ Not on any sheet yet (no checked number): maximum cable length for EVO HD, monit
 same file stem** (the article number in lowercase, dots removed):
 
 - `<article>.png` — the **photo**: real pixels, transparent background. For social, website, slides.
-- `<article>.svg` — the **vector illustration**, drawn by `scripts/device_vectors.py` from the photo's
-  proportions (never by AI). Same canvas as the photo, so the two swap 1:1. For technical plans,
-  manuals, small print sizes, animation.
+- `<article>.svg` — the **vector illustration**, measured from the photo by `scripts/device_vectors.py`
+  (never drawn by eye, never by AI): the photo is split into flat tones, every element (glass, screen,
+  plates, buttons, seams, LEDs) is found where it sits on the photo and drawn there as a clean shape
+  or traced outline. Same canvas, same positions and proportions one to one; only the surface is flat.
+  For technical plans, manuals, small print sizes, animation. Needs numpy, scipy, Pillow and potrace.
 
 `assets/devices/devices.json` is the index: article, German name (house words), kind, line, colour,
 button count, size in mm where the manual gives it, both file names, and `plan: true` for devices the
