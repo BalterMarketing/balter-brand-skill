@@ -1,0 +1,51 @@
+/* BALTER Design-System 2.0 · 2026-11-24 */
+:root {
+  /* Farbe */
+  --b-ink: #000000;        --b-ink-2: #404040;     --b-muted: #666666;
+  --b-grey: #a3a3a3;       --b-grey-2: #bdbdbd;    --b-grey-3: #d4d4d4;
+  --b-line: #e5e5e5;       --b-line-soft: #f2f2f2; --b-bg: #fafafa;
+  --b-white: #ffffff;      --b-plate: #f3f3f3;
+  --b-frame: #000000;      --b-frame-2: #1a1a1a;   --b-frame-line: #262626;
+  --b-frame-ink: #e5e5e5;  --b-frame-muted: #a3a3a3;
+  --b-accent: #fb824b;     --b-accent-hover: #ff9564; --b-accent-ink: #b5491a;
+  --b-on-accent: #000000;
+  --b-accent-wash: color-mix(in srgb, #fb824b 5%, #fff);
+  --b-accent-peach: color-mix(in srgb, #fb824b 32%, #fff);
+  --b-ok: #4d7c0f;  --b-ok-bg: #f7fee7;  --b-err: #b42318;  --b-err-bg: #fef3f2;
+
+  /* Schrift */
+  --b-display: "Science Gothic", system-ui, sans-serif;   /* 700, Google Fonts */
+  --b-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --b-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --b-fs-label: 12px;  --b-fs-small: 13px;  --b-fs-body: 15px;  --b-fs-lead: 18px;
+  --b-fs-h3: 17px;     --b-fs-h2: 24px;     --b-fs-h1: 30px;    --b-fs-display: 54px;
+  --b-track-label: .08em;  --b-track-head: -.03em;  --b-track-display: .01em;
+
+  /* Abstand: Raster 4 */
+  --b-s1: 4px; --b-s2: 8px; --b-s3: 12px; --b-s4: 16px; --b-s5: 24px;
+  --b-s6: 32px; --b-s7: 48px; --b-s8: 64px; --b-s9: 96px; --b-s10: 128px;
+
+  /* Form */
+  --b-r-chip: 6px; --b-r-btn: 10px; --b-r-field: 10px; --b-r-seg: 12px;
+  --b-r-card: 16px; --b-r-panel: 24px; --b-r-sheet: 40px; --b-r-pill: 999px;
+  --b-h-control: 44px; --b-h-control-sm: 36px; --b-h-pill: 26px;
+
+  /* Rahmen */
+  --b-header: 68px; --b-fi: 12px; --b-fr: 40px;
+
+  /* Schatten: nur Schwebendes */
+  --b-shadow-pop: 0 16px 40px rgba(0,0,0,.14);
+  --b-shadow-lift: 0 12px 28px -18px rgba(0,0,0,.45);
+
+  /* Bewegung */
+  --b-ease-out: cubic-bezier(.23,1,.32,1);
+  --b-ease-site: cubic-bezier(.3,1,.3,1);
+  --b-ease-sheet: cubic-bezier(.7,0,.2,1);
+  --b-t-fast: 140ms; --b-t-base: 200ms; --b-t-slow: 280ms; --b-t-wipe: 600ms; --b-t-enter: 700ms;
+
+  /* Diagramme */
+  --b-chart-line: 2.2px; --b-chart-spark: 1.6px; --b-chart-area: .06;
+  --b-chart-grid: #f2f2f2; --b-chart-base: #e5e5e5; --b-chart-axis: 11px;
+}
+@media (max-width: 1099px) { :root { --b-fi: 8px; --b-fr: 28px; } }
+@media (max-width: 767px)  { :root { --b-fi: 6px; --b-fr: 22px; --b-header: 60px; } }

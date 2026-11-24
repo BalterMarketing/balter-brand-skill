@@ -1,0 +1,477 @@
+---
+name: balter-brand
+description: The complete BALTER brand book (Security division, balter.de, B2B video door intercoms) as one instruction set for AI agents. Use it for ANY work that carries the Balter brand — logo use, colour, typography, the black frame with the rounded window, motion, UI components, charts and dashboards, schemas (customer visualisation and the technical wiring plan, which has its own generator), product images, social posts and reels, video, Brevo newsletters, German copy and wording, design tokens. Trigger on "Balter", "BALTER", "Markenhandbuch", "brand book", "nach dem Brandbook", "im Balter-Stil", or any request to design, write, draw or check material for Balter.
+metadata:
+  version: "2.0"
+  updated: "2026-11-24"
+  owner: "Balter GmbH, Design und Marketing"
+  source: "BALTER Markenhandbuch 2.0 (the HTML brand book this file ships with)"
+  audience: "AI agents: Claude Code, Codex CLI, Cursor, any agent that reads Markdown"
+---
+
+# BALTER brand book — instructions for AI agents
+
+You are reading the machine version of the **BALTER Markenhandbuch 2.0**. A person asked you to
+make, change or check something for the Balter brand. Everything you need is in this one file:
+read **0 · Always** first, then jump to the section for the task (router below). The HTML brand
+book shows the same rules with examples; this file is the binding text for you.
+
+**Language.** This file is English so every agent reads it the same way. Customer-facing output is
+**German** unless the person asks for another language. Quoted German words are the exact terms
+to use.
+
+## Router — which section for which task
+
+| The task is … | Read |
+|---|---|
+| Any task | 0 · Always |
+| Placing or exporting a logo | 2 · Logo |
+| Picking colours, contrast, print colour | 3 · Colour |
+| Choosing fonts, sizes, other scripts (Cyrillic, Arabic, Turkish) | 4 · Type |
+| Web page, admin, configurator, app screen layout | 5 · Frame, 7 · Components, 15 · Tokens |
+| Animation, transitions, hover | 6 · Motion |
+| Chart, dashboard, KPI, infographic | 8 · Charts |
+| Diagram of the system for customers | 9a · Visualisation |
+| Wiring plan / Verdrahtungsplan for installers | 9b · Technical plan (run the generator) |
+| Product photo, scene, AI image | 10 · Product and image |
+| Instagram, Facebook, LinkedIn, TikTok post, carousel, reel | 11 · Social |
+| Video, trade-fair film, lower thirds | 12 · Video |
+| Newsletter, e-mail | 13 · E-mail |
+| Any German text, caption, headline, product copy | 14 · Language |
+| CSS variables, design system, new interface | 15 · Tokens |
+
+Files in this skill: `assets/logo/` (all logos, SVG and PNG) · `assets/tokens.css` (design tokens)
+· `assets/*.png` (device cut-outs) · `scripts/wiring_plan.py` (technical plan generator) ·
+`examples/` (a plan spec and its output).
+
+---
+
+## 0 · Always
+
+1. **Two divisions, never mixed.** This book is for **Security**: balter.de, B2B, for installers,
+   planners, wholesale (Fachpartner). **Home** (redshop.de, B2C, homeowners) has its own book.
+   Never put Home content into Security material or the reverse.
+2. **Black and white carry everything. Orange `#FB824B` is one signal per surface.** Text on
+   orange is always black.
+3. **Three fonts only:** Science Gothic 700 (titles), Inter (everything else), JetBrains Mono 500
+   (technical data). All free on Google Fonts.
+4. **The real device, real pixels, true size.** Never let AI draw a Balter product. AI may build
+   the scene around a real photo or CAD render.
+5. **Never invent facts.** Only use figures listed in 14 · Language → approved figures, or numbers
+   the person gives you with a source. If unsure, leave it out and say so.
+6. **Never name** the manufacturing partner, suppliers or revenue. Never write "Made in Germany"
+   unless the person confirms it for that product.
+7. **Claim:** `STAY AHEAD`: English, capitals, never translated or inflected; in the logo or as its
+   own line, never inside running text.
+8. When something is not covered here, take the closest rule and say which one you applied.
+   Do not invent a new style.
+
+---
+
+## 1 · Brand
+
+- Balter GmbH, Langenfeld. In security technology since 2006, own brand since 2008. Develops
+  video door communication, access control and security technology.
+- Ambition: make complex technology simple for installers, planners and users.
+- Stance: "Wir denken Sicherheit nicht als Produkt, sondern als Verantwortung."
+- Values: reliable innovation, cyber security, sustainability.
+- Message for Security: development, engineering, made-to-measure (Sonderanfertigung), training
+  (Schulung).
+- Apps follow their own app brand book (platform first), with colour and type from here.
+
+## 2 · Logo
+
+- Parts: the mark (eagle head in a shield), the wordmark BALTER in bold italic, the claim STAY AHEAD.
+- **Always one colour:** black on light, white on dark. Never orange, silver, gradient.
+- Variants (in `assets/logo/`):
+  | Use | File |
+  |---|---|
+  | Default, landscape with claim | `logo-site-black.svg` / `logo-site-white.svg`, `quer-claim-*.png` |
+  | Below 28 px height, UI, product print | `balter-logo-quer-black.svg`, `logo-quer-white.svg`, `quer-*.png` |
+  | Narrow spaces (column, label) | `logo-hoch-black.svg`, `hoch-claim-*.png` |
+  | App icon, favicon, avatar, seal | `logo-mark-black.svg` / `logo-mark-white.svg`, `bildmarke-*.png` |
+- Clear space = height of the "B" in BALTER, all round, including from image edges and frame corners.
+- Minimum: with claim 28 px high (print 30 mm wide); otherwise use the version without claim. Mark alone from 16 px.
+- Placement: top left on web and admin; top right in video and on trade-fair walls; bottom centre on end cards.
+- Sizes in practice: web header 32–36 px high, admin 34 px, video 1920×1080 150 px wide with 48–60 px margin, trade-fair wall 240 mm wide with 120 mm margin.
+- The eagle head may stand alone. The letters BALTER never stand alone without the eagle.
+- Never: recolour, distort, shadow/glow/outline/relief, place on a busy image without its own plate, re-set the wordmark in another font.
+
+## 3 · Colour
+
+| Role | Value | Use |
+|---|---|---|
+| Ink | `#000000` | frame, text, primary button; print text K100 |
+| White | `#FFFFFF` | sheet, cards |
+| Accent | `#FB824B` | RGB 251 130 75 · CMYK 0 48 70 2; hover `#FF9564` |
+| Accent ink | `#B5491A` | orange as text on white (5.3 : 1) |
+| Line soft | `#F2F2F2` | cards, tracks, plates |
+| Background | `#FAFAFA` | admin sheet, alternating sections |
+| Line | `#E5E5E5` | borders, baselines |
+| Muted | `#666666` | kickers, secondary text, axes |
+| ink-2 / grey / grey-2 | `#404040` / `#A3A3A3` / `#BDBDBD` | second text / second chart series / pending |
+| Frame line | `#262626` | lines on the black frame |
+| Accent wash / peach | orange 5 % / 32 % | attention card fill / its border and focus ring |
+| OK | `#4D7C0F` on `#F7FEE7` | done, valid, ▲ |
+| Error | `#B42318` on `#FEF3F2` | error, cancelled, ▼ |
+
+- Ratio per surface about white 60 · black 28 · grey 10 · orange a dot. On black media (reels,
+  stand, video) black and white swap; orange stays a dot.
+- Contrast: black on orange 8.4 : 1 (the only text on orange). White on orange 2.5 : 1 — **never**.
+  Orange on black 8.4 : 1 (allowed as text).
+- Orange **yes**: a dot before a kicker; one counter or badge ("Neu", "3 nicht versendet"); the one
+  button that closes a surface; the one data segment that needs action.
+- Orange **no**: backgrounds, areas, gradients (except the 5 % attention card); strokes, lines,
+  underlines; inside the logo; twice on one surface.
+- **Rejected colours:** `#FF5F14` (too saturated, like warning orange; do not use anywhere) and blue
+  `#6699CC` (no second accent, no status blue).
+- Print: CMYK 0 48 70 2; check foil against a sample. Large formats rather light; dark as bands. No
+  thin white text on black in print.
+
+## 4 · Type
+
+- **Science Gothic 700 — titles.** Capitals for product names, labels, chapters, video titles
+  (tracking 0); sentence case allowed for longer titles. From 20 px, once per surface, max. 3 lines;
+  it is wide, so keep titles short.
+- **Inter — everything else.** Headings 700 (−0.03 em), body 400 (line height 1.55), labels 500 caps
+  +0.08 em, big numbers 800 tabular −0.03 em.
+- **JetBrains Mono 500 — technical data:** article numbers, dimensions, specs, schema labels, code.
+  11–14 px, never running text.
+- Retired: Zen Dots, Canaro, Ginto Nord, Manrope. Do not use them in new work.
+- E-mail: Inter, Helvetica, Arial; a Science Gothic title only as an image with alt text.
+- Scale (web/UI): Display XL 56–78 · Display 30–54 · H1 Inter 700 30–40 · H2 22–28 · H3 600 16–18 ·
+  body 15–18 · small 13–14 · label 11–12 · number Inter 800.
+- Per medium (display / heading / body / smallest): web 30–72 / 22–40 / 15–18 / 11 · social 1080 px
+  52–88 / 56–72 / 32–40 / 28 feed, 32 reel · video 1920 px 28 label, 72 title / 64–96 / 36–44 / 26 ·
+  e-mail 600 px image 26–32 / 22–26 / 15–16 / 12 · slides 1920 80 / 56, 40 / 32, 24 / 20.
+- Other scripts: all three fonts have Cyrillic. Arabic: titles Noto Kufi Arabic, text IBM Plex Sans
+  Arabic (put them in the font stack after the house font); right-to-left layout (`dir="rtl"`) but
+  never mirror logo, product photos or article numbers; no capitals and no tracking in Arabic.
+  Turkish capital i is "İ" (`lang="tr"`). Translations go to a native speaker before publishing.
+
+## 5 · Frame and form (web, admin, configurator)
+
+The signature: a **black frame** and inside it a **white sheet with round corners**. The frame is
+fixed to the screen; content scrolls underneath. Corners always sit at the screen edge and there is
+never white space behind the frame.
+
+- Frame = fixed overlay layer with radius, filled black outside (`box-shadow: 0 0 0 100vmax #000`).
+  Never build it as an outer margin of the content.
+- `html, body` and `theme-color` are black; `overscroll-behavior-y: none`.
+- Header: black, fixed, no shadow, never transparent, never hidden on scroll. 68–76 px (phone 60);
+  logo left, one orange button right.
+- Footer: black, last part of the content, merges with the frame; 72 px padding, white logo.
+- Sizes: desktop ≥1100 px frame 12 px, radius 40 · tablet 768–1099 px 8 / 28 · phone <768 px 6 / 22.
+- Safe areas (notch, home bar) belong to the frame: `env(safe-area-inset-*)`.
+- Scrollbars: page scrollbar on the frame, 12 px, thumb `#3A3A3A` with 3 px black border, hover
+  `#8A8A8A`, black track. Inner scroll areas 6 px, black 25 % (on black: white 25 %).
+- Page margin = frame width + 28 px (phone + 14). Anchors: `scroll-padding-top` = header + 24 px.
+- **The frame grows with the interface.** Reading (site, landing): 12 px all round. Working (admin,
+  dealer portal): frame becomes the left sidebar, 240 px, with navigation. Designing (configurator):
+  frame carries the step bar on top and the questions on the left (400 px). The window keeps radius
+  40 and only holds the content being worked on. Controls on the frame are dark: surfaces `#171717`
+  / `#262626`, lines `#262626`–`#404040`, text white 100/68/46 %, active = white pill with black
+  text. Under 900 px the sidebar becomes a bottom tab bar; the admin sheet goes borderless.
+- Configurator stage: `#FAFAFA` with a 24 px grid in black 7.5 %, product centred at true size.
+- **Dark theme:** frame stays `#000`; window `#0D0D0D` with a 1 px white-9 % edge; cards `#1B1B1B`;
+  text `#F2F2F2` / `#9A9A9A`. Never make the window as black as the frame. Product photos, schemas,
+  report charts, logo tiles and templates stay light "islands". Follow the system setting; a toggle
+  overrides and is remembered.
+- Radii ladder: 6 chip · 10 button, field · 16 card · 24 panel, image · 40 sheet, window; pills
+  fully round. Nested = concentric: inner = outer − padding. No in-between values.
+- Trade-fair wall: black stand, white wall fields with top corners r 130 mm; 500 mm black base with
+  QR code and claim; logo top right 240 mm wide, 120 mm margin; groups with a caps label and a thin
+  line; products at true size labelled only with the article number on the product axis; orange
+  only as one "NEU" pill for the whole stand; 20 mm bleed, CMYK, PDF/X-4.
+
+## 6 · Motion
+
+| Token | Value | For |
+|---|---|---|
+| t-fast | 140 ms | press, popover, checkbox |
+| t-base | 200 ms | colour, border, hover lift |
+| t-slow | 280 ms | menu, closing a sheet |
+| t-wipe | 600 ms | button fill, opening a sheet |
+| t-enter | 700 ms | entrance on load (24 px rise, 80 ms stagger) |
+| ease-out | `cubic-bezier(.23,1,.32,1)` | everything that appears |
+| ease-site | `cubic-bezier(.3,1,.3,1)` | button fill, page elements |
+| ease-sheet | `cubic-bezier(.7,0,.2,1)` | sheets and menus from below |
+
+- Hover on cards: lift 2 px, black border, soft shadow; the image does not move. Buttons: a circle
+  fills from below (600 ms); press `scale(.97)`.
+- Charts draw once when first visible (1.1 s, 250 ms delay).
+- Only transform and opacity. Exit faster than entry. Hover only with `(hover:hover) and (pointer:fine)`.
+  `prefers-reduced-motion` turns everything off and nothing stays hidden.
+- Never: zoom on images inside rounded frames (cuts the corner), fade-in for every section on
+  scroll, parallax, scroll-jacking, tilt, springs, bounces, auto carousels, timed tabs, ease-in for
+  appearing things.
+
+## 7 · Components
+
+- **Button:** 44 px (small 36), radius 10, 1 px black border, Inter 500 14 px. Primary black.
+  Orange only for the one closing action. Label = verb + object.
+- **Kicker:** Inter 500 12 px caps +0.08 em `#666`, optional orange dot. **Pill** 26 px, **delta**
+  22 px, counters fully round.
+- **Segmented control:** 36 px, outer radius 12, inner 9, active black. **Field:** 44 px, radius 10,
+  visible label above. Focus ring 2 px orange 32 %.
+- **Attention card** (the only orange surface): 5 % orange fill, 32 % border, counter in full orange
+  with a black number. One per page.
+- **Icons:** 1.5 px line, round caps, one colour, 24 px grid, 2 px inset; Lucide where the house set
+  lacks one. No filled icons, no emoji, no gradients.
+- **Pattern:** only as background of large surfaces (wall back, title slide, packaging), text on it
+  ≥ 4.5 : 1, never behind products, tables or charts.
+
+## 8 · Charts and data
+
+Numbers are black, comparisons grey, problems orange.
+
+- Pick: **line** for time (≥5 points, one black series, max. one grey comparison) · **bar** for
+  categories (always from zero; horizontal when names are long; radius 4) · **ring** for parts of a
+  whole (max. 4 segments, 100 %, value in the middle, 18 px stroke) · **progress** for rates and
+  funnels (8 px on `#F2F2F2` track, value right) · **number tile** when one number is enough (value,
+  delta, optional sparkline).
+- Anatomy: grid 1 px `#F2F2F2`, 3–4 lines on round values · baseline 1 px `#E5E5E5`, no other axis
+  lines, no ticks · axis text Inter 500 11 px `#666`, tabular, unit on the value ("900 €") · line
+  2.2 px black, round joins (sparkline 1.6 px) · area black 6 % (single series only) · end dot 12 px
+  black with 2 px white ring · label black, radius 8, Inter 600 12 px white, only the last or shown
+  value.
+- Title states the message, subtitle the basis ("B2B-Umsatz pro Woche" · "Netto, ohne Stornos ·
+  letzte 8 Wochen"). Series order: black, `#A3A3A3`, `#BDBDBD`, track `#F2F2F2`. Legend above, 10 px
+  square radius 3, or label directly at the line.
+- German number format: "24.380 €", "12 %", "KW48", space before the unit.
+- Never: pies with more than 4 slices, two y-axes, 3D/shadow/gradient/gloss, a colour per category
+  (more than 4 categories → bars sorted by size, all black, one highlighted), red/green without ▲ ▼
+  or a word, truncated bar axes.
+
+## 9 · Schemas — two kinds, two readers
+
+Both show **only real Balter devices** (cut-out photos), never placeholders, never boxes with
+names. Never mix EVO HD and EVO HD PRO devices in one drawing.
+
+### 9a · Visualisation (customers, social, slides, website)
+
+- Tells one event at a building: a building section with floors, riser shaft and technical room.
+  The path of the door call is the **only orange line**.
+- Architecture as fine line drawing: slabs and walls `#EDEDED` with edge `#D4D4D4`, slight depth in
+  `#E5E5E5`. No furniture, people or sky.
+- Devices free on the wall, no plate, no frame. They may be larger than scale; then show no doors or
+  people that would reveal the scale.
+- Cable as one 3 px black line, junctions with a dot. No conductors, no terminals.
+- Labels as chips: black with white Inter 600 12 px, fully round, thin leader line. Max. five chips;
+  floor names outside right.
+
+### 9b · Technical plan (installers, planners, training) — use the generator
+
+Do **not** draw this by hand. Run `scripts/wiring_plan.py`; it draws the A3 sheet from a JSON spec
+with every rule built in and refuses a sheet whose wires cross.
+
+1. **Ask** for what is missing: floors (EG upward, max. 6 per sheet) and Wohneinheiten (WE) per
+   floor; monitors per WE (1–4) and, if more than one, "reihe" or "stern"; station model and button
+   count and which WE is on which Klingeltaste; door opener "intern" or "extern"; project name,
+   drawing number, author, date, version.
+2. **Stop** if the system needs more than one Netzteil (coupling via EVO-HD-2WL and CAT 7) or is EVO
+   HD PRO, ENTRI or ERA: say these plans are drawn by Balter Technik. The generator draws EVO HD,
+   one Netzteil per sheet.
+3. **Write the spec** by copying `examples/mehrfamilienhaus-8we.json`; floors bottom to top; `kt` =
+   Klingeltaste (address "KT n von 128"); on 5–8 family stations button counting starts at the
+   bottom. Only devices whose picture is in `assets/` — a new device needs a real cut-out photo first.
+4. **Draw:** `python3 scripts/wiring_plan.py spec.json -o plan.svg --embed` (standalone SVG) or
+   `-o plan.html --embed` (A3 page to print as PDF). It must print `crossings between groups = 0`.
+5. **Look at the result** before handing it over: no label on a line, every WE with its address,
+   cable list matches the drawing. A person checks the sheet against the real installation.
+
+What the sheet contains: frame with zones 1–8 / A–F · floors as bands (highest on top) with tabs ·
+per WE: number, real monitor, article number, "KT 05 · 1/4", **R** where the Endwiderstand is set ·
+every line as two conductors in its group colour, parallel, never crossing, cable IDs W01… · Technik
+zone with the station outside, door opener, Netzteil EVO-HD-C5001 in a dashed Elektrokasten, 230 V
+from above (L brown / N blue), BUS terminals IM (monitors) and DS (station) below · details A
+Netzteil terminals, B monitor connections and Reihenverdrahtung, C door opener intern/extern,
+D legend · cable list, notes, commissioning checklist, title block.
+
+Wire colours (fixed): station `#16A34A` · EG `#1D4ED8` · 1.OG `#EAB308` · 2.OG `#0EA5E9` · 3.OG
+`#DC2626` · 4.OG `#7C3AED` · 5.OG `#0D9488` · EVO-HD-2WL `#000000` · CAT 7 `#F59E0B` dashed · 230 V
+brown/blue · door opener `#737373`. Orange `#FB824B` is never a wire colour.
+
+Technical facts used (and their sources — add nothing else):
+
+| Fact | Value | Source |
+|---|---|---|
+| Netzteil input | 100–240 V~, 0,6 A, 50–60 Hz | rating plate EVO-HD-C5001 |
+| Netzteil output | BUS 32 V DC, 3,5 A; BUS1/BUS2 (IM), BUS1/BUS2 (DS) | rating plate |
+| IM → monitors BUS_IN · DS → station BUS+ / BUS− | | EVO HD manual v3.2 p. 17 |
+| Stern: every monitor on IM · Reihe: BUS_OUT → BUS_IN | | manual p. 18–19 |
+| Endwiderstand: stern at every monitor, reihe only at the last | | Balter technical knowledge base |
+| Cable J-Y(St)Y 2×2×0,8 mm² or YR 0,8 mm² | | knowledge base, Balter plans |
+| KT 1–128, up to 4 monitors per WE (1 master + 3 slave) | | manual, Adressierung |
+| Door opener intern GND / LOCK+, 12 V DC, 300 mA | | manual p. 119 |
+| Door opener extern NO / COM potential-free, 30 V DC 2 A or 250 V AC 2 A, own transformer | | manual p. 119 |
+| Set up the station first, then the monitors · monitor WLAN 2,4 GHz only | | knowledge base · manual p. 32 |
+
+Not on any sheet yet (no checked number): maximum cable length for EVO HD, monitors per Netzteil.
+
+## 10 · Product and image
+
+- Order in every list: **EVO HD PRO** (flagship, modular) → **EVO HD** (mid range, digital) →
+  **EVO** (entry, analog) → **ENTRI** (ready sets, always last). Spelling with spaces, no hyphen.
+- System first, then parts: Video-Türsprechanlage is the system; Video-Türstation, Monitor,
+  Audiostation are parts.
+- Cut-outs on white or `#F3F3F3`, no shadow, no frame; caption = article number on the product axis.
+  EVO HD PRO modules on a plate get a 1 mm black outline; EVO HD parts never.
+- True size from millimetres against door, brick, hand — never as a share of the frame.
+- Brushed stainless steel is standard; every RAL colour is Sonderanfertigung. There is no black
+  EVO HD PRO.
+- AI builds only the scene. The product stays a real photo or CAD. Upscalers invent logos on
+  modules: mask them back from the original.
+- No stock images: no handshakes, padlock icons, blue data streams. Image types: product at the
+  entrance (daylight, real façade), product in the room (wall, real light), the stand.
+
+## 11 · Social media
+
+| Format | Pixels | Keep free |
+|---|---|---|
+| Feed 4:5 | 1080 × 1350 | 64 px margin; profile grid crops 34 px left and right |
+| Carousel 4:5 | 1080 × 1350, up to 10 pages | as feed, page counter top right |
+| Reel / Story 9:16 | 1080 × 1920 | top 250 px, bottom 420 px, right 120 px |
+| Video 16:9 | 1920 × 1080 | title safe 90 % (see 12) |
+| Thumbnail | 1280 × 720 | bottom right 200 × 80 px |
+
+- Grid 1080: margin 64, 6 columns of 136, gutter 24, baseline 8. 4:5 and 9:16 each get their own
+  layout; never stretch or pad a feed post to 9:16.
+- Smallest text 28 px feed, 32 px reel.
+- Radii at 1080 px: window in the frame 64 (frame 12 px black) · image card, panel 48 · product
+  plate, cell 32 · subtitle box, chip 16 · pills round. Concentric inward with 16 px steps. Never
+  cut a rounded corner; no text closer than 32 px to a corner; no zoom that moves the rounding.
+- Feed templates: product (frame, window, plate) · infographic (one number per page) · date (fixed
+  cells, photo on top) · schema (rules of 9a) · carousel title (panel at the bottom, counter on top)
+  · end card (black, logo, contact). Do not invent a new form.
+- Reels: title on top under the safe zone; lower third bottom left above 420 px; detail callout =
+  white 28 px dot, 3 px line, white pill (max. two at once); end card stands 2 s.
+- Overlays on video: solid white panel, radius 32–48, padding 26–40, text left (no semi-transparent
+  white). Subtitles black 72 %, radius 16, Inter 700 48 px white, max. 2 lines of 32 characters,
+  centred above the bottom zone. Hold ≥ 2 s plus 1.2 s per line; in 400 ms with 36 px rise, out
+  250 ms opacity only. Logo at start or end, never a permanent watermark. Always subtitles.
+- Never: a plate over the product, text in safe zones, orange strokes/underlines/frames, fake "Jetzt
+  kaufen" buttons, other fonts, emoji in the graphic (sparingly allowed in the caption).
+- Captions: German, "Sie", one version per channel — Instagram/Facebook 600–1,200 characters,
+  LinkedIn 800–1,600, TikTok 100–150. First line is the hook (~125 characters before "mehr").
+  Contact always written out: sales@balter.de, never "Link in der Bio". Hashtags at the end:
+  Instagram 8–15, LinkedIn 3–5.
+- Workflow: pick template → real pixels → check (safe zones, one orange, Science Gothic once,
+  smallest text, rounding intact) → approval by Balter Design und Marketing → publish. Report
+  figures 7 days after posting, with the cut-off date.
+
+## 12 · Video
+
+- Product on black, picture inside the round window, label top left, logo top right.
+- At 1920 × 1080: frame 12 px black, radius 40, picture always in the window, never full-bleed ·
+  label Science Gothic 28 px at x 60, y 56, caps · logo white 150 px wide, 60 px margin (black on
+  light panels) · title Science Gothic 72 or Inter 700 64–96, centred, max. two lines · kicker Inter
+  400 24 px +0.5 em grey 62 % · big number Inter 800 200–260 px, unit Inter 300 beside it, approved
+  figures only · article number JetBrains Mono 500 26 px white 70 %, centred under the product ·
+  panel radius 32, padding 48, white or `#F2F2F2`, soft shadow only here. Scale to 1920: window 40,
+  panel 32, card 24.
+- Hard cuts or 12-frame dissolves; no wipes, zooms, glitches. Text in 400 ms with 36 px rise, out
+  250 ms, ≥ 2 s, 3 words per second. Camera moves slow and linear, max. 5 % zoom per shot.
+- Loudness −14 LUFS for social and YouTube; trade-fair monitors must work without sound.
+- Colour: Sony S-Log3 with a curve, then colour space transform to Rec.709; no manufacturer LUT.
+- Show the cut on the timeline before rendering. Export H.264: 16:9, 9:16 and 4:5 as separate cuts.
+  File name `BALTER_Thema_v12_9x16.mp4`.
+- Laptop mockups: MacBook, straight front view, lid does not move. Trade-fair and partner logos in
+  original colours on their own plate. No orange divider strokes.
+
+## 13 · E-mail (Brevo newsletters)
+
+- 600 px wide, sections alternating white and black. Every row exists twice: desktop (text left,
+  image right) and mobile (image on top, text centred, title 20 instead of 28 px).
+- Fonts Inter, Helvetica, Arial; Science Gothic titles only as images with alt text, else Inter 700.
+- Buttons 48 px, radius 10, black; orange only for the one main action, black text on it.
+- GIFs under 1 MB, 480 px wide, 3–5 s per frame, calm first frame.
+- Subject starts with "Balter", preview text up to 90 characters, send on Tuesdays. Contact
+  sales@balter.de with a prefilled mail per topic.
+- In Brevo **never** overwrite the HTML through the API (it destroys the drag-and-drop editor for
+  good); edit texts in developer mode after saving a template; add rows by duplicating. Never black
+  on black in the header image.
+- Every newsletter is approved by Balter Design und Marketing before sending. Figures after 7 days
+  with the cut-off date.
+
+## 14 · Language (German copy)
+
+Speak like a technician who explains well: short sentences, clear facts, no superlatives.
+Examples of the tone: "Technologie trifft Design." · "Klingeln. Sehen. Sprechen. Öffnen." ·
+"Nicht von der Stange. Für Ihr Gebäude." · "Ein Hotel hat nicht eine Tür, sondern fünf."
+
+- "Sie" (du only on career pages). **BALTER** in titles, **Balter** in text, "Balter GmbH" only in
+  the footer. Titles short, often two-part, with a full stop.
+- **The words:**
+  | Use | Never |
+  |---|---|
+  | **Video-Türsprechanlage** (hyphen) = the system, leads every list | Türsprechanlage without Video- for camera systems, Gegensprechanlage, Intercom, Klingelanlage |
+  | **Video-Türstation** (outside, camera) · **Audio-Türstation** (outside, no camera) | bare "Türstation" |
+  | **Monitor** (inside, screen) · **Audiostation** (inside, audio handset) | Videostation, Haustelefon, Innensprechstelle |
+  | Canonical trio: "Video-Türstationen, Monitore und Audiostationen" | starting a list with a component |
+  | **Netzteil** | Hauptstromverteiler |
+  | **Klingeltaster** | Klingelknopf |
+  | **Zutrittskontrolle** | Zugangskontrolle |
+  | **Sonderanfertigung** | Sonderlösung, Custom-Lösung |
+  | **Türöffner-Modul** · **Sprachmodul** · **Unterputz / Aufputz** | Türöffner Modul, Sprechmodul |
+  | **Einheiten** (default), Familien or Teilnehmer by context; **Wohneinheit (WE)** in plans | Parteien |
+- **Approved figures only:** up to 64 Wohneinheiten on one Video-Türstation (EVO HD, EVO HD PRO),
+  128 with EVO HD Touch, 1 Master + 3 Slave monitors per flat (max. 4). Anything else needs a
+  source from the person.
+- Never: "höchste Qualität", "setzt neue Maßstäbe", manufacturing partner, suppliers, revenue.
+
+## 15 · Design tokens
+
+`assets/tokens.css` holds every value of this book as CSS custom properties (`--b-*`): colours,
+fonts, type sizes, 4 px spacing scale (4 … 128), radii, control heights, frame sizes per breakpoint,
+shadows (only for floating things), easing and durations, chart values. New interfaces start from
+these tokens, never from an old screenshot. Import it, then build:
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Science+Gothic:wght@700&family=JetBrains+Mono:wght@500;600&display=swap");
+/* then paste assets/tokens.css */
+```
+
+## Before you hand anything over — checklist
+
+- [ ] Security only, nothing from Home.
+- [ ] Orange at most once on the surface, text on it black, no orange lines.
+- [ ] Only Science Gothic, Inter, JetBrains Mono; Science Gothic once per surface.
+- [ ] Logo one colour, clear space kept, correct variant for the size.
+- [ ] Real device pictures, true size, nothing drawn or generated in place of a product.
+- [ ] Every figure approved or sourced; no partner or supplier names.
+- [ ] German words from section 14; "Video-Türsprechanlage" leads.
+- [ ] Rounded corners intact; no hover zoom inside rounded frames.
+- [ ] You looked at the result (rendered, at the real size) before saying it is done.
+
+---
+
+## Install this skill
+
+The skill is one folder, `balter-brand/`, with `SKILL.md` at its root. Repository:
+**https://github.com/BalterMarketing/balter-brand-skill**
+
+**Any agent, one command** (skills CLI, installs for Claude Code, Codex, Cursor and others):
+
+```bash
+npx skills add BalterMarketing/balter-brand-skill
+```
+
+**Claude Code** (all projects, or put it in `.claude/skills/` of one project):
+
+```bash
+git clone https://github.com/BalterMarketing/balter-brand-skill /tmp/balter-brand-skill && cp -R /tmp/balter-brand-skill/balter-brand ~/.claude/skills/
+```
+
+**Codex CLI** (all projects, or put it in `.agents/skills/` of one project):
+
+```bash
+git clone https://github.com/BalterMarketing/balter-brand-skill /tmp/balter-brand-skill && cp -R /tmp/balter-brand-skill/balter-brand ~/.codex/skills/
+```
+
+**Without installing:** give the agent this file (`SKILL.md`) or its link and say "Arbeite nach
+dem BALTER Markenhandbuch". The wiring-plan generator needs the whole folder and Python 3.
+
+Then ask in plain words, for example: "Baue einen Instagram-Post 4:5 für EVO HD Touch nach dem
+BALTER Markenhandbuch" or "Baue einen Verdrahtungsplan: EG bis 3.OG, je zwei Wohneinheiten,
+EVO-HD-8FAM, Türöffner intern".

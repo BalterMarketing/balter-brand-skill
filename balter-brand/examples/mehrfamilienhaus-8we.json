@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "project": "Mehrfamilienhaus · 8 WE",
+    "system": "EVO HD · EVO-HD-8FAM",
+    "drawing": "VP-EVOHD-0001",
+    "drawn": "Balter Technik",
+    "checked": "—",
+    "date": "24.11.2026",
+    "version": "1.0",
+    "sheet": "1 / 1"
+  },
+  "station": { "model": "EVO-HD-8FAM", "image": "p-evo-hd-8fam.png", "aspect": 0.381, "buttons": 8 },
+  "lock": { "mode": "intern" },
+  "floors": [
+    { "name": "EG",   "units": [ { "we": "WE 01", "kt": 1, "monitors": [ {"model": "EVO-HD-7M"} ] }, { "we": "WE 02", "kt": 2, "monitors": [ {"model": "EVO-HD-7M"} ] } ] },
+    { "name": "1.OG", "units": [ { "we": "WE 03", "kt": 3, "monitors": [ {"model": "EVO-HD-7M"} ] }, { "we": "WE 04", "kt": 4, "monitors": [ {"model": "EVO-HD-7M"} ] } ] },
+    { "name": "2.OG", "units": [ { "we": "WE 05", "kt": 5, "monitors": [ {"model": "EVO-HD-7M"} ] }, { "we": "WE 06", "kt": 6, "monitors": [ {"model": "EVO-HD-7M"} ] } ] },
+    { "name": "3.OG", "units": [ { "we": "WE 07", "kt": 7, "monitors": [ {"model": "EVO-HD-7M"} ] }, { "we": "WE 08", "kt": 8, "wiring": "reihe", "monitors": [ {"model": "EVO-HD-7M"}, {"model": "EVO-HD-7M"} ] } ] }
+  ]
+}
