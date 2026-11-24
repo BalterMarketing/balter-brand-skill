@@ -87,10 +87,19 @@ Files in this skill: `assets/logo/` (all logos, SVG and PNG) · `assets/tokens.c
 - Variants (in `assets/logo/`):
   | Use | File |
   |---|---|
-  | Default, landscape with claim | `logo-site-black.svg` / `logo-site-white.svg`, `quer-claim-*.png` |
-  | Below 28 px height, UI, product print | `balter-logo-quer-black.svg`, `logo-quer-white.svg`, `quer-*.png` |
+  | Default, landscape with claim | `optisch/quer-claim-grundlinie-schwarz|weiss.svg/.png`, with clear space `optisch/quer-claim-schutzzone-*` |
+  | Below 28 px height, UI, product print | `optisch/quer-grundlinie-*`, with clear space `optisch/quer-schutzzone-*` |
   | Narrow spaces (column, label) | `logo-hoch-black.svg`, `hoch-claim-*.png` |
   | App icon, favicon, avatar, seal | `logo-mark-black.svg` / `logo-mark-white.svg`, `bildmarke-*.png` |
+- **Use the optically corrected landscape logos in `assets/logo/optisch/`** (since 2026-11-24). In the
+  source artwork the text block sat on the middle of the eagle's bounding box and read low; it is raised
+  by 3.1 of 111 units (with claim) and 2.7 of 94 (without), measured as the mean of the optical extent
+  (thin crown and shield tip trimmed) and the centre of mass. Two files per logo and colour:
+  `*-grundlinie-*` — cropped tight, for aligning to lines; `*-schutzzone-*` — clear space baked in,
+  canvas centred on the logo's visual centre, for placing freely in a surface.
+- **Baseline (Grundlinie)** = bottom of BALTER; cap line (Oberlinie) = top of BALTER. Claim and shield tip
+  hang below like descenders. Inline in HTML: `.logo{height:var(--h);vertical-align:calc(var(--h) * -0.4356)}`
+  with claim, `-0.2417` without; each file carries `data-baseline` (fraction from the top).
 - Clear space = height of the "B" in BALTER, all round, including from image edges and frame corners.
 - Minimum: with claim 28 px high (print 30 mm wide); otherwise use the version without claim. Mark alone from 16 px.
 - Placement: top left on web and admin; top right in video and on trade-fair walls; bottom centre on end cards.
