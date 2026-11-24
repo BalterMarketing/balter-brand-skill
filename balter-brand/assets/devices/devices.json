@@ -18,7 +18,7 @@
    "plan": true,
    "vector": "evo-hd-1fam.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO-HD; Foto der Klemmleiste; EVO HD Talk Handbuch S. 08",
     "blocks": [
      {
       "name": "A",
@@ -37,7 +37,7 @@
        ],
        [
         "LOCK+",
-        "Türöffner intern, 12 V DC, max. 300 mA"
+        "Türöffner intern, 12 V DC (Handbuch 300 mA, Technik-Pläne 350 mA)"
        ]
       ]
      },
@@ -46,11 +46,11 @@
       "pins": [
        [
         "NC/NO",
-        "potentialfreier Relaiskontakt"
+        "Relaiskontakt, per Jumper NC oder NO"
        ],
        [
         "COM",
-        "potentialfreier Relaiskontakt, gemeinsam"
+        "Relaiskontakt, gemeinsam"
        ],
        [
         "BUS-",
@@ -62,6 +62,11 @@
        ]
       ]
      }
+    ],
+    "notes": [
+     "Jumper 1-2-3 wählt den Relaiskontakt: NC oder NO.",
+     "J1 / J2: Klingeltasten-Module (ALINE · RX1 · TX1 · CTL_LED · VCC · GND), J2 der Station an J2 des Moduls.",
+     "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
    "terminal_card": "evo-hd-1fam-klemmen.svg"
@@ -81,7 +86,7 @@
    "plan": true,
    "vector": "evo-hd-2fam.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO-HD; Foto der Klemmleiste; EVO HD Talk Handbuch S. 08",
     "blocks": [
      {
       "name": "A",
@@ -100,7 +105,7 @@
        ],
        [
         "LOCK+",
-        "Türöffner intern, 12 V DC, max. 300 mA"
+        "Türöffner intern, 12 V DC (Handbuch 300 mA, Technik-Pläne 350 mA)"
        ]
       ]
      },
@@ -109,11 +114,11 @@
       "pins": [
        [
         "NC/NO",
-        "potentialfreier Relaiskontakt"
+        "Relaiskontakt, per Jumper NC oder NO"
        ],
        [
         "COM",
-        "potentialfreier Relaiskontakt, gemeinsam"
+        "Relaiskontakt, gemeinsam"
        ],
        [
         "BUS-",
@@ -125,6 +130,11 @@
        ]
       ]
      }
+    ],
+    "notes": [
+     "Jumper 1-2-3 wählt den Relaiskontakt: NC oder NO.",
+     "J1 / J2: Klingeltasten-Module (ALINE · RX1 · TX1 · CTL_LED · VCC · GND), J2 der Station an J2 des Moduls.",
+     "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
    "terminal_card": "evo-hd-2fam-klemmen.svg"
@@ -144,7 +154,7 @@
    "plan": true,
    "vector": "evo-hd-3fam.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO-HD; Foto der Klemmleiste; EVO HD Talk Handbuch S. 08",
     "blocks": [
      {
       "name": "A",
@@ -163,7 +173,7 @@
        ],
        [
         "LOCK+",
-        "Türöffner intern, 12 V DC, max. 300 mA"
+        "Türöffner intern, 12 V DC (Handbuch 300 mA, Technik-Pläne 350 mA)"
        ]
       ]
      },
@@ -172,11 +182,11 @@
       "pins": [
        [
         "NC/NO",
-        "potentialfreier Relaiskontakt"
+        "Relaiskontakt, per Jumper NC oder NO"
        ],
        [
         "COM",
-        "potentialfreier Relaiskontakt, gemeinsam"
+        "Relaiskontakt, gemeinsam"
        ],
        [
         "BUS-",
@@ -188,6 +198,11 @@
        ]
       ]
      }
+    ],
+    "notes": [
+     "Jumper 1-2-3 wählt den Relaiskontakt: NC oder NO.",
+     "J1 / J2: Klingeltasten-Module (ALINE · RX1 · TX1 · CTL_LED · VCC · GND), J2 der Station an J2 des Moduls.",
+     "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
    "terminal_card": "evo-hd-3fam-klemmen.svg"
@@ -207,7 +222,7 @@
    "plan": true,
    "vector": "evo-hd-4fam.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO-HD; Foto der Klemmleiste; EVO HD Talk Handbuch S. 08",
     "blocks": [
      {
       "name": "A",
@@ -226,7 +241,7 @@
        ],
        [
         "LOCK+",
-        "Türöffner intern, 12 V DC, max. 300 mA"
+        "Türöffner intern, 12 V DC (Handbuch 300 mA, Technik-Pläne 350 mA)"
        ]
       ]
      },
@@ -235,11 +250,11 @@
       "pins": [
        [
         "NC/NO",
-        "potentialfreier Relaiskontakt"
+        "Relaiskontakt, per Jumper NC oder NO"
        ],
        [
         "COM",
-        "potentialfreier Relaiskontakt, gemeinsam"
+        "Relaiskontakt, gemeinsam"
        ],
        [
         "BUS-",
@@ -251,6 +266,11 @@
        ]
       ]
      }
+    ],
+    "notes": [
+     "Jumper 1-2-3 wählt den Relaiskontakt: NC oder NO.",
+     "J1 / J2: Klingeltasten-Module (ALINE · RX1 · TX1 · CTL_LED · VCC · GND), J2 der Station an J2 des Moduls.",
+     "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
    "terminal_card": "evo-hd-4fam-klemmen.svg"
@@ -270,7 +290,7 @@
    "plan": true,
    "vector": "evo-hd-6fam.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO-HD; Foto der Klemmleiste; EVO HD Talk Handbuch S. 08",
     "blocks": [
      {
       "name": "A",
@@ -289,7 +309,7 @@
        ],
        [
         "LOCK+",
-        "Türöffner intern, 12 V DC, max. 300 mA"
+        "Türöffner intern, 12 V DC (Handbuch 300 mA, Technik-Pläne 350 mA)"
        ]
       ]
      },
@@ -298,11 +318,11 @@
       "pins": [
        [
         "NC/NO",
-        "potentialfreier Relaiskontakt"
+        "Relaiskontakt, per Jumper NC oder NO"
        ],
        [
         "COM",
-        "potentialfreier Relaiskontakt, gemeinsam"
+        "Relaiskontakt, gemeinsam"
        ],
        [
         "BUS-",
@@ -314,6 +334,11 @@
        ]
       ]
      }
+    ],
+    "notes": [
+     "Jumper 1-2-3 wählt den Relaiskontakt: NC oder NO.",
+     "J1 / J2: Klingeltasten-Module (ALINE · RX1 · TX1 · CTL_LED · VCC · GND), J2 der Station an J2 des Moduls.",
+     "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
    "terminal_card": "evo-hd-6fam-klemmen.svg"
@@ -333,7 +358,7 @@
    "plan": true,
    "vector": "evo-hd-8fam.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO-HD; Foto der Klemmleiste; EVO HD Talk Handbuch S. 08",
     "blocks": [
      {
       "name": "A",
@@ -352,7 +377,7 @@
        ],
        [
         "LOCK+",
-        "Türöffner intern, 12 V DC, max. 300 mA"
+        "Türöffner intern, 12 V DC (Handbuch 300 mA, Technik-Pläne 350 mA)"
        ]
       ]
      },
@@ -361,11 +386,11 @@
       "pins": [
        [
         "NC/NO",
-        "potentialfreier Relaiskontakt"
+        "Relaiskontakt, per Jumper NC oder NO"
        ],
        [
         "COM",
-        "potentialfreier Relaiskontakt, gemeinsam"
+        "Relaiskontakt, gemeinsam"
        ],
        [
         "BUS-",
@@ -377,6 +402,11 @@
        ]
       ]
      }
+    ],
+    "notes": [
+     "Jumper 1-2-3 wählt den Relaiskontakt: NC oder NO.",
+     "J1 / J2: Klingeltasten-Module (ALINE · RX1 · TX1 · CTL_LED · VCC · GND), J2 der Station an J2 des Moduls.",
+     "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
    "terminal_card": "evo-hd-8fam-klemmen.svg"
@@ -396,7 +426,7 @@
    "plan": true,
    "vector": "evo-hd-black-8fam.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO-HD; Foto der Klemmleiste; EVO HD Talk Handbuch S. 08",
     "blocks": [
      {
       "name": "A",
@@ -415,7 +445,7 @@
        ],
        [
         "LOCK+",
-        "Türöffner intern, 12 V DC, max. 300 mA"
+        "Türöffner intern, 12 V DC (Handbuch 300 mA, Technik-Pläne 350 mA)"
        ]
       ]
      },
@@ -424,11 +454,11 @@
       "pins": [
        [
         "NC/NO",
-        "potentialfreier Relaiskontakt"
+        "Relaiskontakt, per Jumper NC oder NO"
        ],
        [
         "COM",
-        "potentialfreier Relaiskontakt, gemeinsam"
+        "Relaiskontakt, gemeinsam"
        ],
        [
         "BUS-",
@@ -440,6 +470,11 @@
        ]
       ]
      }
+    ],
+    "notes": [
+     "Jumper 1-2-3 wählt den Relaiskontakt: NC oder NO.",
+     "J1 / J2: Klingeltasten-Module (ALINE · RX1 · TX1 · CTL_LED · VCC · GND), J2 der Station an J2 des Moduls.",
+     "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
    "terminal_card": "evo-hd-black-8fam-klemmen.svg"
@@ -631,7 +666,7 @@
    ],
    "vector": "evo-hd-7m.svg",
    "terminals": {
-    "source": "EVO HD Handbuch v3.2 S. 42 „Monitor Aufbau“ (Nr. 7–10); Reihenfolge wie Legende, am Gerät prüfen",
+    "source": "EVO HD Handbuch v3.2 S. 42; Figma „Tech-Schemas“ (Balter Technik)",
     "connectors": [
      [
       "NO / COM",
@@ -643,12 +678,15 @@
      ],
      [
       "BUS_OUT",
-      "Erweiterungsmonitor, Reihenverdrahtung"
+      "nächster Monitor in Reihe"
      ],
      [
       "BUS_IN",
-      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
+      "vom Netzteil (IM) oder vom BUS_OUT davor"
      ]
+    ],
+    "notes": [
+     "Endwiderstand = DIP 8: Stern an jedem Monitor, Reihe nur am letzten."
     ]
    },
    "terminal_card": "evo-hd-7m-klemmen.svg"
@@ -672,7 +710,7 @@
    ],
    "vector": "evo-hd-7m-black.svg",
    "terminals": {
-    "source": "EVO HD Handbuch v3.2 S. 42 „Monitor Aufbau“ (Nr. 7–10); Reihenfolge wie Legende, am Gerät prüfen",
+    "source": "EVO HD Handbuch v3.2 S. 42; Figma „Tech-Schemas“ (Balter Technik)",
     "connectors": [
      [
       "NO / COM",
@@ -684,12 +722,15 @@
      ],
      [
       "BUS_OUT",
-      "Erweiterungsmonitor, Reihenverdrahtung"
+      "nächster Monitor in Reihe"
      ],
      [
       "BUS_IN",
-      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
+      "vom Netzteil (IM) oder vom BUS_OUT davor"
      ]
+    ],
+    "notes": [
+     "Endwiderstand = DIP 8: Stern an jedem Monitor, Reihe nur am letzten."
     ]
    },
    "terminal_card": "evo-hd-7m-black-klemmen.svg"
@@ -707,24 +748,42 @@
    ],
    "vector": "evo-hd-mini-43m.svg",
    "terminals": {
-    "source": "EVO HD Mini 4.3 Handbuch, Anschlussschema; Reihenfolge am Gerät prüfen",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Rückseite EVO-HD-Mini",
+    "blocks": [
+     {
+      "name": "BUS",
+      "pins": [
+       [
+        "BUS_OUT",
+        "nächster Monitor in Reihe"
+       ],
+       [
+        "BUS_OUT",
+        "nächster Monitor in Reihe"
+       ],
+       [
+        "BUS_IN",
+        "vom Netzteil (IM)"
+       ],
+       [
+        "BUS_IN",
+        "vom Netzteil (IM)"
+       ]
+      ]
+     }
+    ],
     "connectors": [
      [
       "NO / COM",
-      "externer Gong, eigene Versorgung"
+      "externer Gong"
      ],
      [
       "GND / DOORBELL",
       "Etagentaste"
-     ],
-     [
-      "BUS_OUT",
-      "Erweiterungsmonitor, Reihenverdrahtung"
-     ],
-     [
-      "BUS_IN",
-      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
      ]
+    ],
+    "notes": [
+     "DIP 1–8 (DIP 8 = Endwiderstand), Adresse über Drehschalter X1 / X10 / X100."
     ]
    },
    "terminal_card": "evo-hd-mini-43m-klemmen.svg"
@@ -742,24 +801,42 @@
    ],
    "vector": "evo-hd-mini-black-43m.svg",
    "terminals": {
-    "source": "EVO HD Mini 4.3 Handbuch, Anschlussschema; Reihenfolge am Gerät prüfen",
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Rückseite EVO-HD-Mini",
+    "blocks": [
+     {
+      "name": "BUS",
+      "pins": [
+       [
+        "BUS_OUT",
+        "nächster Monitor in Reihe"
+       ],
+       [
+        "BUS_OUT",
+        "nächster Monitor in Reihe"
+       ],
+       [
+        "BUS_IN",
+        "vom Netzteil (IM)"
+       ],
+       [
+        "BUS_IN",
+        "vom Netzteil (IM)"
+       ]
+      ]
+     }
+    ],
     "connectors": [
      [
       "NO / COM",
-      "externer Gong, eigene Versorgung"
+      "externer Gong"
      ],
      [
       "GND / DOORBELL",
       "Etagentaste"
-     ],
-     [
-      "BUS_OUT",
-      "Erweiterungsmonitor, Reihenverdrahtung"
-     ],
-     [
-      "BUS_IN",
-      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
      ]
+    ],
+    "notes": [
+     "DIP 1–8 (DIP 8 = Endwiderstand), Adresse über Drehschalter X1 / X10 / X100."
     ]
    },
    "terminal_card": "evo-hd-mini-black-43m-klemmen.svg"
@@ -777,7 +854,7 @@
    ],
    "vector": "evo-hd-talk.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 07–08 „Klemmen Innenstation“",
+    "source": "EVO HD Talk Handbuch S. 07–08",
     "blocks": [
      {
       "name": "Platine",
@@ -792,22 +869,25 @@
        ],
        [
         "COM",
-        "Relaiskontakt externer Gong"
+        "Relaiskontakt Gong"
        ],
        [
         "NO",
-        "Relaiskontakt externer Gong"
+        "Relaiskontakt Gong"
        ],
        [
         "BUS-",
-        "2-Draht-BUS vom Netzteil (IM)"
+        "2-Draht-BUS (IM)"
        ],
        [
         "BUS+",
-        "2-Draht-BUS vom Netzteil (IM)"
+        "2-Draht-BUS (IM)"
        ]
       ]
      }
+    ],
+    "notes": [
+     "DIP 1–6 Block, DIP 7–8 Master / Slave; Adresse X1 / X10 / X100."
     ]
    },
    "terminal_card": "evo-hd-talk-klemmen.svg"
@@ -825,7 +905,7 @@
    ],
    "vector": "evo-hd-black-talk.svg",
    "terminals": {
-    "source": "EVO HD Talk Handbuch S. 07–08 „Klemmen Innenstation“",
+    "source": "EVO HD Talk Handbuch S. 07–08",
     "blocks": [
      {
       "name": "Platine",
@@ -840,22 +920,25 @@
        ],
        [
         "COM",
-        "Relaiskontakt externer Gong"
+        "Relaiskontakt Gong"
        ],
        [
         "NO",
-        "Relaiskontakt externer Gong"
+        "Relaiskontakt Gong"
        ],
        [
         "BUS-",
-        "2-Draht-BUS vom Netzteil (IM)"
+        "2-Draht-BUS (IM)"
        ],
        [
         "BUS+",
-        "2-Draht-BUS vom Netzteil (IM)"
+        "2-Draht-BUS (IM)"
        ]
       ]
      }
+    ],
+    "notes": [
+     "DIP 1–6 Block, DIP 7–8 Master / Slave; Adresse X1 / X10 / X100."
     ]
    },
    "terminal_card": "evo-hd-black-talk-klemmen.svg"
@@ -874,52 +957,53 @@
    "plan": true,
    "vector": "evo-hd-c5001.svg",
    "terminals": {
-    "source": "Typenschild EVO-HD-C5001; EVO HD Handbuch v3.2 S. 17",
+    "source": "Typenschild; Figma „Tech-Schemas“ (Balter Technik)",
     "blocks": [
      {
       "name": "Eingang",
-      "side": "top",
       "pins": [
        [
         "N",
-        "230 V AC Neutralleiter"
+        "230 V AC"
        ],
        [
         "N",
-        "230 V AC Neutralleiter"
+        "230 V AC"
        ],
        [
         "L",
-        "230 V AC Außenleiter"
+        "230 V AC"
        ],
        [
         "L",
-        "230 V AC Außenleiter"
+        "230 V AC"
        ]
       ]
      },
      {
       "name": "Ausgang",
-      "side": "bottom",
       "pins": [
        [
         "BUS1 IM",
-        "Monitore BUS_IN"
+        "Monitore"
        ],
        [
         "BUS2 IM",
-        "Monitore BUS_IN"
+        "Monitore"
        ],
        [
         "BUS1 DS",
-        "Türstation BUS+ / BUS−"
+        "Türstation"
        ],
        [
         "BUS2 DS",
-        "Türstation BUS+ / BUS−"
+        "Türstation"
        ]
       ]
      }
+    ],
+    "notes": [
+     "BUS 32 V DC · 3,5 A."
     ]
    },
    "terminal_card": "evo-hd-c5001-klemmen.svg"
@@ -935,7 +1019,51 @@
     900,
     851
    ],
-   "vector": "evo-hd-dl.svg"
+   "vector": "evo-hd-dl.svg",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Anschlussplan EVO-HD-DL",
+    "blocks": [
+     {
+      "name": "BUS",
+      "pins": [
+       [
+        "BUS OUT",
+        "zur Türstation BUS− / BUS+"
+       ],
+       [
+        "BUS OUT",
+        "zur Türstation BUS− / BUS+"
+       ],
+       [
+        "BUS IN",
+        "vom Netzteil BUS1 / BUS2 DS"
+       ],
+       [
+        "BUS IN",
+        "vom Netzteil BUS1 / BUS2 DS"
+       ]
+      ]
+     },
+     {
+      "name": "Relais",
+      "pins": [
+       [
+        "NO",
+        "Türöffner, mit eigenem Trafo"
+       ],
+       [
+        "COM",
+        "Türöffner, mit eigenem Trafo"
+       ]
+      ]
+     }
+    ],
+    "notes": [
+     "Sitzt zwischen Netzteil (DS) und Türstation. DIP 3 auf ON, dann Reset 10–15 s.",
+     "Weitere Klemmen am Modul im Plan unbeschriftet."
+    ]
+   },
+   "terminal_card": "evo-hd-dl-klemmen.svg"
   },
   {
    "article": "EVO-HD-2WL",

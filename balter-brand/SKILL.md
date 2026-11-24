@@ -279,8 +279,9 @@ with every rule built in and refuses a sheet whose wires cross.
    floor; monitors per WE (1–4) and, if more than one, "reihe" or "stern"; station model and button
    count and which WE is on which Klingeltaste; door opener "intern" or "extern"; project name,
    drawing number, author, date, version.
-2. **Stop** if the system needs more than one Netzteil (coupling via EVO-HD-2WL and CAT 7) or is EVO
-   HD PRO, ENTRI or ERA: say these plans are drawn by Balter Technik. The generator draws EVO HD,
+2. **Stop** if the system needs more than one Netzteil (IM terminals bridged across up to five Netzteile,
+   or coupled over EVO-HD-2WL and CAT 7) or is EVO HD PRO, ENTRI or ERA: say these plans are drawn by
+   Balter Technik. The generator draws EVO HD,
    one Netzteil per sheet.
 3. **Write the spec** by copying `examples/mehrfamilienhaus-8we.json` (station and monitors by article number from 9c, only devices with `plan: true`); floors bottom to top; `kt` =
    Klingeltaste (address "KT n von 128"); on 5–8 family stations button counting starts at the
@@ -340,15 +341,32 @@ device that is not in the library, and never show a device under another article
 
 The wiring-plan generator takes `--style photo` (default) or `--style vector`.
 
-**Terminals (Klemmen).** Devices whose terminal strip is known carry it in `devices.json → terminals`
-(blocks of pins or plug connectors, each with its role and the source: manual page, rating plate or a
-photo of the strip), and a drawn card `<article>-klemmen.svg`. `scripts/terminals.py` draws the strips
-(green screw terminals, labels rotated above, as on the device) and returns the point of every terminal,
-so the wiring plan runs each conductor to the right terminal and names it. Known today:
-EVO HD Video-Türstationen 1–8FAM: `GND · EXIT · GND · LOCK+ | NC/NO · COM · BUS− · BUS+` ·
-EVO-HD-C5001: `N N L L | BUS1 IM · BUS2 IM · BUS1 DS · BUS2 DS` · EVO-HD-7M and Mini: plugs
-`NO/COM · GND/DOORBELL · BUS_OUT · BUS_IN` · EVO-HD-TALK: `RING · GND · COM · NO · BUS− · BUS+`.
-Not recorded yet (do not guess): audio and FN stations, Touch, DL, 2WL, EVO HD PRO modules and monitors.
+**Terminals (Klemmen).** Every known terminal strip is in `assets/devices/terminals-catalog.json`
+(articles and article patterns, each with source and notes, taken from Balter Technik's wiring
+schemas in Figma, the manuals, the rating plates and photos of the strips). Devices in the library
+carry theirs in `devices.json → terminals` and a drawn card `<article>-klemmen.svg`. `scripts/terminals.py`
+draws the strips (green screw terminals, labels rotated above, as on the device) and returns the point
+of every terminal, so the wiring plan runs each conductor to the right terminal and names it.
+
+| Device | Terminals, left to right |
+|---|---|
+| EVO HD Video-Türstation 1–8FAM | `GND · EXIT · GND · LOCK+` \| `NC/NO · COM · BUS− · BUS+`; jumper NC/NO; J1/J2 button modules |
+| EVO (analog) Türstation | `NO/NC · COM · PL · S+ · S− · BUS2 · BUS1` |
+| EVO-HD-C5001 / EVO-HD-PRO-C7001 | in `N · N · L · L`; out `BUS1 IM · BUS2 IM · BUS1 DS · BUS2 DS` (32 V, 3,5 A) |
+| EVO-C4001 | in `N · GND · L · L`; out as above (32 V, 1,5 A) |
+| EVO-HD-7M | plugs `NO/COM · GND/DOORBELL · BUS_OUT · BUS_IN` |
+| EVO-HD-MINI-4.3M | `BUS_OUT · BUS_OUT · BUS_IN · BUS_IN`, plugs `NO/COM`, `GND/DOORBELL`; DIP 1–8, X1/X10/X100 |
+| EVO-HD-TALK | `RING · GND · COM · NO · BUS− · BUS+` |
+| EVO-HD-DL | `BUS OUT ×2 · BUS IN ×2` (between Netzteil DS and station), relay `NO · COM` |
+| EVO-EV4 | `BUS_IN ×2`, outputs `A · B · C · D` |
+| ERA relay / ERA station | `DC+ · DC− · IN1` \| `NC · COM · NO` / `E.R · GND · 2ND · P1 · IP1 · IP2 · P2` |
+
+Rules from the same schemas: **several Netzteile** — the station hangs on DS of one Netzteil, DS stays
+free on the others, the monitors are shared out and a bridge joins the IM terminals of all Netzteile (up
+to five). **Endwiderstand = DIP 8** on the monitor: on at every monitor in star wiring, only at the last
+in series. The schemas give the internal door opener as up to 350 mA, the manual's specification 300 mA:
+use 300 mA until Balter Technik confirms.
+Not recorded yet (do not guess): EVO HD audio and FN stations, Touch, 2WL, EVO HD PRO modules and monitors.
 
 | Article | Name | Kind | Line | Files | Plan |
 |---|---|---|---|---|---|

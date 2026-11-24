@@ -76,14 +76,16 @@ def card(d, pitch=26):
     """A stand-alone sheet for one device: its terminals, labelled, with the roles below."""
     t = d["terminals"]
     w, h = size(t, pitch)
-    lab_h = 92
+    longest = max([len(p[0]) for b_ in t.get("blocks", []) for p in b_["pins"]] + [len(c[0]) for c in t.get("connectors", [])] + [4])
+    lab_h = 24 + longest * 7.2
     rows = [p for b in t.get("blocks", []) for p in b["pins"]] + list(t.get("connectors", []))
     seen, roles = set(), []
     for lab, role in rows:
         if (lab, role) not in seen:
             seen.add((lab, role)); roles.append((lab, role))
+    notes = t.get("notes", [])
     W = max(w + 40, 600)
-    H = lab_h + h + 34 + len(roles) * 17 + 30
+    H = lab_h + h + 34 + len(roles) * 17 + (len(notes) * 16 + 10 if notes else 0) + 30
     body, _ = strip(t, 20, lab_h, pitch=pitch, label_size=11)
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" role="img" aria-label="Klemmen {escape(d["article"])}">',
            f'<rect width="100%" height="100%" fill="#fff"/>', body]
@@ -92,6 +94,10 @@ def card(d, pitch=26):
         out.append(f'<text x="20" y="{y:.0f}" font-family="{MONO}" font-size="11" font-weight="700" fill="#0a0a0a">{escape(lab)}</text>')
         out.append(f'<text x="140" y="{y:.0f}" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#404040">{escape(role)}</text>')
         y += 17
+    y += 8
+    for n_ in notes:
+        out.append(f'<text x="20" y="{y:.0f}" font-family="Inter,Arial,sans-serif" font-size="11" fill="#0a0a0a">· {escape(n_)}</text>')
+        y += 16
     out.append(f'<text x="20" y="{H-10:.0f}" font-family="Inter,Arial,sans-serif" font-size="10" fill="#8a8a8a">Quelle: {escape(t.get("source", ""))}</text>')
     out.append("</svg>")
     return "".join(out)
