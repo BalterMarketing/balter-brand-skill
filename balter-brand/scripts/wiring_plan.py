@@ -26,6 +26,25 @@ from html import escape
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ASSETS = os.path.normpath(os.path.join(HERE, "..", "assets"))
+DEVICES = json.load(open(os.path.join(ASSETS, "devices", "devices.json"), encoding="utf-8"))["devices"]
+BY_ART = {d["article"].upper(): d for d in DEVICES}
+STYLE = {"v": "photo"}          # "photo" or "vector", set from --style
+
+
+def device(article, need_plan=True):
+    """The library entry for an article; refuses devices the plan may not use."""
+    d = BY_ART.get(article.upper())
+    if not d:
+        sys.exit(f"{article}: not in assets/devices/devices.json — add the real device first")
+    if need_plan and not d.get("plan"):
+        sys.exit(f"{article}: not cleared for wiring plans (plan: false in devices.json)")
+    return d
+
+
+def dev_img(article, need_plan=True):
+    d = device(article, need_plan)
+    f = d.get("vector") if STYLE["v"] == "vector" and d.get("vector") else d["image"]
+    return "devices/" + f, d["px"][0] / d["px"][1]
 
 # ---------------------------------------------------------------- facts (sourced)
 FACTS = {
@@ -229,7 +248,7 @@ def build(spec, embed=False, asset_href="assets"):
             for m_i, m in enumerate(u["monitors"]):
                 mx = ux + m_i * 250
                 my = y + 36
-                s.img(m.get("image", "d-m7w.png"), mx, my, MON_W, MON_H)
+                s.img(dev_img(m.get("model", "EVO-HD-7M"))[0], mx, my, MON_W, MON_H)
                 s.text(mx + MON_W + 10, my + 14, m.get("model", "EVO-HD-7M"), 10.5, 600, INK, font=MONO)
                 role = ("Master" if m_i == 0 else "Slave") if len(u["monitors"]) > 1 else ""
                 s.text(mx + MON_W + 10, my + 30, f"KT {u['kt']:02d} · {m_i+1}/4", 10, 500, MUTED, font=MONO)
@@ -274,7 +293,7 @@ def build(spec, embed=False, asset_href="assets"):
     for i, c in enumerate((L_BROWN, N_BLUE)):
         x = nt_x + 18 + i * 8
         s.add(f'<path d="M{x} {nt_y+4}V{yT+32}" stroke="{c}" stroke-width="2"/>')
-    s.img("d-c5001.png", nt_x, nt_y, NT_W, NT_H)
+    s.img(dev_img("EVO-HD-C5001")[0], nt_x, nt_y, NT_W, NT_H)
     s.text(nt_x + NT_W + 12, nt_y + 26, "EVO-HD-C5001", 11, 700, INK, font=MONO)
     s.text(nt_x + NT_W + 12, nt_y + 42, "Netzteil 1", 10.5, 500, MUTED)
     s.text(nt_x + NT_W + 12, nt_y + 58, "230 V AC (L/N) von oben", 10.5, 500, MUTED)
@@ -293,9 +312,10 @@ def build(spec, embed=False, asset_href="assets"):
     # station
     st = spec["station"]
     st_h = 156
-    st_w = st_h * st.get("aspect", 322 / 845)
+    st_src, st_asp = dev_img(st["model"])
+    st_w = st_h * st_asp
     st_x, st_y = BAND_X + 14, yT + 34
-    s.img(st.get("image", "p-evo-hd-8fam.png"), st_x, st_y, st_w, st_h)
+    s.img(st_src, st_x, st_y, st_w, st_h)
     lx = st_x + st_w + 12
     s.text(lx, st_y + 14, st["model"], 11, 700, INK, font=MONO)
     s.text(lx, st_y + 30, "Video-Türstation", 10.5, 500, MUTED)
@@ -383,7 +403,7 @@ def build(spec, embed=False, asset_href="assets"):
     my = py + 150
     for i, lab in enumerate(("Master · 1/4", "Slave · 2/4")):
         x = RX + 34 + i * 190
-        s.img("d-m7w.png", x, my, 66, 46)
+        s.img(dev_img("EVO-HD-7M")[0], x, my, 66, 46)
         s.text(x + 33, my + 62, lab, 9.5, 600, INK, "middle", MONO)
     s.pair([(RX + 34 + 66 + 4, my + 23), (RX + 34 + 190 - 4, my + 23)], WIRE["3.OG"], gap=1.8, width=1.2)
     s.text(RX + 162, my + 16, "BUS_OUT → BUS_IN", 9, 600, MUTED, "middle", MONO)
@@ -528,9 +548,11 @@ def main():
     ap.add_argument("spec")
     ap.add_argument("-o", "--out", required=True)
     ap.add_argument("--embed", action="store_true", help="inline the device pictures")
+    ap.add_argument("--style", choices=["photo", "vector"], default="photo", help="device pictures: real photo or vector illustration")
     ap.add_argument("--assets", default=None, help="href prefix for device pictures (default: relative path to assets)")
     a = ap.parse_args()
     spec = json.load(open(a.spec, encoding="utf-8"))
+    STYLE["v"] = a.style
     href = a.assets or os.path.relpath(ASSETS, os.path.dirname(os.path.abspath(a.out)))
     svg, n = render(spec, a.embed, href)
     if a.out.endswith(".html"):

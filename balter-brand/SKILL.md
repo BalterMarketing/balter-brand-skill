@@ -2,7 +2,7 @@
 name: balter-brand
 description: The complete BALTER brand book (Security division, balter.de, B2B video door intercoms) as one instruction set for AI agents. Use it for ANY work that carries the Balter brand — logo use, colour, typography, the black frame with the rounded window, motion, UI components, charts and dashboards, schemas (customer visualisation and the technical wiring plan, which has its own generator), product images, social posts and reels, video, Brevo newsletters, German copy and wording, design tokens. Trigger on "Balter", "BALTER", "Markenhandbuch", "brand book", "nach dem Brandbook", "im Balter-Stil", or any request to design, write, draw or check material for Balter.
 metadata:
-  version: "2.0"
+  version: "2.1"
   updated: "2026-11-24"
   owner: "Balter GmbH, Design und Marketing"
   source: "BALTER Markenhandbuch 2.0 (the HTML brand book this file ships with)"
@@ -33,6 +33,7 @@ to use.
 | Chart, dashboard, KPI, infographic | 8 · Charts |
 | Diagram of the system for customers | 9a · Visualisation |
 | Wiring plan / Verdrahtungsplan for installers | 9b · Technical plan (run the generator) |
+| Any device picture (photo or vector) by article number | 9c · Device library |
 | Product photo, scene, AI image | 10 · Product and image |
 | Instagram, Facebook, LinkedIn, TikTok post, carousel, reel | 11 · Social |
 | Video, trade-fair film, lower thirds | 12 · Video |
@@ -41,7 +42,7 @@ to use.
 | CSS variables, design system, new interface | 15 · Tokens |
 
 Files in this skill: `assets/logo/` (all logos, SVG and PNG) · `assets/tokens.css` (design tokens)
-· `assets/*.png` (device cut-outs) · `scripts/wiring_plan.py` (technical plan generator) ·
+· `assets/devices/` (every device as photo and vector, indexed by article number in `devices.json`) · `scripts/wiring_plan.py` (technical plan generator) ·
 `examples/` (a plan spec and its output).
 
 ---
@@ -272,7 +273,7 @@ with every rule built in and refuses a sheet whose wires cross.
 2. **Stop** if the system needs more than one Netzteil (coupling via EVO-HD-2WL and CAT 7) or is EVO
    HD PRO, ENTRI or ERA: say these plans are drawn by Balter Technik. The generator draws EVO HD,
    one Netzteil per sheet.
-3. **Write the spec** by copying `examples/mehrfamilienhaus-8we.json`; floors bottom to top; `kt` =
+3. **Write the spec** by copying `examples/mehrfamilienhaus-8we.json` (station and monitors by article number from 9c, only devices with `plan: true`); floors bottom to top; `kt` =
    Klingeltaste (address "KT n von 128"); on 5–8 family stations button counting starts at the
    bottom. Only devices whose picture is in `assets/` — a new device needs a real cut-out photo first.
 4. **Draw:** `python3 scripts/wiring_plan.py spec.json -o plan.svg --embed` (standalone SVG) or
@@ -308,6 +309,85 @@ Technical facts used (and their sources — add nothing else):
 | Set up the station first, then the monitors · monitor WLAN 2,4 GHz only | | knowledge base · manual p. 32 |
 
 Not on any sheet yet (no checked number): maximum cable length for EVO HD, monitors per Netzteil.
+
+## 9c · Device library — every device twice, bound to its article number
+
+`assets/devices/` holds every Balter device available as a real cut-out, in **two versions with the
+same file stem** (the article number in lowercase, dots removed):
+
+- `<article>.png` — the **photo**: real pixels, transparent background. For social, website, slides.
+- `<article>.svg` — the **vector illustration**, drawn by `scripts/device_vectors.py` from the photo's
+  proportions (never by AI). Same canvas as the photo, so the two swap 1:1. For technical plans,
+  manuals, small print sizes, animation.
+
+`assets/devices/devices.json` is the index: article, German name (house words), kind, line, colour,
+button count, size in mm where the manual gives it, both file names, and `plan: true` for devices the
+wiring-plan generator may use. **Always pick a device by its article number from this index.** A device
+that is not in it does not exist for you: ask for a real photo, add it with its article number, then
+run `python3 scripts/device_vectors.py` to draw its illustration. Never draw, generate or borrow a
+device that is not in the library, and never show a device under another article number.
+
+The wiring-plan generator takes `--style photo` (default) or `--style vector`.
+
+| Article | Name | Kind | Line | Files | Plan |
+|---|---|---|---|---|---|
+| `EVO-HD-1FAM` | Video-Türstation, 1 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-1fam.png` · `evo-hd-1fam.svg` | yes |
+| `EVO-HD-2FAM` | Video-Türstation, 2 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-2fam.png` · `evo-hd-2fam.svg` | yes |
+| `EVO-HD-3FAM` | Video-Türstation, 3 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-3fam.png` · `evo-hd-3fam.svg` | yes |
+| `EVO-HD-4FAM` | Video-Türstation, 4 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-4fam.png` · `evo-hd-4fam.svg` | yes |
+| `EVO-HD-6FAM` | Video-Türstation, 6 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-6fam.png` · `evo-hd-6fam.svg` | yes |
+| `EVO-HD-8FAM` | Video-Türstation, 8 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-8fam.png` · `evo-hd-8fam.svg` | yes |
+| `EVO-HD-BLACK-8FAM` | Video-Türstation, 8 Klingeltaster, schwarz | video-tuerstation | EVO HD | `evo-hd-black-8fam.png` · `evo-hd-black-8fam.svg` | yes |
+| `EVO-HD-FN-2FAM` | Video-Türstation mit Fingerprint, 2 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-fn-2fam.png` · `evo-hd-fn-2fam.svg` | yes |
+| `EVO-HD-TOUCH-7` | Video-Türstation mit Touchdisplay | video-tuerstation | EVO HD | `evo-hd-touch-7.png` · `evo-hd-touch-7.svg` | — |
+| `EVO-HD-1FAM-AUDIO` | Audio-Türstation, 1 Klingeltaster | audio-tuerstation | EVO HD | `evo-hd-1fam-audio.png` · `evo-hd-1fam-audio.svg` | — |
+| `EVO-HD-2FAM-AUDIO` | Audio-Türstation, 2 Klingeltaster | audio-tuerstation | EVO HD | `evo-hd-2fam-audio.png` · `evo-hd-2fam-audio.svg` | — |
+| `EVO-HD-3FAM-AUDIO` | Audio-Türstation, 3 Klingeltaster | audio-tuerstation | EVO HD | `evo-hd-3fam-audio.png` · `evo-hd-3fam-audio.svg` | — |
+| `EVO-HD-4FAM-AUDIO` | Audio-Türstation, 4 Klingeltaster | audio-tuerstation | EVO HD | `evo-hd-4fam-audio.png` · `evo-hd-4fam-audio.svg` | — |
+| `EVO-HD-6FAM-AUDIO` | Audio-Türstation, 6 Klingeltaster | audio-tuerstation | EVO HD | `evo-hd-6fam-audio.png` · `evo-hd-6fam-audio.svg` | — |
+| `EVO-HD-8FAM-AUDIO` | Audio-Türstation, 8 Klingeltaster | audio-tuerstation | EVO HD | `evo-hd-8fam-audio.png` · `evo-hd-8fam-audio.svg` | — |
+| `EVO-8EXT` | Erweiterung, 8 Klingeltaster | erweiterung | EVO HD | `evo-8ext.png` · `evo-8ext.svg` | — |
+| `EVO-12EXT` | Erweiterung, 12 Klingeltaster | erweiterung | EVO HD | `evo-12ext.png` · `evo-12ext.svg` | — |
+| `EVO-BLACK-8EXT` | Erweiterung, 8 Klingeltaster, schwarz | erweiterung | EVO HD | `evo-black-8ext.png` · `evo-black-8ext.svg` | — |
+| `EVO-BLACK-12EXT` | Erweiterung, 12 Klingeltaster, schwarz | erweiterung | EVO HD | `evo-black-12ext.png` · `evo-black-12ext.svg` | — |
+| `EVO-HD-7M` | Monitor 7″ | monitor | EVO HD | `evo-hd-7m.png` · `evo-hd-7m.svg` | yes |
+| `EVO-HD-7M-BLACK` | Monitor 7″, schwarz | monitor | EVO HD | `evo-hd-7m-black.png` · `evo-hd-7m-black.svg` | yes |
+| `EVO-HD-MINI-4.3M` | Monitor Mini 4,3″ | monitor | EVO HD | `evo-hd-mini-43m.png` · `evo-hd-mini-43m.svg` | — |
+| `EVO-HD-MINI-BLACK-4.3M` | Monitor Mini 4,3″, schwarz | monitor | EVO HD | `evo-hd-mini-black-43m.png` · `evo-hd-mini-black-43m.svg` | — |
+| `EVO-HD-TALK` | Audiostation | audiostation | EVO HD | `evo-hd-talk.png` · `evo-hd-talk.svg` | — |
+| `EVO-HD-BLACK-TALK` | Audiostation, schwarz | audiostation | EVO HD | `evo-hd-black-talk.png` · `evo-hd-black-talk.svg` | — |
+| `EVO-HD-C5001` | Netzteil | netzteil | EVO HD | `evo-hd-c5001.png` · `evo-hd-c5001.svg` | yes |
+| `EVO-HD-DL` | Türöffner-Modul | modul | EVO HD | `evo-hd-dl.png` · `evo-hd-dl.svg` | — |
+| `EVO-HD-2WL` | LAN-Konverter | modul | EVO HD | `evo-hd-2wl.png` · `evo-hd-2wl.svg` | — |
+| `EVO-HD-PRO-7W` | Monitor 7″ | monitor | EVO HD PRO | `evo-hd-pro-7w.png` · `evo-hd-pro-7w.svg` | — |
+| `EVO-HD-PRO-7B` | Monitor 7″, schwarz | monitor | EVO HD PRO | `evo-hd-pro-7b.png` · `evo-hd-pro-7b.svg` | — |
+| `EVO-HD-PRO-CAM` | Kameramodul | pro-modul | EVO HD PRO | `evo-hd-pro-cam.png` · `evo-hd-pro-cam.svg` | — |
+| `EVO-HD-PRO-AUD-0` | Sprachmodul ohne Klingeltaster | pro-modul | EVO HD PRO | `evo-hd-pro-aud-0.png` · `evo-hd-pro-aud-0.svg` | — |
+| `EVO-HD-PRO-AUD-1K` | Sprachmodul, 1 Klingeltaster, graviert | pro-modul | EVO HD PRO | `evo-hd-pro-aud-1k.png` · `evo-hd-pro-aud-1k.svg` | — |
+| `EVO-HD-PRO-AUD-1KN` | Sprachmodul, 1 Klingeltaster, hinterleuchtet | pro-modul | EVO HD PRO | `evo-hd-pro-aud-1kn.png` · `evo-hd-pro-aud-1kn.svg` | — |
+| `EVO-HD-PRO-AUD-2K` | Sprachmodul, 2 Klingeltaster, graviert | pro-modul | EVO HD PRO | `evo-hd-pro-aud-2k.png` · `evo-hd-pro-aud-2k.svg` | — |
+| `EVO-HD-PRO-AUD-2KN` | Sprachmodul, 2 Klingeltaster, hinterleuchtet | pro-modul | EVO HD PRO | `evo-hd-pro-aud-2kn.png` · `evo-hd-pro-aud-2kn.svg` | — |
+| `EVO-HD-PRO-KEY-4K` | Ruftastenmodul, 4 Klingeltaster, graviert | pro-modul | EVO HD PRO | `evo-hd-pro-key-4k.png` · `evo-hd-pro-key-4k.svg` | — |
+| `EVO-HD-PRO-KEY-4KN` | Ruftastenmodul, 4 Klingeltaster, hinterleuchtet | pro-modul | EVO HD PRO | `evo-hd-pro-key-4kn.png` · `evo-hd-pro-key-4kn.svg` | — |
+| `EVO-HD-PRO-INF` | Infoschild, graviert | pro-modul | EVO HD PRO | `evo-hd-pro-inf.png` · `evo-hd-pro-inf.svg` | — |
+| `EVO-HD-PRO-INF-KN` | Infoschild, hinterleuchtet | pro-modul | EVO HD PRO | `evo-hd-pro-inf-kn.png` · `evo-hd-pro-inf-kn.svg` | — |
+| `EVO-HD-PRO-RFG` | Fingerprint- und RFID-Modul | pro-modul | EVO HD PRO | `evo-hd-pro-rfg.png` · `evo-hd-pro-rfg.svg` | — |
+| `EVO-HD-PRO-COVER` | Blindplatte | pro-modul | EVO HD PRO | `evo-hd-pro-cover.png` · `evo-hd-pro-cover.svg` | — |
+| `EVO-HD-PRO-F1M` | Einbaudose, 1 Modul | gehaeuse | EVO HD PRO | `evo-hd-pro-f1m.png` · `evo-hd-pro-f1m.svg` | — |
+| `EVO-HD-PRO-F3M` | Einbaudose, 3 Module | gehaeuse | EVO HD PRO | `evo-hd-pro-f3m.png` · `evo-hd-pro-f3m.svg` | — |
+| `EVO-HD-PRO-FJB-3M` | Unterputzdose, 3 Module | gehaeuse | EVO HD PRO | `evo-hd-pro-fjb-3m.png` · `evo-hd-pro-fjb-3m.svg` | — |
+| `EVO-HD-PRO-FRAME-3M` | Rahmen, 3 Module | gehaeuse | EVO HD PRO | `evo-hd-pro-frame-3m.png` · `evo-hd-pro-frame-3m.svg` | — |
+| `EVO-HD-PRO-JB2M-NO` | Aufputzdose, 2 Module, ohne Öffnung | gehaeuse | EVO HD PRO | `evo-hd-pro-jb2m-no.png` · `evo-hd-pro-jb2m-no.svg` | — |
+| `EVO-HD-PRO-JB2M-L` | Aufputzdose, 2 Module, Öffnung links | gehaeuse | EVO HD PRO | `evo-hd-pro-jb2m-l.png` · `evo-hd-pro-jb2m-l.svg` | — |
+| `EVO-HD-PRO-JB2M-R` | Aufputzdose, 2 Module, Öffnung rechts | gehaeuse | EVO HD PRO | `evo-hd-pro-jb2m-r.png` · `evo-hd-pro-jb2m-r.svg` | — |
+| `EVO-HD-PRO-JB2M-LR` | Aufputzdose, 2 Module, beidseitig | gehaeuse | EVO HD PRO | `evo-hd-pro-jb2m-lr.png` · `evo-hd-pro-jb2m-lr.svg` | — |
+| `EVO-HD-PRO-JB3M-NO` | Aufputzdose, 3 Module, ohne Öffnung | gehaeuse | EVO HD PRO | `evo-hd-pro-jb3m-no.png` · `evo-hd-pro-jb3m-no.svg` | — |
+| `EVO-HD-PRO-S3M` | Einbaudose Aufputz, 3 Module | gehaeuse | EVO HD PRO | `evo-hd-pro-s3m.png` · `evo-hd-pro-s3m.svg` | — |
+| `EVO-HD-PRO-ML` | Modulhebel | gehaeuse | EVO HD PRO | `evo-hd-pro-ml.png` · `evo-hd-pro-ml.svg` | — |
+
+Not in the library yet (no clean cut-out): EVO-HD-5FAM, -7FAM, FN-1/3/4FAM, most black stations,
+EVO-HD-7M-WIFI, EVO-HD-PRO F2M/F6M, FJB-2M/-6M, FRAME-2M/-6M, JB3M-L/-R/-LR, S2M, EVO-HD-KLT8-24,
+ENTRI, ERA and the analog EVO line.
 
 ## 10 · Product and image
 

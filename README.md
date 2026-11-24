@@ -6,8 +6,9 @@ book with a router by task, so the agent decides itself which part a job needs: 
 the frame with the rounded window, motion, components, charts, schemas, product images, social
 posts and reels, video, Brevo newsletters, German copy, design tokens.
 
-The folder also carries the logos (`assets/logo/`), the design tokens (`assets/tokens.css`) and a
-generator that draws the technical wiring plan for EVO HD as an A3 sheet
+The folder also carries the logos (`assets/logo/`), the design tokens (`assets/tokens.css`), the
+**device library** (`assets/devices/`: every device as real photo and as vector illustration, named
+by article number, indexed in `devices.json`) and a generator that draws the technical wiring plan for EVO HD as an A3 sheet
 (`scripts/wiring_plan.py`, Python 3, no packages).
 
 ## Install

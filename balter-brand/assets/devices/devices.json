@@ -1,0 +1,735 @@
+{
+ "version": 1,
+ "updated": "2026-11-24",
+ "note": "Real Balter devices only. image = cut-out PNG in this folder; mm = outer size from the manual where known; plan = usable in scripts/wiring_plan.py.",
+ "devices": [
+  {
+   "article": "EVO-HD-1FAM",
+   "name": "Video-Türstation, 1 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-1fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 1,
+   "plan": true,
+   "vector": "evo-hd-1fam.svg"
+  },
+  {
+   "article": "EVO-HD-2FAM",
+   "name": "Video-Türstation, 2 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-2fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 2,
+   "plan": true,
+   "vector": "evo-hd-2fam.svg"
+  },
+  {
+   "article": "EVO-HD-3FAM",
+   "name": "Video-Türstation, 3 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-3fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 3,
+   "plan": true,
+   "vector": "evo-hd-3fam.svg"
+  },
+  {
+   "article": "EVO-HD-4FAM",
+   "name": "Video-Türstation, 4 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-4fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 4,
+   "plan": true,
+   "vector": "evo-hd-4fam.svg"
+  },
+  {
+   "article": "EVO-HD-6FAM",
+   "name": "Video-Türstation, 6 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-6fam.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 6,
+   "plan": true,
+   "vector": "evo-hd-6fam.svg"
+  },
+  {
+   "article": "EVO-HD-8FAM",
+   "name": "Video-Türstation, 8 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-8fam.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 8,
+   "plan": true,
+   "vector": "evo-hd-8fam.svg"
+  },
+  {
+   "article": "EVO-HD-BLACK-8FAM",
+   "name": "Video-Türstation, 8 Klingeltaster, schwarz",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "schwarz",
+   "image": "evo-hd-black-8fam.png",
+   "px": [
+    343,
+    900
+   ],
+   "buttons": 8,
+   "plan": true,
+   "vector": "evo-hd-black-8fam.svg"
+  },
+  {
+   "article": "EVO-HD-FN-2FAM",
+   "name": "Video-Türstation mit Fingerprint, 2 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-fn-2fam.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 2,
+   "plan": true,
+   "vector": "evo-hd-fn-2fam.svg"
+  },
+  {
+   "article": "EVO-HD-TOUCH-7",
+   "name": "Video-Türstation mit Touchdisplay",
+   "kind": "video-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-touch-7.png",
+   "px": [
+    441,
+    900
+   ],
+   "vector": "evo-hd-touch-7.svg"
+  },
+  {
+   "article": "EVO-HD-1FAM-AUDIO",
+   "name": "Audio-Türstation, 1 Klingeltaster",
+   "kind": "audio-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-1fam-audio.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 1,
+   "vector": "evo-hd-1fam-audio.svg"
+  },
+  {
+   "article": "EVO-HD-2FAM-AUDIO",
+   "name": "Audio-Türstation, 2 Klingeltaster",
+   "kind": "audio-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-2fam-audio.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 2,
+   "vector": "evo-hd-2fam-audio.svg"
+  },
+  {
+   "article": "EVO-HD-3FAM-AUDIO",
+   "name": "Audio-Türstation, 3 Klingeltaster",
+   "kind": "audio-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-3fam-audio.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 3,
+   "vector": "evo-hd-3fam-audio.svg"
+  },
+  {
+   "article": "EVO-HD-4FAM-AUDIO",
+   "name": "Audio-Türstation, 4 Klingeltaster",
+   "kind": "audio-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-4fam-audio.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 4,
+   "vector": "evo-hd-4fam-audio.svg"
+  },
+  {
+   "article": "EVO-HD-6FAM-AUDIO",
+   "name": "Audio-Türstation, 6 Klingeltaster",
+   "kind": "audio-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-6fam-audio.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 6,
+   "vector": "evo-hd-6fam-audio.svg"
+  },
+  {
+   "article": "EVO-HD-8FAM-AUDIO",
+   "name": "Audio-Türstation, 8 Klingeltaster",
+   "kind": "audio-tuerstation",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-hd-8fam-audio.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 8,
+   "vector": "evo-hd-8fam-audio.svg"
+  },
+  {
+   "article": "EVO-8EXT",
+   "name": "Erweiterung, 8 Klingeltaster",
+   "kind": "erweiterung",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-8ext.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 8,
+   "vector": "evo-8ext.svg"
+  },
+  {
+   "article": "EVO-12EXT",
+   "name": "Erweiterung, 12 Klingeltaster",
+   "kind": "erweiterung",
+   "line": "evo-hd",
+   "colour": "silber",
+   "image": "evo-12ext.png",
+   "px": [
+    343,
+    900
+   ],
+   "buttons": 12,
+   "vector": "evo-12ext.svg"
+  },
+  {
+   "article": "EVO-BLACK-8EXT",
+   "name": "Erweiterung, 8 Klingeltaster, schwarz",
+   "kind": "erweiterung",
+   "line": "evo-hd",
+   "colour": "schwarz",
+   "image": "evo-black-8ext.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 8,
+   "vector": "evo-black-8ext.svg"
+  },
+  {
+   "article": "EVO-BLACK-12EXT",
+   "name": "Erweiterung, 12 Klingeltaster, schwarz",
+   "kind": "erweiterung",
+   "line": "evo-hd",
+   "colour": "schwarz",
+   "image": "evo-black-12ext.png",
+   "px": [
+    343,
+    900
+   ],
+   "buttons": 12,
+   "vector": "evo-black-12ext.svg"
+  },
+  {
+   "article": "EVO-HD-7M",
+   "name": "Monitor 7″",
+   "kind": "monitor",
+   "line": "evo-hd",
+   "colour": "weiß",
+   "image": "evo-hd-7m.png",
+   "px": [
+    700,
+    487
+   ],
+   "plan": true,
+   "mm": [
+    222,
+    154,
+    15
+   ],
+   "vector": "evo-hd-7m.svg"
+  },
+  {
+   "article": "EVO-HD-7M-BLACK",
+   "name": "Monitor 7″, schwarz",
+   "kind": "monitor",
+   "line": "evo-hd",
+   "colour": "schwarz",
+   "image": "evo-hd-7m-black.png",
+   "px": [
+    700,
+    484
+   ],
+   "plan": true,
+   "mm": [
+    222,
+    154,
+    15
+   ],
+   "vector": "evo-hd-7m-black.svg"
+  },
+  {
+   "article": "EVO-HD-MINI-4.3M",
+   "name": "Monitor Mini 4,3″",
+   "kind": "monitor",
+   "line": "evo-hd",
+   "colour": "weiß",
+   "image": "evo-hd-mini-43m.png",
+   "px": [
+    700,
+    700
+   ],
+   "vector": "evo-hd-mini-43m.svg"
+  },
+  {
+   "article": "EVO-HD-MINI-BLACK-4.3M",
+   "name": "Monitor Mini 4,3″, schwarz",
+   "kind": "monitor",
+   "line": "evo-hd",
+   "colour": "schwarz",
+   "image": "evo-hd-mini-black-43m.png",
+   "px": [
+    699,
+    700
+   ],
+   "vector": "evo-hd-mini-black-43m.svg"
+  },
+  {
+   "article": "EVO-HD-TALK",
+   "name": "Audiostation",
+   "kind": "audiostation",
+   "line": "evo-hd",
+   "colour": "weiß",
+   "image": "evo-hd-talk.png",
+   "px": [
+    256,
+    700
+   ],
+   "vector": "evo-hd-talk.svg"
+  },
+  {
+   "article": "EVO-HD-BLACK-TALK",
+   "name": "Audiostation, schwarz",
+   "kind": "audiostation",
+   "line": "evo-hd",
+   "colour": "schwarz",
+   "image": "evo-hd-black-talk.png",
+   "px": [
+    256,
+    700
+   ],
+   "vector": "evo-hd-black-talk.svg"
+  },
+  {
+   "article": "EVO-HD-C5001",
+   "name": "Netzteil",
+   "kind": "netzteil",
+   "line": "evo-hd",
+   "colour": "weiß",
+   "image": "evo-hd-c5001.png",
+   "px": [
+    520,
+    357
+   ],
+   "plan": true,
+   "vector": "evo-hd-c5001.svg"
+  },
+  {
+   "article": "EVO-HD-DL",
+   "name": "Türöffner-Modul",
+   "kind": "modul",
+   "line": "evo-hd",
+   "colour": "weiß",
+   "image": "evo-hd-dl.png",
+   "px": [
+    900,
+    851
+   ],
+   "vector": "evo-hd-dl.svg"
+  },
+  {
+   "article": "EVO-HD-2WL",
+   "name": "LAN-Konverter",
+   "kind": "modul",
+   "line": "evo-hd",
+   "colour": "weiß",
+   "image": "evo-hd-2wl.png",
+   "px": [
+    900,
+    749
+   ],
+   "vector": "evo-hd-2wl.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-7W",
+   "name": "Monitor 7″",
+   "kind": "monitor",
+   "line": "evo-hd-pro",
+   "colour": "weiß",
+   "image": "evo-hd-pro-7w.png",
+   "px": [
+    706,
+    435
+   ],
+   "vector": "evo-hd-pro-7w.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-7B",
+   "name": "Monitor 7″, schwarz",
+   "kind": "monitor",
+   "line": "evo-hd-pro",
+   "colour": "schwarz",
+   "image": "evo-hd-pro-7b.png",
+   "px": [
+    707,
+    435
+   ],
+   "vector": "evo-hd-pro-7b.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-CAM",
+   "name": "Kameramodul",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-cam.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-cam.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-AUD-0",
+   "name": "Sprachmodul ohne Klingeltaster",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-aud-0.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-aud-0.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-AUD-1K",
+   "name": "Sprachmodul, 1 Klingeltaster, graviert",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-aud-1k.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-aud-1k.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-AUD-1KN",
+   "name": "Sprachmodul, 1 Klingeltaster, hinterleuchtet",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-aud-1kn.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-aud-1kn.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-AUD-2K",
+   "name": "Sprachmodul, 2 Klingeltaster, graviert",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-aud-2k.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-aud-2k.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-AUD-2KN",
+   "name": "Sprachmodul, 2 Klingeltaster, hinterleuchtet",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-aud-2kn.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-aud-2kn.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-KEY-4K",
+   "name": "Ruftastenmodul, 4 Klingeltaster, graviert",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-key-4k.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-key-4k.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-KEY-4KN",
+   "name": "Ruftastenmodul, 4 Klingeltaster, hinterleuchtet",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-key-4kn.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-key-4kn.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-INF",
+   "name": "Infoschild, graviert",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-inf.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-inf.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-INF-KN",
+   "name": "Infoschild, hinterleuchtet",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-inf-kn.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-inf-kn.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-RFG",
+   "name": "Fingerprint- und RFID-Modul",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-rfg.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-rfg.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-COVER",
+   "name": "Blindplatte",
+   "kind": "pro-modul",
+   "line": "evo-hd-pro",
+   "colour": "edelstahl",
+   "image": "evo-hd-pro-cover.png",
+   "px": [
+    512,
+    512
+   ],
+   "vector": "evo-hd-pro-cover.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-F1M",
+   "name": "Einbaudose, 1 Modul",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-f1m.png",
+   "px": [
+    781,
+    900
+   ],
+   "vector": "evo-hd-pro-f1m.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-F3M",
+   "name": "Einbaudose, 3 Module",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-f3m.png",
+   "px": [
+    343,
+    900
+   ],
+   "vector": "evo-hd-pro-f3m.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-FJB-3M",
+   "name": "Unterputzdose, 3 Module",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-fjb-3m.png",
+   "px": [
+    311,
+    900
+   ],
+   "vector": "evo-hd-pro-fjb-3m.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-FRAME-3M",
+   "name": "Rahmen, 3 Module",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-frame-3m.png",
+   "px": [
+    351,
+    900
+   ],
+   "vector": "evo-hd-pro-frame-3m.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-JB2M-NO",
+   "name": "Aufputzdose, 2 Module, ohne Öffnung",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-jb2m-no.png",
+   "px": [
+    446,
+    900
+   ],
+   "vector": "evo-hd-pro-jb2m-no.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-JB2M-L",
+   "name": "Aufputzdose, 2 Module, Öffnung links",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-jb2m-l.png",
+   "px": [
+    446,
+    900
+   ],
+   "vector": "evo-hd-pro-jb2m-l.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-JB2M-R",
+   "name": "Aufputzdose, 2 Module, Öffnung rechts",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-jb2m-r.png",
+   "px": [
+    446,
+    900
+   ],
+   "vector": "evo-hd-pro-jb2m-r.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-JB2M-LR",
+   "name": "Aufputzdose, 2 Module, beidseitig",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-jb2m-lr.png",
+   "px": [
+    446,
+    900
+   ],
+   "vector": "evo-hd-pro-jb2m-lr.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-JB3M-NO",
+   "name": "Aufputzdose, 3 Module, ohne Öffnung",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-jb3m-no.png",
+   "px": [
+    297,
+    900
+   ],
+   "vector": "evo-hd-pro-jb3m-no.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-S3M",
+   "name": "Einbaudose Aufputz, 3 Module",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-s3m.png",
+   "px": [
+    297,
+    900
+   ],
+   "vector": "evo-hd-pro-s3m.svg"
+  },
+  {
+   "article": "EVO-HD-PRO-ML",
+   "name": "Modulhebel",
+   "kind": "gehaeuse",
+   "line": "evo-hd-pro",
+   "colour": "",
+   "image": "evo-hd-pro-ml.png",
+   "px": [
+    900,
+    639
+   ],
+   "vector": "evo-hd-pro-ml.svg"
+  }
+ ]
+}
