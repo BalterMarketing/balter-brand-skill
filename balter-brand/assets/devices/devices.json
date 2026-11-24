@@ -16,7 +16,55 @@
    ],
    "buttons": 1,
    "plan": true,
-   "vector": "evo-hd-1fam.svg"
+   "vector": "evo-hd-1fam.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "blocks": [
+     {
+      "name": "A",
+      "pins": [
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "EXIT",
+        "Austaster (Exit-Button)"
+       ],
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "LOCK+",
+        "Türöffner intern, 12 V DC, max. 300 mA"
+       ]
+      ]
+     },
+     {
+      "name": "B",
+      "pins": [
+       [
+        "NC/NO",
+        "potentialfreier Relaiskontakt"
+       ],
+       [
+        "COM",
+        "potentialfreier Relaiskontakt, gemeinsam"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-1fam-klemmen.svg"
   },
   {
    "article": "EVO-HD-2FAM",
@@ -31,7 +79,55 @@
    ],
    "buttons": 2,
    "plan": true,
-   "vector": "evo-hd-2fam.svg"
+   "vector": "evo-hd-2fam.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "blocks": [
+     {
+      "name": "A",
+      "pins": [
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "EXIT",
+        "Austaster (Exit-Button)"
+       ],
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "LOCK+",
+        "Türöffner intern, 12 V DC, max. 300 mA"
+       ]
+      ]
+     },
+     {
+      "name": "B",
+      "pins": [
+       [
+        "NC/NO",
+        "potentialfreier Relaiskontakt"
+       ],
+       [
+        "COM",
+        "potentialfreier Relaiskontakt, gemeinsam"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-2fam-klemmen.svg"
   },
   {
    "article": "EVO-HD-3FAM",
@@ -46,7 +142,55 @@
    ],
    "buttons": 3,
    "plan": true,
-   "vector": "evo-hd-3fam.svg"
+   "vector": "evo-hd-3fam.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "blocks": [
+     {
+      "name": "A",
+      "pins": [
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "EXIT",
+        "Austaster (Exit-Button)"
+       ],
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "LOCK+",
+        "Türöffner intern, 12 V DC, max. 300 mA"
+       ]
+      ]
+     },
+     {
+      "name": "B",
+      "pins": [
+       [
+        "NC/NO",
+        "potentialfreier Relaiskontakt"
+       ],
+       [
+        "COM",
+        "potentialfreier Relaiskontakt, gemeinsam"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-3fam-klemmen.svg"
   },
   {
    "article": "EVO-HD-4FAM",
@@ -61,7 +205,55 @@
    ],
    "buttons": 4,
    "plan": true,
-   "vector": "evo-hd-4fam.svg"
+   "vector": "evo-hd-4fam.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "blocks": [
+     {
+      "name": "A",
+      "pins": [
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "EXIT",
+        "Austaster (Exit-Button)"
+       ],
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "LOCK+",
+        "Türöffner intern, 12 V DC, max. 300 mA"
+       ]
+      ]
+     },
+     {
+      "name": "B",
+      "pins": [
+       [
+        "NC/NO",
+        "potentialfreier Relaiskontakt"
+       ],
+       [
+        "COM",
+        "potentialfreier Relaiskontakt, gemeinsam"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-4fam-klemmen.svg"
   },
   {
    "article": "EVO-HD-6FAM",
@@ -76,7 +268,55 @@
    ],
    "buttons": 6,
    "plan": true,
-   "vector": "evo-hd-6fam.svg"
+   "vector": "evo-hd-6fam.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "blocks": [
+     {
+      "name": "A",
+      "pins": [
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "EXIT",
+        "Austaster (Exit-Button)"
+       ],
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "LOCK+",
+        "Türöffner intern, 12 V DC, max. 300 mA"
+       ]
+      ]
+     },
+     {
+      "name": "B",
+      "pins": [
+       [
+        "NC/NO",
+        "potentialfreier Relaiskontakt"
+       ],
+       [
+        "COM",
+        "potentialfreier Relaiskontakt, gemeinsam"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-6fam-klemmen.svg"
   },
   {
    "article": "EVO-HD-8FAM",
@@ -91,7 +331,55 @@
    ],
    "buttons": 8,
    "plan": true,
-   "vector": "evo-hd-8fam.svg"
+   "vector": "evo-hd-8fam.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "blocks": [
+     {
+      "name": "A",
+      "pins": [
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "EXIT",
+        "Austaster (Exit-Button)"
+       ],
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "LOCK+",
+        "Türöffner intern, 12 V DC, max. 300 mA"
+       ]
+      ]
+     },
+     {
+      "name": "B",
+      "pins": [
+       [
+        "NC/NO",
+        "potentialfreier Relaiskontakt"
+       ],
+       [
+        "COM",
+        "potentialfreier Relaiskontakt, gemeinsam"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-8fam-klemmen.svg"
   },
   {
    "article": "EVO-HD-BLACK-8FAM",
@@ -106,7 +394,55 @@
    ],
    "buttons": 8,
    "plan": true,
-   "vector": "evo-hd-black-8fam.svg"
+   "vector": "evo-hd-black-8fam.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 08 „Klemmen Türstation“; Foto der Klemmleiste (2026-11-24)",
+    "blocks": [
+     {
+      "name": "A",
+      "pins": [
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "EXIT",
+        "Austaster (Exit-Button)"
+       ],
+       [
+        "GND",
+        "Masse"
+       ],
+       [
+        "LOCK+",
+        "Türöffner intern, 12 V DC, max. 300 mA"
+       ]
+      ]
+     },
+     {
+      "name": "B",
+      "pins": [
+       [
+        "NC/NO",
+        "potentialfreier Relaiskontakt"
+       ],
+       [
+        "COM",
+        "potentialfreier Relaiskontakt, gemeinsam"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-black-8fam-klemmen.svg"
   },
   {
    "article": "EVO-HD-FN-2FAM",
@@ -293,7 +629,29 @@
     154,
     15
    ],
-   "vector": "evo-hd-7m.svg"
+   "vector": "evo-hd-7m.svg",
+   "terminals": {
+    "source": "EVO HD Handbuch v3.2 S. 42 „Monitor Aufbau“ (Nr. 7–10); Reihenfolge wie Legende, am Gerät prüfen",
+    "connectors": [
+     [
+      "NO / COM",
+      "externer Gong, eigene Versorgung"
+     ],
+     [
+      "GND / DOORBELL",
+      "Etagentaste"
+     ],
+     [
+      "BUS_OUT",
+      "Erweiterungsmonitor, Reihenverdrahtung"
+     ],
+     [
+      "BUS_IN",
+      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
+     ]
+    ]
+   },
+   "terminal_card": "evo-hd-7m-klemmen.svg"
   },
   {
    "article": "EVO-HD-7M-BLACK",
@@ -312,7 +670,29 @@
     154,
     15
    ],
-   "vector": "evo-hd-7m-black.svg"
+   "vector": "evo-hd-7m-black.svg",
+   "terminals": {
+    "source": "EVO HD Handbuch v3.2 S. 42 „Monitor Aufbau“ (Nr. 7–10); Reihenfolge wie Legende, am Gerät prüfen",
+    "connectors": [
+     [
+      "NO / COM",
+      "externer Gong, eigene Versorgung"
+     ],
+     [
+      "GND / DOORBELL",
+      "Etagentaste"
+     ],
+     [
+      "BUS_OUT",
+      "Erweiterungsmonitor, Reihenverdrahtung"
+     ],
+     [
+      "BUS_IN",
+      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
+     ]
+    ]
+   },
+   "terminal_card": "evo-hd-7m-black-klemmen.svg"
   },
   {
    "article": "EVO-HD-MINI-4.3M",
@@ -325,7 +705,29 @@
     700,
     700
    ],
-   "vector": "evo-hd-mini-43m.svg"
+   "vector": "evo-hd-mini-43m.svg",
+   "terminals": {
+    "source": "EVO HD Mini 4.3 Handbuch, Anschlussschema; Reihenfolge am Gerät prüfen",
+    "connectors": [
+     [
+      "NO / COM",
+      "externer Gong, eigene Versorgung"
+     ],
+     [
+      "GND / DOORBELL",
+      "Etagentaste"
+     ],
+     [
+      "BUS_OUT",
+      "Erweiterungsmonitor, Reihenverdrahtung"
+     ],
+     [
+      "BUS_IN",
+      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
+     ]
+    ]
+   },
+   "terminal_card": "evo-hd-mini-43m-klemmen.svg"
   },
   {
    "article": "EVO-HD-MINI-BLACK-4.3M",
@@ -338,7 +740,29 @@
     699,
     700
    ],
-   "vector": "evo-hd-mini-black-43m.svg"
+   "vector": "evo-hd-mini-black-43m.svg",
+   "terminals": {
+    "source": "EVO HD Mini 4.3 Handbuch, Anschlussschema; Reihenfolge am Gerät prüfen",
+    "connectors": [
+     [
+      "NO / COM",
+      "externer Gong, eigene Versorgung"
+     ],
+     [
+      "GND / DOORBELL",
+      "Etagentaste"
+     ],
+     [
+      "BUS_OUT",
+      "Erweiterungsmonitor, Reihenverdrahtung"
+     ],
+     [
+      "BUS_IN",
+      "2-Draht-BUS vom Netzteil (IM) oder vom BUS_OUT davor"
+     ]
+    ]
+   },
+   "terminal_card": "evo-hd-mini-black-43m-klemmen.svg"
   },
   {
    "article": "EVO-HD-TALK",
@@ -351,7 +775,42 @@
     256,
     700
    ],
-   "vector": "evo-hd-talk.svg"
+   "vector": "evo-hd-talk.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 07–08 „Klemmen Innenstation“",
+    "blocks": [
+     {
+      "name": "Platine",
+      "pins": [
+       [
+        "RING",
+        "Etagenklingel"
+       ],
+       [
+        "GND",
+        "Etagenklingel, Masse"
+       ],
+       [
+        "COM",
+        "Relaiskontakt externer Gong"
+       ],
+       [
+        "NO",
+        "Relaiskontakt externer Gong"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (IM)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (IM)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-talk-klemmen.svg"
   },
   {
    "article": "EVO-HD-BLACK-TALK",
@@ -364,7 +823,42 @@
     256,
     700
    ],
-   "vector": "evo-hd-black-talk.svg"
+   "vector": "evo-hd-black-talk.svg",
+   "terminals": {
+    "source": "EVO HD Talk Handbuch S. 07–08 „Klemmen Innenstation“",
+    "blocks": [
+     {
+      "name": "Platine",
+      "pins": [
+       [
+        "RING",
+        "Etagenklingel"
+       ],
+       [
+        "GND",
+        "Etagenklingel, Masse"
+       ],
+       [
+        "COM",
+        "Relaiskontakt externer Gong"
+       ],
+       [
+        "NO",
+        "Relaiskontakt externer Gong"
+       ],
+       [
+        "BUS-",
+        "2-Draht-BUS vom Netzteil (IM)"
+       ],
+       [
+        "BUS+",
+        "2-Draht-BUS vom Netzteil (IM)"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-black-talk-klemmen.svg"
   },
   {
    "article": "EVO-HD-C5001",
@@ -378,7 +872,57 @@
     357
    ],
    "plan": true,
-   "vector": "evo-hd-c5001.svg"
+   "vector": "evo-hd-c5001.svg",
+   "terminals": {
+    "source": "Typenschild EVO-HD-C5001; EVO HD Handbuch v3.2 S. 17",
+    "blocks": [
+     {
+      "name": "Eingang",
+      "side": "top",
+      "pins": [
+       [
+        "N",
+        "230 V AC Neutralleiter"
+       ],
+       [
+        "N",
+        "230 V AC Neutralleiter"
+       ],
+       [
+        "L",
+        "230 V AC Außenleiter"
+       ],
+       [
+        "L",
+        "230 V AC Außenleiter"
+       ]
+      ]
+     },
+     {
+      "name": "Ausgang",
+      "side": "bottom",
+      "pins": [
+       [
+        "BUS1 IM",
+        "Monitore BUS_IN"
+       ],
+       [
+        "BUS2 IM",
+        "Monitore BUS_IN"
+       ],
+       [
+        "BUS1 DS",
+        "Türstation BUS+ / BUS−"
+       ],
+       [
+        "BUS2 DS",
+        "Türstation BUS+ / BUS−"
+       ]
+      ]
+     }
+    ]
+   },
+   "terminal_card": "evo-hd-c5001-klemmen.svg"
   },
   {
    "article": "EVO-HD-DL",

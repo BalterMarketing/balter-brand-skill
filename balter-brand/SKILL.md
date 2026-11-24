@@ -340,6 +340,16 @@ device that is not in the library, and never show a device under another article
 
 The wiring-plan generator takes `--style photo` (default) or `--style vector`.
 
+**Terminals (Klemmen).** Devices whose terminal strip is known carry it in `devices.json → terminals`
+(blocks of pins or plug connectors, each with its role and the source: manual page, rating plate or a
+photo of the strip), and a drawn card `<article>-klemmen.svg`. `scripts/terminals.py` draws the strips
+(green screw terminals, labels rotated above, as on the device) and returns the point of every terminal,
+so the wiring plan runs each conductor to the right terminal and names it. Known today:
+EVO HD Video-Türstationen 1–8FAM: `GND · EXIT · GND · LOCK+ | NC/NO · COM · BUS− · BUS+` ·
+EVO-HD-C5001: `N N L L | BUS1 IM · BUS2 IM · BUS1 DS · BUS2 DS` · EVO-HD-7M and Mini: plugs
+`NO/COM · GND/DOORBELL · BUS_OUT · BUS_IN` · EVO-HD-TALK: `RING · GND · COM · NO · BUS− · BUS+`.
+Not recorded yet (do not guess): audio and FN stations, Touch, DL, 2WL, EVO HD PRO modules and monitors.
+
 | Article | Name | Kind | Line | Files | Plan |
 |---|---|---|---|---|---|
 | `EVO-HD-1FAM` | Video-Türstation, 1 Klingeltaster | video-tuerstation | EVO HD | `evo-hd-1fam.png` · `evo-hd-1fam.svg` | yes |

@@ -261,6 +261,7 @@ def build(spec, embed=False, asset_href="assets"):
                 if m_i == 0 or not reihe:
                     tlist.append(bx)
                     s.pair([(bx, my + MON_H + 2), (bx, bus_y)], color, group=f"f{fi}")
+                    s.text(bx + 6, my + MON_H + 12, "BUS_IN", 8, 600, MUTED, "start", MONO)
                 if reihe and prev is not None:
                     reihe_links.append((u['we'], m_i, m_i + 1, color))
                     # BUS_OUT of the previous monitor → BUS_IN of this one
@@ -341,6 +342,7 @@ def build(spec, embed=False, asset_href="assets"):
     ys = col_y0 + nf * 10 + 4
     sx = st_x + st_w / 2
     s.pair([(sx, st_y + st_h), (sx, ys), (ds_x + ds_w / 2, ys), (ds_x + ds_w / 2, strip_bottom)], STATION, group="st")
+    s.text(sx + 8, st_y + st_h + 11, "BUS+ / BUS−", 8.5, 600, INK, "start", MONO)
     s.add(f'<rect x="{sx+30}" y="{ys-8}" width="30" height="15" rx="3" fill="#fff" stroke="{STATION}" stroke-width="1.2"/>')
     s.text(sx + 45, ys + 3, "W01", 9, 700, INK, "middle", MONO)
 
@@ -360,72 +362,90 @@ def build(spec, embed=False, asset_href="assets"):
         s.text(RX + 20, y + 24, letter, 11, 800, "#fff", "middle")
         s.text(RX + 40, y + 24, title, 12.5, 800, INK)
 
-    # A · Netzteil terminals (from the rating plate)
+    # terminal strips come from the device library (devices.json → terminals), never typed here
+    sys.path.insert(0, HERE)
+    from terminals import strip as t_strip, size as t_size
+    T_NT = device("EVO-HD-C5001")["terminals"]
+    T_ST = device(st["model"])["terminals"]
+    T_MO = device(floors[0]["units"][0]["monitors"][0].get("model", "EVO-HD-7M"))["terminals"]
+    lock_id = f"W{nf + 2 + len(reihe_links):02d}"
+    floor_ids = f"W02–W{nf + 1:02d}"
+
+    def wire_label(x, y, txt, anchor="middle", col=INK):
+        s.text(x, y, txt, 9.5, 600, col, anchor, MONO)
+
+    # A · Netzteil: input on top, output below, every conductor on its own terminal
     py = 56
-    panel(py, 236, "A", "Klemmen EVO-HD-C5001")
-    bx, by = RX + 40, py + 74
-    s.add(f'<rect x="{bx}" y="{by}" width="{RW-80}" height="96" rx="8" fill="{FAINT}" stroke="{INK}" stroke-width="1.2"/>')
-    # input
-    labs_in = ["N", "N", "L", "L"]
-    for i, l in enumerate(labs_in):
-        x = bx + 14 + i * 26
-        s.add(f'<rect x="{x}" y="{by-12}" width="20" height="18" rx="2" fill="#fff" stroke="{INK}"/>')
-        s.text(x + 10, by + 1, l, 9.5, 700, INK, "middle", MONO)
-        c = N_BLUE if l == "N" else L_BROWN
-        s.add(f'<path d="M{x+10} {by-12}V{py+44}" stroke="{c}" stroke-width="2"/>')
-    s.text(bx + 124, by - 16, "EINGANG", 9.5, 700, INK, font=MONO)
-    s.text(bx + 124, by - 3, FACTS["nt_in"], 9.5, 500, MUTED, font=MONO)
-    s.text(bx + 16, by + 38, "Netzteil · DIN-Hutschiene", 11, 700, INK)
-    s.text(bx + 16, by + 55, "AUSGANG " + FACTS["nt_out"], 9.5, 500, MUTED, font=MONO)
-    outs = [("BUS1", "IM"), ("BUS2", "IM"), ("BUS1", "DS"), ("BUS2", "DS")]
-    for i, (a, b) in enumerate(outs):
-        x = bx + 14 + i * 64 + (14 if i > 1 else 0)
-        s.add(f'<rect x="{x}" y="{by+78}" width="52" height="30" rx="2" fill="#fff" stroke="{INK}"/>')
-        s.text(x + 26, by + 91, a, 9, 700, INK, "middle", MONO)
-        s.text(x + 26, by + 103, b, 9, 500, MUTED, "middle", MONO)
-    s.pair([(bx + 72, by + 110), (bx + 72, by + 132)], WIRE["EG"], gap=26, width=1.6)
-    s.pair([(bx + 220, by + 110), (bx + 220, by + 132)], STATION, gap=32, width=1.6)
-    s.text(bx + 72, by + 148, "→ Monitore BUS_IN", 10, 600, INK, "middle")
-    s.text(bx + 220, by + 148, "→ Türstation BUS+ / BUS−", 10, 600, INK, "middle")
+    panel(py, 236, "A", "Klemmen Netzteil EVO-HD-C5001")
+    pitch = 26
+    blk_in = {"blocks": [T_NT["blocks"][0]]}
+    blk_out = {"blocks": [T_NT["blocks"][1]]}
+    ys = py + 118
+    x_in = RX + 30
+    svg_in, p_in = t_strip(blk_in, x_in, ys, pitch=pitch, label_size=9.5)
+    wi, hi = t_size(blk_in, pitch)
+    x_out = x_in + wi + 70
+    svg_out, p_out = t_strip(blk_out, x_out, ys, pitch=pitch, label_size=9.5)
+    wo, ho = t_size(blk_out, pitch)
+    s.add(svg_in + svg_out)
+    yb = ys + hi
+    for i, (lab, _) in enumerate(T_NT["blocks"][0]["pins"]):
+        px = p_in[f'{T_NT["blocks"][0]["name"]}:{lab}#{i}'][0]
+        s.add(f'<path d="M{px:.1f} {yb:.1f}V{yb + 18:.1f}" stroke="{N_BLUE if lab == "N" else L_BROWN}" stroke-width="2"/>')
+    s.text(x_in, yb + 36, "EINGANG · 230 V", 9.5, 700, INK, font=MONO)
+    s.text(x_in, yb + 51, FACTS["nt_in"].replace(" · ", " "), 8.5, 500, MUTED, font=MONO)
+    pins = T_NT["blocks"][1]["pins"]
+    xs = [p_out[f'{T_NT["blocks"][1]["name"]}:{lab}#{i}'][0] for i, (lab, _) in enumerate(pins)]
+    for i, x in enumerate(xs):
+        s.add(f'<path d="M{x:.1f} {yb:.1f}V{yb + 18:.1f}" stroke="{"#525252" if i < 2 else STATION}" stroke-width="1.8"/>')
+    s.text(x_out, yb + 36, "AUSGANG · " + FACTS["nt_out"], 9.5, 700, INK, font=MONO)
+    s.text(x_out, yb + 51, f"IM: {floor_ids} Monitore · DS: W01", 8.5, 500, MUTED, font=MONO)
 
-    # B · Monitor connections and Reihenverdrahtung
+    # B · Türstation: BUS from the Netzteil, door opener on GND / LOCK+
     py = 306
-    panel(py, 232, "B", "Monitor EVO-HD-7M · Anschlüsse")
-    rows = [("BUS", "Spannung + Signal vom Netzteil (BUS_IN)"),
-            ("BUS_OUT", "Erweiterungsmonitor, Reihenverdrahtung"),
-            ("GND / DOORBELL", "Etagentaste (optional)"),
-            ("NO / COM", "Externer Gong, eigene Versorgung")]
-    for i, (a, b) in enumerate(rows):
-        y = py + 52 + i * 21
-        s.text(RX + 22, y, a, 9.5, 700, INK, font=MONO)
-        s.text(RX + 150, y, b, 10, 500, MUTED)
-    # mini Reihe
-    my = py + 150
-    for i, lab in enumerate(("Master · 1/4", "Slave · 2/4")):
-        x = RX + 34 + i * 190
-        s.img(dev_img("EVO-HD-7M")[0], x, my, 66, 46)
-        s.text(x + 33, my + 62, lab, 9.5, 600, INK, "middle", MONO)
-    s.pair([(RX + 34 + 66 + 4, my + 23), (RX + 34 + 190 - 4, my + 23)], WIRE["3.OG"], gap=1.8, width=1.2)
-    s.text(RX + 162, my + 16, "BUS_OUT → BUS_IN", 9, 600, MUTED, "middle", MONO)
-    r_tag(s, RX + 34 + 190 + 80, my + 12)
-    s.text(RX + 34 + 190 + 92, my + 16, "nur am", 9, 500, MUTED)
-    s.text(RX + 34 + 190 + 92, my + 28, "letzten", 9, 500, MUTED)
+    panel(py, 232, "B", f"Klemmen Türstation {st['model']}")
+    svg_st, p_st = t_strip(T_ST, RX + 30, py + 110, pitch=30, label_size=9.5)
+    s.add(svg_st)
+    ws, hs = t_size(T_ST, 30)
+    yb = py + 110 + hs
+    bA, bB = T_ST["blocks"][0], T_ST["blocks"][1]
+    def pin(block, lab, nth=0):
+        hits = [k for k in p_st if k.startswith(f'{block["name"]}:{lab}#')]
+        return p_st[sorted(hits)[nth]]
+    xm, xp = pin(bB, "BUS-")[0], pin(bB, "BUS+")[0]
+    for x in (xm, xp):
+        s.add(f'<path d="M{x:.1f} {yb:.1f}V{yb + 22:.1f}" stroke="{STATION}" stroke-width="1.8"/>')
+    wire_label((xm + xp) / 2, yb + 36, "W01 · Netzteil DS")
+    gx, lx = pin(bA, "GND", 1)[0], pin(bA, "LOCK+")[0]
+    if lk["mode"] == "intern":
+        for x in (gx, lx):
+            s.add(f'<path d="M{x:.1f} {yb:.1f}V{yb + 22:.1f}" stroke="{LOCKC}" stroke-width="1.8"/>')
+        wire_label((gx + lx) / 2, yb + 36, f"{lock_id} · Türöffner")
+        s.text(RX + 22, py + 52, "Türöffner intern: GND + LOCK+", 10, 700, INK)
+        s.text(RX + 22, py + 67, FACTS["lock_int"], 9.5, 500, MUTED, font=MONO)
+    else:
+        nx, cx_ = pin(bB, "NC/NO")[0], pin(bB, "COM")[0]
+        for x in (nx, cx_):
+            s.add(f'<path d="M{x:.1f} {yb:.1f}V{yb + 22:.1f}" stroke="{LOCKC}" stroke-width="1.8"/>')
+        wire_label((nx + cx_) / 2, yb + 36, f"{lock_id} · Öffner + Trafo")
+        s.text(RX + 22, py + 52, "Türöffner extern: NC/NO + COM", 10, 700, INK)
+        s.text(RX + 22, py + 67, FACTS["lock_ext"], 9.5, 500, MUTED, font=MONO)
+    s.text(RX + 22, py + 218, "Quelle: " + T_ST["source"].split(";")[0], 8.5, 500, MUTED)
 
-    # C · door opener
+    # C · Monitor: BUS_IN from the floor line, BUS_OUT to the next monitor
     py = 552
-    panel(py, 160, "C", "Türöffner an der Türstation")
-    s.text(RX + 22, py + 54, "Intern", 11, 800, INK)
-    s.text(RX + 22, py + 70, "GND + LOCK+", 9.5, 600, INK, font=MONO)
-    s.text(RX + 22, py + 86, FACTS["lock_int"], 9.5, 500, MUTED, font=MONO)
-    s.text(RX + 22, py + 102, "Versorgung aus der Station", 10, 500, MUTED)
-    s.text(RX + 222, py + 54, "Extern", 11, 800, INK)
-    s.text(RX + 222, py + 70, "NO + COM, potentialfrei", 9.5, 600, INK, font=MONO)
-    s.text(RX + 222, py + 86, FACTS["lock_ext"], 9.5, 500, MUTED, font=MONO)
-    s.text(RX + 222, py + 102, "eigener Trafo; Haftmagnet immer", 10, 500, MUTED)
-    s.text(RX + 222, py + 116, "extern versorgen", 10, 500, MUTED)
-    s.add(f'<path d="M{RX+206} {py+44}V{py+140}" stroke="{HAIR}"/>')
-    lock_symbol(s, RX + 22, py + 120)
-    s.text(RX + 66, py + 136, "Symbol Türöffner", 9.5, 500, MUTED)
+    panel(py, 160, "C", "Anschlüsse Monitor " + floors[0]["units"][0]["monitors"][0].get("model", "EVO-HD-7M"))
+    svg_mo, p_mo = t_strip(T_MO, RX + 26, py + 106, pitch=20, label_size=8, gap=6)
+    s.add(svg_mo)
+    wm, hm = t_size(T_MO, 20, 6)
+    yb = py + 106 + hm
+    xi = p_mo["BUS_IN"][0]
+    xo = p_mo["BUS_OUT"][0]
+    s.pair([(xi, yb), (xi, yb + 16)], WIRE["EG"], gap=2.2, width=1.4)
+    s.pair([(xo, yb), (xo, yb + 16)], WIRE["3.OG"], gap=2.2, width=1.4, dash="3 2")
+    tx = RX + 26 + wm + 22
+    for i, line in enumerate(("BUS_IN: Etagenleitung vom", "Netzteil (IM) oder vom", "BUS_OUT davor.", "BUS_OUT: nächster Monitor", "in Reihe, R am letzten.")):
+        s.text(tx, py + 62 + i * 15, line, 9.5, 500, INK if i in (0, 3) else MUTED)
 
     # D · legend
     py = 726
