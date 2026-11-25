@@ -579,5 +579,334 @@
   ],
   "n": 0,
   "logo": false
+ },
+ "EVO-1FAM": {
+  "mean": 0.58,
+  "worst": [
+   "button",
+   2.12
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 1,
+   "button": 1
+  },
+  "logo": true
+ },
+ "EVO-2FAM": {
+  "mean": 0.73,
+  "worst": [
+   "button",
+   1.37
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 2,
+   "button": 2
+  },
+  "logo": true
+ },
+ "EVO-3FAM": {
+  "mean": 0.65,
+  "worst": [
+   "button",
+   2.32
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 3,
+   "button": 3
+  },
+  "logo": true
+ },
+ "EVO-4FAM": {
+  "mean": 1.01,
+  "worst": [
+   "button",
+   2.12
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 4,
+   "button": 4
+  },
+  "logo": true
+ },
+ "EVO-5FAM": {
+  "mean": 0.97,
+  "worst": [
+   "plate",
+   1.91
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "grille": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 5,
+   "button": 5
+  },
+  "logo": true
+ },
+ "EVO-7FAM": {
+  "mean": 1.04,
+  "worst": [
+   "plate",
+   1.91
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "grille": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 7,
+   "button": 7
+  },
+  "logo": true
+ },
+ "EVO-8FAM": {
+  "mean": 0.92,
+  "worst": [
+   "button",
+   1.91
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 8,
+   "button": 8
+  },
+  "logo": true
+ },
+ "EVO-6FAM-RFID": {
+  "mean": 1.08,
+  "worst": [
+   "plate",
+   1.91
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 2,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "rfidlite": 1,
+   "plate": 6,
+   "button": 6
+  },
+  "logo": false
+ },
+ "EVO-BLACK-1FAM": {
+  "mean": 1.01,
+  "worst": [
+   "window",
+   1.91
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 1,
+   "button": 1
+  },
+  "logo": true
+ },
+ "EVO-BLACK-2FAM": {
+  "mean": 1.28,
+  "worst": [
+   "window",
+   3.82
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 2,
+   "button": 2
+  },
+  "logo": true
+ },
+ "EVO-BLACK-3FAM": {
+  "mean": 0.99,
+  "worst": [
+   "window",
+   1.91
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 3,
+   "button": 3
+  },
+  "logo": true
+ },
+ "EVO-BLACK-4FAM": {
+  "mean": 1.01,
+  "worst": [
+   "display",
+   1.91
+  ],
+  "parts": {
+   "camera": 1,
+   "slot": 4,
+   "mic": 1,
+   "display": 1,
+   "ir": 1,
+   "window": 2,
+   "plate": 4,
+   "button": 4
+  },
+  "logo": true
+ },
+ "EVO-AP-1FAM": {
+  "mean": 2.09,
+  "worst": [
+   "camera",
+   5.06
+  ],
+  "parts": {
+   "button": 1,
+   "rows": 1
+  },
+  "logo": true
+ },
+ "EVO-AP-2FAM": {
+  "mean": 1.5,
+  "worst": [
+   "button",
+   2.32
+  ],
+  "parts": {
+   "button": 2,
+   "rows": 2
+  },
+  "logo": true
+ },
+ "EVO-AP-3FAM": {
+  "mean": 1.41,
+  "worst": [
+   "button",
+   2.32
+  ],
+  "parts": {
+   "button": 3,
+   "rows": 3
+  },
+  "logo": true
+ },
+ "EVO-AP-4FAM": {
+  "mean": 1.41,
+  "worst": [
+   "button",
+   2.32
+  ],
+  "parts": {
+   "button": 4,
+   "rows": 4
+  },
+  "logo": true
+ },
+ "EVO-7M": {
+  "mean": 0.96,
+  "worst": [
+   "screen",
+   0.96
+  ],
+  "n": 1,
+  "logo": true
+ },
+ "EVO-7M-BLACK": {
+  "mean": 1.37,
+  "worst": [
+   "screen",
+   1.37
+  ],
+  "n": 1,
+  "logo": true
+ },
+ "EVO-QUICK-4.3M": {
+  "mean": 0.96,
+  "worst": [
+   "body",
+   0.96
+  ],
+  "parts": {
+   "marks": 6
+  },
+  "logo": true
+ },
+ "EVO-QUICK-BLACK": {
+  "mean": 0.96,
+  "worst": [
+   "body",
+   0.96
+  ],
+  "parts": {
+   "marks": 7
+  },
+  "logo": true
+ },
+ "EVO-MINI-4.3M": {
+  "mean": 10.51,
+  "worst": [
+   "body",
+   20.06
+  ],
+  "parts": {
+   "marks": 9
+  },
+  "logo": true
+ },
+ "EVO-TALK": {
+  "mean": 0.0,
+  "worst": [
+   "body",
+   0.0
+  ],
+  "parts": {
+   "marks": 14
+  },
+  "logo": false
  }
 }

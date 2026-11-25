@@ -2,8 +2,8 @@
 name: balter-brand
 description: The complete BALTER brand book (Security division, balter.de, B2B video door intercoms) as one instruction set for AI agents. Use it for ANY work that carries the Balter brand — logo use, colour, typography, the black frame with the rounded window, motion, UI components, charts and dashboards, schemas (customer visualisation and the technical wiring plan, which has its own generator), product images, social posts and reels, video, Brevo newsletters, German copy and wording, design tokens. Trigger on "Balter", "BALTER", "Markenhandbuch", "brand book", "nach dem Brandbook", "im Balter-Stil", or any request to design, write, draw or check material for Balter.
 metadata:
-  version: "2.1"
-  updated: "2026-11-24"
+  version: "2.2"
+  updated: "2026-11-25"
   owner: "Balter GmbH, Design und Marketing"
   source: "BALTER Markenhandbuch 2.0 (the HTML brand book this file ships with)"
   audience: "AI agents: Claude Code, Codex CLI, Cursor, any agent that reads Markdown"
@@ -335,6 +335,12 @@ same file stem** (the article number in lowercase, dots removed):
   - monitors, Talk, Touch — `scripts/flat_model.py`: screen (dark), status LEDs (dot, moon, mail),
     touch rings and the call / hang-up buttons, handset, base, key / bell / apps buttons, cable; the
     Touch station keeps a plain outline of its call list, because there the screen is how a visitor rings;
+  - EVO Aufputz stations (EVO-AP-*) — `scripts/ap_model.py`: black glass block with the camera housing (found by its
+    radial profile) and IR light, the white name field with one row per button and its button column, the logo upright
+    beside the field;
+  - flat touch units of the EVO line (EVO-QUICK-4.3M, EVO-QUICK-BLACK, EVO-MINI-4.3M, EVO-TALK) — `scripts/touch_flat.py`:
+    the screen (where the plain face becomes textured), every printed touch symbol kept in its own simplified shape,
+    the seam of a lower face part, the real logo;
   - EVO HD PRO modules and housings — `scripts/pro_model.py`: grooves, speaker slot, plates, RFID block,
     camera module (dome, IR bars, icon row); housings take their cut outline and openings from the photo,
     inner steps and round cable entries where they are found.
@@ -347,9 +353,14 @@ same file stem** (the article number in lowercase, dots removed):
   `#F2F2F2`, black finish `#3A3A3A`), black for camera, screens, display, glass, RFID / fingerprint, white
   for name plates; one black outline; icons in light grey line. The real BALTER logo is placed where it
   sits on the device (upright on station plates, horizontal on monitors, Talk, Touch). **DIN-rail
-  modules** (EVO-HD-C5001, EVO-HD-DL, EVO-HD-2WL) are taken from Balter Technik's own straight-on drawings
+  modules** (EVO-HD-C5001, EVO-HD-DL, EVO-HD-2WL, EVO-C4001) are taken from Balter Technik's own straight-on drawings
   in Figma (`assets/figma/`, `scripts/figma_modules.py`), because their photos are shot at an angle; their
   labels stay as on the module. `python3 scripts/device_sketch.py [ARTICLE …]` redraws them.
+
+**Photos** come from the shop's front shots on white (`scripts/cutout.py` turns one into a transparent PNG; the
+source is named in `photo_source`). The EVO (analog) line was added on 2026-11-25: stations Silver 1–8FAM and
+6FAM-RFID, Black 1–4FAM, Aufputz 1–4FAM, monitors 7M (white, black), QUICK 4,3″ (white, black), MINI 4,3″, the
+Audiostation EVO-TALK and the Netzteil EVO-C4001.
 
 `assets/devices/devices.json` is the index: article, German name (house words), kind, line, colour,
 button count, size in mm where the manual gives it, both file names, and `plan: true` for devices the
@@ -370,7 +381,7 @@ of every terminal, so the wiring plan runs each conductor to the right terminal 
 | Device | Terminals, left to right |
 |---|---|
 | EVO HD Video-Türstation 1–8FAM | `GND · EXIT · GND · LOCK+` \| `NC/NO · COM · BUS− · BUS+`; jumper NC/NO; J1/J2 button modules |
-| EVO (analog) Türstation | `NO/NC · COM · PL · S+ · S− · BUS2 · BUS1` |
+| EVO (analog) Türstation 1–8FAM, BLACK, 6FAM-RFID | `NO/NC · COM · PL · S+ · S− · BUS2 · BUS1`; DIP 1–4 on the board (meaning not documented yet — ask Balter Technik); jumper 1-2-3: bridge 1–2 = NC, 2–3 = NO; RST · GND · SWIM · VCC is the programming header, not for installers |
 | EVO-HD-C5001 / EVO-HD-PRO-C7001 | in `N · N · L · L`; out `BUS1 IM · BUS2 IM · BUS1 DS · BUS2 DS` (32 V, 3,5 A) |
 | EVO-C4001 | in `N · GND · L · L`; out as above (32 V, 1,5 A) |
 | EVO-HD-7M | plugs `NO/COM · GND/DOORBELL · BUS_OUT · BUS_IN` |
@@ -417,6 +428,29 @@ Not recorded yet (do not guess): EVO HD audio and FN stations, Touch, 2WL, EVO H
 | `EVO-HD-C5001` | Netzteil | netzteil | EVO HD | `evo-hd-c5001.png` · `evo-hd-c5001.svg` | yes |
 | `EVO-HD-DL` | Türöffner-Modul | modul | EVO HD | `evo-hd-dl.png` · `evo-hd-dl.svg` | — |
 | `EVO-HD-2WL` | LAN-Konverter | modul | EVO HD | `evo-hd-2wl.png` · `evo-hd-2wl.svg` | — |
+| `EVO-1FAM` | Video-Türstation, 1 Klingeltaster | video-tuerstation | EVO | `evo-1fam.png` · `evo-1fam.svg` | — |
+| `EVO-2FAM` | Video-Türstation, 2 Klingeltaster | video-tuerstation | EVO | `evo-2fam.png` · `evo-2fam.svg` | — |
+| `EVO-3FAM` | Video-Türstation, 3 Klingeltaster | video-tuerstation | EVO | `evo-3fam.png` · `evo-3fam.svg` | — |
+| `EVO-4FAM` | Video-Türstation, 4 Klingeltaster | video-tuerstation | EVO | `evo-4fam.png` · `evo-4fam.svg` | — |
+| `EVO-5FAM` | Video-Türstation, 5 Klingeltaster | video-tuerstation | EVO | `evo-5fam.png` · `evo-5fam.svg` | — |
+| `EVO-7FAM` | Video-Türstation, 7 Klingeltaster | video-tuerstation | EVO | `evo-7fam.png` · `evo-7fam.svg` | — |
+| `EVO-8FAM` | Video-Türstation, 8 Klingeltaster | video-tuerstation | EVO | `evo-8fam.png` · `evo-8fam.svg` | — |
+| `EVO-6FAM-RFID` | Video-Türstation mit RFID, 6 Klingeltaster | video-tuerstation | EVO | `evo-6fam-rfid.png` · `evo-6fam-rfid.svg` | — |
+| `EVO-BLACK-1FAM` | Video-Türstation, 1 Klingeltaster, schwarz | video-tuerstation | EVO | `evo-black-1fam.png` · `evo-black-1fam.svg` | — |
+| `EVO-BLACK-2FAM` | Video-Türstation, 2 Klingeltaster, schwarz | video-tuerstation | EVO | `evo-black-2fam.png` · `evo-black-2fam.svg` | — |
+| `EVO-BLACK-3FAM` | Video-Türstation, 3 Klingeltaster, schwarz | video-tuerstation | EVO | `evo-black-3fam.png` · `evo-black-3fam.svg` | — |
+| `EVO-BLACK-4FAM` | Video-Türstation, 4 Klingeltaster, schwarz | video-tuerstation | EVO | `evo-black-4fam.png` · `evo-black-4fam.svg` | — |
+| `EVO-AP-1FAM` | Video-Türstation Aufputz, 1 Klingeltaster | video-tuerstation | EVO | `evo-ap-1fam.png` · `evo-ap-1fam.svg` | — |
+| `EVO-AP-2FAM` | Video-Türstation Aufputz, 2 Klingeltaster | video-tuerstation | EVO | `evo-ap-2fam.png` · `evo-ap-2fam.svg` | — |
+| `EVO-AP-3FAM` | Video-Türstation Aufputz, 3 Klingeltaster | video-tuerstation | EVO | `evo-ap-3fam.png` · `evo-ap-3fam.svg` | — |
+| `EVO-AP-4FAM` | Video-Türstation Aufputz, 4 Klingeltaster | video-tuerstation | EVO | `evo-ap-4fam.png` · `evo-ap-4fam.svg` | — |
+| `EVO-7M` | Monitor 7″ | monitor | EVO | `evo-7m.png` · `evo-7m.svg` | — |
+| `EVO-7M-BLACK` | Monitor 7″, schwarz | monitor | EVO | `evo-7m-black.png` · `evo-7m-black.svg` | — |
+| `EVO-QUICK-4.3M` | Monitor 4,3″ | monitor | EVO | `evo-quick-43m.png` · `evo-quick-43m.svg` | — |
+| `EVO-QUICK-BLACK` | Monitor 4,3″, schwarz | monitor | EVO | `evo-quick-black.png` · `evo-quick-black.svg` | — |
+| `EVO-MINI-4.3M` | Monitor Mini 4,3″ | monitor | EVO | `evo-mini-43m.png` · `evo-mini-43m.svg` | — |
+| `EVO-TALK` | Audiostation | audiostation | EVO | `evo-talk.png` · `evo-talk.svg` | — |
+| `EVO-C4001` | Netzteil | netzteil | EVO | `evo-c4001.png` · `evo-c4001.svg` | — |
 | `EVO-HD-PRO-7W` | Monitor 7″ | monitor | EVO HD PRO | `evo-hd-pro-7w.png` · `evo-hd-pro-7w.svg` | — |
 | `EVO-HD-PRO-7B` | Monitor 7″, schwarz | monitor | EVO HD PRO | `evo-hd-pro-7b.png` · `evo-hd-pro-7b.svg` | — |
 | `EVO-HD-PRO-CAM` | Kameramodul | pro-modul | EVO HD PRO | `evo-hd-pro-cam.png` · `evo-hd-pro-cam.svg` | — |
@@ -443,9 +477,10 @@ Not recorded yet (do not guess): EVO HD audio and FN stations, Touch, 2WL, EVO H
 | `EVO-HD-PRO-S3M` | Einbaudose Aufputz, 3 Module | gehaeuse | EVO HD PRO | `evo-hd-pro-s3m.png` · `evo-hd-pro-s3m.svg` | — |
 | `EVO-HD-PRO-ML` | Modulhebel | gehaeuse | EVO HD PRO | `evo-hd-pro-ml.png` · `evo-hd-pro-ml.svg` | — |
 
-Not in the library yet (no clean cut-out): EVO-HD-5FAM, -7FAM, FN-1/3/4FAM, most black stations,
-EVO-HD-7M-WIFI, EVO-HD-PRO F2M/F6M, FJB-2M/-6M, FRAME-2M/-6M, JB3M-L/-R/-LR, S2M, EVO-HD-KLT8-24,
-ENTRI, ERA and the analog EVO line.
+Not in the library yet (no clean cut-out): EVO-HD-5FAM, -7FAM, FN-1/3/4FAM, most black EVO HD stations,
+EVO-HD-7M-WIFI, EVO-HD-PRO F2M/F6M, FJB-2M/-6M, FRAME-2M/-6M, JB3M-L/-R/-LR, S2M, EVO-HD-KLT8-24, ENTRI, ERA;
+from the EVO line EVO-7M-WIFI / -WIFI-BLACK (no front shot of their own), EVO-DL, EVO-EV4, EVO-MD, EVO-GW, EVO-CAM
+(shot at an angle only, no Figma drawing exported yet).
 
 ## 10 · Product and image
 

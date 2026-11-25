@@ -72,6 +72,40 @@ def size(t, pitch=22, gap=10):
     return w - gap, pitch * 1.55
 
 
+def switches(items, x, y):
+    """DIP switches and jumpers beside the strip, drawn as on the board; no setting is implied."""
+    out, roles = [], []
+    for it in items:
+        if it["type"] == "dip":
+            n = it["n"]
+            w = n * 18 + 10
+            out.append(f'<rect x="{x}" y="{y}" width="{w}" height="46" rx="3" fill="#111"/>')
+            for i in range(n):
+                sx = x + 7 + i * 18
+                out.append(f'<rect x="{sx}" y="{y + 12}" width="12" height="24" rx="1.5" fill="#F7E7B0"/>'
+                           f'<rect x="{sx + 2}" y="{y + 14}" width="8" height="8" fill="none" stroke="#111" stroke-width="1.4"/>'
+                           f'<text x="{sx + 6}" y="{y + 9}" font-family="{MONO}" font-size="8" fill="#fff" text-anchor="middle">{i + 1}</text>')
+            out.append(f'<text x="{x + w / 2}" y="{y + 44}" font-family="{MONO}" font-size="7" fill="#fff" text-anchor="middle">ON ↓</text>')
+            out.append(f'<text x="{x}" y="{y + 60}" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#0a0a0a">{escape(it["name"])}</text>')
+            roles.append((it["name"], it["role"]))
+            x += w + 30
+        elif it["type"] == "jumper":
+            pins = it["pins"]
+            w = len(pins) * 28 + 6
+            out.append(f'<rect x="{x}" y="{y + 10}" width="{w}" height="22" rx="3" fill="#111"/>')
+            for i, pn in enumerate(pins):
+                cx = x + 17 + i * 28
+                out.append(f'<circle cx="{cx}" cy="{y + 21}" r="4.2" fill="#E6C15A" stroke="#7a5a00" stroke-width="1"/>'
+                           f'<text x="{cx}" y="{y + 6}" font-family="{MONO}" font-size="9" fill="#0a0a0a" text-anchor="middle">{escape(pn)}</text>')
+            for i, lb in enumerate(it.get("labels", [])):
+                cx = x + 17 + i * 28
+                out.append(f'<text x="{cx}" y="{y + 44}" font-family="{MONO}" font-size="8" fill="#404040" text-anchor="middle">{escape(lb)}</text>')
+            out.append(f'<text x="{x}" y="{y + 60}" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#0a0a0a">{escape(it["name"])}</text>')
+            roles.append((it["name"], it["role"]))
+            x += max(w, 60) + 30
+    return "".join(out), roles
+
+
 def card(d, pitch=26):
     """A stand-alone sheet for one device: its terminals, labelled, with the roles below."""
     t = d["terminals"]
@@ -84,9 +118,13 @@ def card(d, pitch=26):
         if (lab, role) not in seen:
             seen.add((lab, role)); roles.append((lab, role))
     notes = t.get("notes", [])
-    W = max(w + 40, 600)
+    W = max(w + 40 + sum(150 for _ in t.get("switches", [])), 600)
     H = lab_h + h + 34 + len(roles) * 17 + (len(notes) * 16 + 10 if notes else 0) + 30
     body, _ = strip(t, 20, lab_h, pitch=pitch, label_size=11)
+    sw_svg, sw_roles = switches(t.get("switches", []), w + 60, lab_h - 6)
+    body += sw_svg
+    roles += sw_roles
+    H += len(sw_roles) * 17
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" role="img" aria-label="Klemmen {escape(d["article"])}">',
            f'<rect width="100%" height="100%" fill="#fff"/>', body]
     y = lab_h + h + 34

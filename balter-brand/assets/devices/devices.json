@@ -1194,6 +1194,1292 @@
    "vector_source": "Figma Tech-Schemas (Balter Technik)"
   },
   {
+   "article": "EVO-1FAM",
+   "name": "Video-Türstation, 1 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-1fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 1,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-1fam.svg",
+   "vector_px": [
+    477,
+    900
+   ],
+   "terminal_card": "evo-1fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-2FAM",
+   "name": "Video-Türstation, 2 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-2fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 2,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-2fam.svg",
+   "vector_px": [
+    477,
+    900
+   ],
+   "terminal_card": "evo-2fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-3FAM",
+   "name": "Video-Türstation, 3 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-3fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 3,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-3fam.svg",
+   "vector_px": [
+    477,
+    900
+   ],
+   "terminal_card": "evo-3fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-4FAM",
+   "name": "Video-Türstation, 4 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-4fam.png",
+   "px": [
+    477,
+    900
+   ],
+   "buttons": 4,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-4fam.svg",
+   "vector_px": [
+    477,
+    900
+   ],
+   "terminal_card": "evo-4fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-5FAM",
+   "name": "Video-Türstation, 5 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-5fam.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 5,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-5fam.svg",
+   "vector_px": [
+    342,
+    900
+   ],
+   "terminal_card": "evo-5fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-7FAM",
+   "name": "Video-Türstation, 7 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-7fam.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 7,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-7fam.svg",
+   "vector_px": [
+    342,
+    900
+   ],
+   "terminal_card": "evo-7fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-8FAM",
+   "name": "Video-Türstation, 8 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-8fam.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 8,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-8fam.svg",
+   "vector_px": [
+    342,
+    900
+   ],
+   "terminal_card": "evo-8fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-6FAM-RFID",
+   "name": "Video-Türstation mit RFID, 6 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "silber",
+   "image": "evo-6fam-rfid.png",
+   "px": [
+    342,
+    900
+   ],
+   "buttons": 6,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-6fam-rfid.svg",
+   "vector_px": [
+    342,
+    900
+   ],
+   "terminal_card": "evo-6fam-rfid-klemmen.svg"
+  },
+  {
+   "article": "EVO-BLACK-1FAM",
+   "name": "Video-Türstation, 1 Klingeltaster, schwarz",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "schwarz",
+   "image": "evo-black-1fam.png",
+   "px": [
+    476,
+    900
+   ],
+   "buttons": 1,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-black-1fam.svg",
+   "vector_px": [
+    476,
+    900
+   ],
+   "terminal_card": "evo-black-1fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-BLACK-2FAM",
+   "name": "Video-Türstation, 2 Klingeltaster, schwarz",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "schwarz",
+   "image": "evo-black-2fam.png",
+   "px": [
+    476,
+    900
+   ],
+   "buttons": 2,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-black-2fam.svg",
+   "vector_px": [
+    476,
+    900
+   ],
+   "terminal_card": "evo-black-2fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-BLACK-3FAM",
+   "name": "Video-Türstation, 3 Klingeltaster, schwarz",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "schwarz",
+   "image": "evo-black-3fam.png",
+   "px": [
+    476,
+    900
+   ],
+   "buttons": 3,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-black-3fam.svg",
+   "vector_px": [
+    476,
+    900
+   ],
+   "terminal_card": "evo-black-3fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-BLACK-4FAM",
+   "name": "Video-Türstation, 4 Klingeltaster, schwarz",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "schwarz",
+   "image": "evo-black-4fam.png",
+   "px": [
+    476,
+    900
+   ],
+   "buttons": 4,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
+    "blocks": [
+     {
+      "name": "Klemmleiste",
+      "pins": [
+       [
+        "NO/NC",
+        "Relaiskontakt, per Jumper NC oder NO"
+       ],
+       [
+        "COM",
+        "Relaiskontakt, gemeinsam"
+       ],
+       [
+        "PL",
+        "Türöffner"
+       ],
+       [
+        "S+",
+        "Türöffner +"
+       ],
+       [
+        "S-",
+        "Türöffner −"
+       ],
+       [
+        "BUS2",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ],
+       [
+        "BUS1",
+        "2-Draht-BUS vom Netzteil (DS)"
+       ]
+      ]
+     }
+    ],
+    "switches": [
+     {
+      "type": "dip",
+      "name": "DIP 1–4",
+      "n": 4,
+      "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+     },
+     {
+      "type": "jumper",
+      "name": "Jumper",
+      "pins": [
+       "1",
+       "2",
+       "3"
+      ],
+      "labels": [
+       "NC",
+       "NO/NC",
+       "NO"
+      ],
+      "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+     }
+    ],
+    "notes": [
+     "Versorgung 32 V DC über den BUS.",
+     "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+     "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
+    ]
+   },
+   "vector": "evo-black-4fam.svg",
+   "vector_px": [
+    476,
+    900
+   ],
+   "terminal_card": "evo-black-4fam-klemmen.svg"
+  },
+  {
+   "article": "EVO-AP-1FAM",
+   "name": "Video-Türstation Aufputz, 1 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "grau",
+   "image": "evo-ap-1fam.png",
+   "px": [
+    450,
+    900
+   ],
+   "buttons": 1,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-ap-1fam.svg",
+   "vector_px": [
+    450,
+    900
+   ]
+  },
+  {
+   "article": "EVO-AP-2FAM",
+   "name": "Video-Türstation Aufputz, 2 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "grau",
+   "image": "evo-ap-2fam.png",
+   "px": [
+    452,
+    900
+   ],
+   "buttons": 2,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-ap-2fam.svg",
+   "vector_px": [
+    452,
+    900
+   ]
+  },
+  {
+   "article": "EVO-AP-3FAM",
+   "name": "Video-Türstation Aufputz, 3 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "grau",
+   "image": "evo-ap-3fam.png",
+   "px": [
+    451,
+    900
+   ],
+   "buttons": 3,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-ap-3fam.svg",
+   "vector_px": [
+    451,
+    900
+   ]
+  },
+  {
+   "article": "EVO-AP-4FAM",
+   "name": "Video-Türstation Aufputz, 4 Klingeltaster",
+   "kind": "video-tuerstation",
+   "line": "evo",
+   "colour": "grau",
+   "image": "evo-ap-4fam.png",
+   "px": [
+    466,
+    900
+   ],
+   "buttons": 4,
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-ap-4fam.svg",
+   "vector_px": [
+    466,
+    900
+   ]
+  },
+  {
+   "article": "EVO-7M",
+   "name": "Monitor 7″",
+   "kind": "monitor",
+   "line": "evo",
+   "colour": "weiß",
+   "image": "evo-7m.png",
+   "px": [
+    700,
+    486
+   ],
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-7m.svg",
+   "vector_px": [
+    700,
+    486
+   ]
+  },
+  {
+   "article": "EVO-7M-BLACK",
+   "name": "Monitor 7″, schwarz",
+   "kind": "monitor",
+   "line": "evo",
+   "colour": "schwarz",
+   "image": "evo-7m-black.png",
+   "px": [
+    700,
+    486
+   ],
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-7m-black.svg",
+   "vector_px": [
+    700,
+    486
+   ]
+  },
+  {
+   "article": "EVO-QUICK-4.3M",
+   "name": "Monitor 4,3″",
+   "kind": "monitor",
+   "line": "evo",
+   "colour": "weiß",
+   "image": "evo-quick-43m.png",
+   "px": [
+    500,
+    700
+   ],
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-quick-43m.svg",
+   "vector_px": [
+    500,
+    700
+   ]
+  },
+  {
+   "article": "EVO-QUICK-BLACK",
+   "name": "Monitor 4,3″, schwarz",
+   "kind": "monitor",
+   "line": "evo",
+   "colour": "schwarz",
+   "image": "evo-quick-black.png",
+   "px": [
+    501,
+    700
+   ],
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-quick-black.svg",
+   "vector_px": [
+    501,
+    700
+   ]
+  },
+  {
+   "article": "EVO-MINI-4.3M",
+   "name": "Monitor Mini 4,3″",
+   "kind": "monitor",
+   "line": "evo",
+   "colour": "weiß",
+   "image": "evo-mini-43m.png",
+   "px": [
+    698,
+    700
+   ],
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-mini-43m.svg",
+   "vector_px": [
+    698,
+    700
+   ]
+  },
+  {
+   "article": "EVO-TALK",
+   "name": "Audiostation",
+   "kind": "audiostation",
+   "line": "evo",
+   "colour": "weiß",
+   "image": "evo-talk.png",
+   "px": [
+    475,
+    700
+   ],
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "vector": "evo-talk.svg",
+   "vector_px": [
+    475,
+    700
+   ]
+  },
+  {
+   "article": "EVO-C4001",
+   "name": "Netzteil",
+   "kind": "netzteil",
+   "line": "evo",
+   "colour": "weiß",
+   "image": "evo-c4001.png",
+   "px": [
+    520,
+    448
+   ],
+   "photo_source": "balter.de Shopfoto (freigestellt)",
+   "terminals": {
+    "source": "Figma „Tech-Schemas“ (Balter Technik), Typenschild",
+    "blocks": [
+     {
+      "name": "Eingang",
+      "pins": [
+       [
+        "N",
+        "230 V AC"
+       ],
+       [
+        "GND",
+        "Schutzleiter"
+       ],
+       [
+        "L",
+        "230 V AC"
+       ],
+       [
+        "L",
+        "230 V AC"
+       ]
+      ]
+     },
+     {
+      "name": "Ausgang",
+      "pins": [
+       [
+        "BUS1 IM",
+        "Monitore"
+       ],
+       [
+        "BUS2 IM",
+        "Monitore"
+       ],
+       [
+        "BUS1 DS",
+        "Türstation"
+       ],
+       [
+        "BUS2 DS",
+        "Türstation"
+       ]
+      ]
+     }
+    ],
+    "notes": [
+     "BUS 32 V DC · 1,5 A. Für EVO (analog)."
+    ]
+   },
+   "vector": "evo-c4001.svg",
+   "vector_px": [
+    1683,
+    1194
+   ],
+   "vector_source": "Figma Tech-Schemas (Balter Technik)",
+   "terminal_card": "evo-c4001-klemmen.svg"
+  },
+  {
    "article": "EVO-HD-PRO-7W",
    "name": "Monitor 7″",
    "kind": "monitor",

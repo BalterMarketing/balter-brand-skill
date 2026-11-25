@@ -354,6 +354,16 @@ def draw(d):
     m = measure(d)
     sw = max(2.0, min(m["W"], m["H"]) * .006)
     s = Sk(m["W"], m["H"], sw)
+    if a in ("EVO-QUICK-4.3M", "EVO-QUICK-BLACK", "EVO-MINI-4.3M", "EVO-TALK"):
+        import touch_flat
+        svg, rep = touch_flat.sketch(d)
+        CHECK[a] = rep
+        return svg, [m["W"], m["H"]]
+    if a.startswith("EVO-AP-"):
+        import ap_model
+        svg, rep = ap_model.sketch(d)
+        CHECK[a] = rep
+        return svg, [m["W"], m["H"]]
     if k in ("video-tuerstation", "audio-tuerstation", "erweiterung") and not a.startswith("EVO-HD-TOUCH"):
         import station_model
         svg, rep = station_model.sketch(d, MAN)

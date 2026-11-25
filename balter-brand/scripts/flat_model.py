@@ -27,7 +27,8 @@ INK = "#111111"
 DARK = "#111111"
 BODY = {"white": "#F2F2F2", "black": "#3A3A3A", "steel": "#D9D9D9"}
 TWIN = {"EVO-HD-7M-BLACK": "EVO-HD-7M", "EVO-HD-MINI-BLACK-4.3M": "EVO-HD-MINI-4.3M",
-        "EVO-HD-PRO-7B": "EVO-HD-PRO-7W", "EVO-HD-BLACK-TALK": "EVO-HD-TALK"}
+        "EVO-HD-PRO-7B": "EVO-HD-PRO-7W", "EVO-HD-BLACK-TALK": "EVO-HD-TALK",
+        "EVO-7M-BLACK": "EVO-7M", "EVO-QUICK-BLACK": "EVO-QUICK-4.3M"}
 # buttons and LEDs read better on one twin than on the other (white-on-white rings, LEDs in a black glare):
 # take them from the clearer photo, the logo always from the device's own photo
 MARKS_SRC = {"EVO-HD-7M-BLACK": "EVO-HD-7M", "EVO-HD-MINI-4.3M": "EVO-HD-MINI-BLACK-4.3M", "EVO-HD-PRO-7B": "EVO-HD-PRO-7W"}

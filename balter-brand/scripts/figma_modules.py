@@ -22,7 +22,7 @@ from scipy import ndimage
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.normpath(os.path.join(HERE, "..", "assets", "figma"))
 DEV = os.path.normpath(os.path.join(HERE, "..", "assets", "devices"))
-MAP = {"EVO-HD-DL": "t_dl.png", "EVO-HD-C5001": "t_c5001.png"}   # EVO-HD-2WL: drawn by hand from t_2wl.png (Figma source is 1x only)
+MAP = {"EVO-HD-DL": "t_dl.png", "EVO-HD-C5001": "t_c5001.png", "EVO-C4001": "t_c4001.png"}   # EVO-HD-2WL: drawn by hand from t_2wl.png (Figma source is 1x only)
 UP = 3
 
 

@@ -34,7 +34,7 @@ import sketch_fit as F  # noqa: E402
 INK = "#111111"
 DARK = "#111111"
 BODY = {"steel": "#D9D9D9", "white": "#F2F2F2", "black": "#3A3A3A"}
-TWIN = {"EVO-HD-BLACK-8FAM": "EVO-HD-8FAM", "EVO-BLACK-8EXT": "EVO-8EXT", "EVO-BLACK-12EXT": "EVO-12EXT"}
+TWIN = {"EVO-HD-BLACK-8FAM": "EVO-HD-8FAM", "EVO-BLACK-8EXT": "EVO-8EXT", "EVO-BLACK-12EXT": "EVO-12EXT", "EVO-BLACK-1FAM": "EVO-1FAM", "EVO-BLACK-2FAM": "EVO-2FAM", "EVO-BLACK-3FAM": "EVO-3FAM", "EVO-BLACK-4FAM": "EVO-4FAM"}
 
 GLYPH = {   # 24x24, stroked
     "bell": "M6.5 16.5h11l-1.4-2.2V10.8a4.1 4.1 0 0 0-8.2 0v3.5z M10.4 18.8a1.6 1.6 0 0 0 3.2 0",
@@ -328,8 +328,36 @@ def model(d, man):
     parts = find_upper(img, g, e, alpha, box, limit, logo)
     near = lambda b, q: q[0] - 8 <= b[0] + b[2] / 2 <= q[0] + q[2] + 8 and q[1] - 10 <= b[1] + b[3] / 2 <= q[1] + q[3] + 10  # noqa: E731
     parts = [p_ for p_ in parts if not (p_["t"] in ("slot", "mic") and any(near(p_["b"], q) for q in plates))]
+    if "RFID" in a and not any(p_["t"] == "rfid" for p_ in parts):
+        lite = rfid_light(g, e, alpha, box, parts, plates)
+        if lite:
+            parts.append(lite)
     return dict(article=a, box=box, W=g.shape[1], H=g.shape[0], mat=F.material_of(d), buttons=buttons, plates=plates,
                 parts=parts, logo=logo, e=e, img=img, alpha=alpha, name=d["name"])
+
+
+def rfid_light(g, e, alpha, box, parts, plates):
+    """EVO analog RFID stations: a light glass field with the card sign, between display and name plates."""
+    bx, by, bw, bh = box
+    top = max([p_["b"][1] + p_["b"][3] for p_ in parts if p_["t"] == "display"] or [by + bh * .2]) + 4
+    bot = min([p[1] for p in plates] or [by + bh * .8]) - 4
+    # the glass is smooth where the brushed steel around it is streaked: find it by its missing texture
+    tex = cv2.blur(np.abs(cv2.Sobel(g.astype(float), cv2.CV_64F, 1, 0, ksize=3)), (11, 11))
+    m = (tex < np.percentile(tex[alpha], 12)) & alpha
+    reg = np.zeros_like(m)
+    reg[int(top):int(bot), int(bx + bw * .08):int(bx + bw * .92)] = True
+    m = cv2.morphologyEx((m & reg).astype(np.uint8), cv2.MORPH_OPEN, np.ones((5, 5)))
+    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((9, 9)))
+    lab, n = ndimage.label(m)
+    best = None
+    for sl in ndimage.find_objects(lab) or []:
+        h_, w_ = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
+        if w_ > bw * .3 and (best is None or w_ * h_ > best[2] * best[3]):
+            best = (sl[1].start, sl[0].start, w_, h_)
+    if not best:
+        return None
+    x, y, w, h = best
+    return dict(t="rfidlite", b=best, sign=(x + w / 2, y + h / 2, h * .45))
 
 
 def transfer(m, d, img, alpha, g, e, box):
@@ -431,6 +459,13 @@ def render(m):
                 k = h * .5 / 24
                 o.append(f'<path d="{GLYPH[name]}" transform="translate({cx - 12 * k:.1f} {cy - 12 * k:.1f}) scale({k:.3f})" '
                          f'fill="none" stroke="{glyph}" stroke-width="{1.6:.1f}" stroke-linecap="round" stroke-linejoin="round"/>')
+        elif t == "rfidlite":
+            x, y, w, h = p["b"]
+            R(x, y, w, h, h * .06, "#F7F7F7")
+            cx, cy, sz = p["sign"]
+            k = sz * 1.1 / 24
+            o.append(f'<path d="{GLYPH["rfid"]}" transform="translate({cx - 12 * k:.1f} {cy - 12 * k:.1f}) scale({k:.3f})" '
+                     f'fill="none" stroke="#6b6b6b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>')
         elif t == "rfid":
             x, y, w, h = p["b"]
             R(x, y, w, h, w * .04, DARK)

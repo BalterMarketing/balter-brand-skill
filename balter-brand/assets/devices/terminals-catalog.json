@@ -58,14 +58,14 @@
    ]
   },
   "EVO-*FAM (EVO analog)": {
-   "source": "Figma „Tech-Schemas“ (Balter Technik), Platine EVO",
+   "source": "Figma „Tech-Schemas“ (Balter Technik), Platine und Typenschild EVO",
    "blocks": [
     {
      "name": "Klemmleiste",
      "pins": [
       [
        "NO/NC",
-       "Relaiskontakt"
+       "Relaiskontakt, per Jumper NC oder NO"
       ],
       [
        "COM",
@@ -85,17 +85,42 @@
       ],
       [
        "BUS2",
-       "2-Draht-BUS"
+       "2-Draht-BUS vom Netzteil (DS)"
       ],
       [
        "BUS1",
-       "2-Draht-BUS"
+       "2-Draht-BUS vom Netzteil (DS)"
       ]
      ]
     }
    ],
+   "switches": [
+    {
+     "type": "dip",
+     "name": "DIP 1–4",
+     "n": 4,
+     "role": "DIP-Schalter auf der Platine (Lage wie gezeichnet; Belegung bei Balter Technik zu bestätigen)"
+    },
+    {
+     "type": "jumper",
+     "name": "Jumper",
+     "pins": [
+      "1",
+      "2",
+      "3"
+     ],
+     "labels": [
+      "NC",
+      "NO/NC",
+      "NO"
+     ],
+     "role": "Relaiskontakt: Brücke 1–2 = NC, 2–3 = NO"
+    }
+   ],
    "notes": [
-    "Versorgung 32 V DC über den BUS. Jumper NC / NO. J1 / J2 für Klingeltasten-Module."
+    "Versorgung 32 V DC über den BUS.",
+    "RST · GND · SWIM · VCC: Programmierstecker, nicht für die Installation.",
+    "Die Klemmleiste der Platine hat 8 Schrauben; die linke ist in der Technik-Zeichnung nicht beschriftet."
    ]
   },
   "EVO-HD-C5001": {
