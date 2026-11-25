@@ -1,0 +1,17 @@
+{
+ "note": "Fixes for words speech recognition gets wrong in Balter videos. Left: what Whisper/Scribe tends to write (lower case, regex), right: the house spelling (glossary.md). Add every new mistake you correct by hand.",
+ "replace": {
+  "\\bevo ?hd ?pro\\b": "EVO HD PRO",
+  "\\bevo ?hd\\b": "EVO HD",
+  "\\bevo\\b": "EVO",
+  "\\bentri\\b": "ENTRI",
+  "\\bbalter\\b": "Balter",
+  "\\bzwei ?draht\\b": "2-Draht",
+  "\\b2 draht\\b": "2-Draht",
+  "\\btürsprech ?anlage": "Türsprechanlage",
+  "\\bvideo ?türsprech ?anlage": "Video-Türsprechanlage",
+  "\\btür ?station": "Türstation",
+  "\\baudio ?station": "Audiostation",
+  "\\bnetz ?teil\\b": "Netzteil"
+ }
+}

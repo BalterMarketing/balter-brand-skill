@@ -35,14 +35,14 @@ to use.
 | Wiring plan / Verdrahtungsplan for installers | 9b · Technical plan (run the generator) |
 | Any device picture (photo or vector) by article number | 9c · Device library |
 | Product photo, scene, AI image | 10 · Product and image |
-| Instagram, Facebook, LinkedIn, TikTok post, carousel, reel | 11 · Social |
-| Video, trade-fair film, lower thirds | 12 · Video |
+| Instagram, Facebook, LinkedIn, TikTok post, carousel, reel; content plan, rubric, posting rhythm, safe zones | 11 · Social |
+| Video, trade-fair film, lower thirds; cutting a reel, subtitles, DaVinci Resolve workflow | 12 · Video (12a hold rules, 12b pipeline) |
 | Newsletter, e-mail | 13 · E-mail |
 | Any German text, caption, headline, product copy | 14 · Language |
 | CSS variables, design system, new interface | 15 · Tokens |
 
 Files in this skill: `assets/logo/` (all logos, SVG and PNG) · `assets/tokens.css` (design tokens)
-· `assets/devices/` (every device as photo and vector, indexed by article number in `devices.json`) · `scripts/wiring_plan.py` (technical plan generator) ·
+· `assets/devices/` (every device as photo and vector, indexed by article number in `devices.json`) · `scripts/wiring_plan.py` (technical plan generator) · `assets/social/` (safe zones, overlays, caption glossary) · `scripts/captions.py` (brand subtitles) · `scripts/safe_zones.py` (overlays and checks) ·
 `examples/` (a plan spec and its output).
 
 ---
@@ -509,13 +509,88 @@ from the EVO line EVO-7M-WIFI / -WIFI-BLACK (no front shot of their own), EVO-DL
 
 ## 11 · Social media
 
-| Format | Pixels | Keep free |
+Strategy and research behind these rules: `Security/social-strategy.md` in the Balter workspace (not in the public
+copy). This section is what an agent needs to plan, cut, design and check a post.
+
+### 11a · Strategy in one screen
+- **Goal:** relevant followers (installers, electricians, security technicians in DACH) who follow, save, send and
+  ask. Measure follows per post, sends per reach, 3-s hold, average watch time — not views.
+- **Channel jobs:** Discovery = Instagram Reels (+ Trial Reels), same master to YouTube Shorts (TikTok optional) ·
+  Search = YouTube long with chapters · Trust = LinkedIn (page + personal profiles + monthly newsletter) · Community =
+  Facebook trade groups (answer as a person), Instagram Collab posts · Service = WhatsApp Business + WhatsApp Channel.
+  Do not plan X, Telegram or Pinterest for Security.
+- **Rubrics — every post belongs to exactly one:**
+
+| # | Rubric (on screen) | Content | Format | Share |
+|---|---|---|---|---|
+| R1 | Montage in 60 s | one install step on site: hands, top view, the terminal, the result | Reel 20–60 s + YouTube long | 25 % |
+| R2 | Balter antwortet | a Balter technician answers one real installer question; question card first | Reel 30–60 s, LinkedIn video | 15 % |
+| R3 | Fehler am Bau | one mistake and its fix, "Falsch" above / "Richtig" below | Reel 15–40 s, carousel | 10 % |
+| R4 | System erklärt | 2-Draht vs IP, Wohneinheiten, Netzteil rules, schema (9a/9b) | carousel 4:5, LinkedIn document | 15 % |
+| R5 | Im Test | proof with a measured number in the result card | Reel 20–45 s, YouTube | 10 % |
+| R6 | Projekt des Monats | a customer's finished install, installer named, Collab post | carousel + Reel | 10 % |
+| R7 | Aus der Werkstatt | Sonderanfertigung, engraving, RAL, warehouse | Reel, carousel | 5 % |
+| R8 | Neu bei Balter / Termine | launches framed as "Sie haben gefragt", fairs, Schulung | feed product/date templates, Stories | ≤ 20 % |
+
+  At least 60 % R1–R4; never two R8 in a row.
+- **Rubric plate (series recognition):** white pill, Inter 600 28 px caps, orange dot 14 px, at x 132 / y 290 in a
+  reel (y 120 in a feed post), episode "3/8" after the name. Fixed forms: step card (R1, R7), question card (R2),
+  Falsch/Richtig with black ✕ / white ✓ marks (R3, no red), schema (R4), result card bottom-left (R5), installer credit
+  (R6), product on black (R8).
+- **Rhythm (1–2 people):** Instagram 3/week (2 Reels + 1 carousel, Stories on posting days) · Facebook cross-post ·
+  Shorts 2/week · YouTube long 2/month · LinkedIn 2 page posts + 1 personal each from sales and management + newsletter
+  monthly · WhatsApp Channel 2–4/month. Week: Mon LinkedIn doc (R4) · Tue Reel (R1) · Wed carousel (R3/R4/R6) · Thu Reel
+  (R2/R5) · Fri Stories/WhatsApp (R8). One filming day a month ≈ 8 reel masters + 1–2 tutorials.
+- **Content-plan row:** KW/date · rubric · channels · format · hook (first caption line + first 2 s) · search word ·
+  article numbers · footage + consent · CTA · status · result after 7 days (views, reach, watch time, sends, saves,
+  comments, profile visits, follows, Stichtag). Asana "Content & Newsletter Planung", task `SM-YYYY-KWnn - <topic>`.
+
+### 11b · Platforms (what each algorithm rewards)
+- **Instagram:** watch time, sends per reach (strongest for non-followers), likes per reach. Reels for reach,
+  carousels for interaction (up to 20 slides; schedulers often 10), Stories only reach followers, Trial Reels test
+  hooks on non-followers. 20–60 s for discovery, how-to up to 2:45, never over 3 min for non-followers. Caption
+  2,200, ~125 visible; ≤ 5 hashtags. Profile grid is 3:4. Own footage only (originality rules).
+- **Facebook:** cross-post of Instagram; trade groups are where installers ask — answer as a person, never advertise.
+- **YouTube long:** CTR × retention, search (47 % of Balter's views). One video per searched question; title = the
+  query; chapters from 00:00, at least three.
+- **Shorts:** every start counts as a view since 2025-03-31 — judge engaged views. Link each Short to its long video
+  by hand in Studio (not possible via API).
+- **TikTok:** search reads caption, on-screen text and speech. Second outlet for the same masters only.
+- **LinkedIn:** topic matching by an LLM since March 2026 — stay on one professional topic. Document carousels (PDF 4:5)
+  get the most engagement; personal profiles reach far more than the page. Links in the first comment.
+- **WhatsApp:** Channel for updates (followers opt in, anonymous); Business for support; marketing messages only with
+  logged double opt-in (UWG).
+
+### 11c · Formats and safe zones
+Data: `assets/social/safe-zones.json` (keep-free px per edge, researched 2026-11-25). Overlays for Resolve / Figma /
+After Effects: `python3 scripts/safe_zones.py png <dir>` (also in `assets/social/overlays/`); check text boxes with
+`python3 scripts/safe_zones.py check x <format-id> x y w h …`.
+
+| Format | Pixels | Keep free (top / bottom / left / right) |
 |---|---|---|
-| Feed 4:5 | 1080 × 1350 | 64 px margin; profile grid crops 34 px left and right |
-| Carousel 4:5 | 1080 × 1350, up to 10 pages | as feed, page counter top right |
-| Reel / Story 9:16 | 1080 × 1920 | top 250 px, bottom 420 px, right 120 px |
-| Video 16:9 | 1920 × 1080 | title safe 90 % (see 12) |
-| Thumbnail | 1280 × 720 | bottom right 200 × 80 px |
+| 9:16 master (IG, FB, TikTok, Shorts, LinkedIn vertical) | 1080 × 1920 | 270 / 672 / 120 / 192 → text only in x 120–888, y 270–1248 |
+| Instagram Story | 1080 × 1920 | 270 / 340 / 65 / 65 |
+| Reel cover | 1080 × 1920 | title inside the centred 1012 × 1350 and above y 1300 |
+| Feed / carousel 4:5 | 1080 × 1350 | profile grid crops 34 px left and right; layout margin 64 |
+| LinkedIn document | 1080 × 1350 | 60 / 100 / 60 / 60 (viewer controls) |
+| YouTube 16:9 | 1920 × 1080 | lower thirds above y 900 (captions, controls) |
+| YouTube thumbnail | 1280 × 720 | 5 % border; duration badge bottom right ~240 × 100 |
+
+Headline at y 300–700, product at y 600–1240 in the 9:16 master. Never a plate or caption over the product.
+
+Proven on the real apps (iPhone 13 Pro Max, own posts, 2026-11-25; proofs in the brand book, chapter 11):
+- On tall phones Instagram fills 1284 × 2529 px with the 9:16 file and **crops about 6 % of the frame left and right**
+  — keep text off the outer 120 / 192 px anyway.
+- Facebook's share button and Instagram's caption sit exactly where our old subtitles were (below y 1248): subtitles
+  and lower thirds end at y 1248.
+- TikTok briefly shows a "liked by" avatar at the left edge, reaching about 90 px into the frame.
+- Story: header (progress, name, close) in the top 270 px, "send message" below the canvas.
+- Profile grid crops reel covers to 3:4: plates at the edge ("TEIL 1/2") get cut — cover titles in the centred 1012 × 1350.
+- Method for new proofs (any format change): drive the phone with WebDriverAgent (`scripts/iphone-capture/wda.py` in the
+  workspace), find the video rectangle from frame differences (`vrect.py`), lay the zone over it (`proof.py`), blur
+  other people.
+
+### 11d · Templates, plates, captions
 
 - Grid 1080: margin 64, 6 columns of 136, gutter 24, baseline 8. 4:5 and 9:16 each get their own
   layout; never stretch or pad a feed post to 9:16.
@@ -526,18 +601,19 @@ from the EVO line EVO-7M-WIFI / -WIFI-BLACK (no front shot of their own), EVO-DL
 - Feed templates: product (frame, window, plate) · infographic (one number per page) · date (fixed
   cells, photo on top) · schema (rules of 9a) · carousel title (panel at the bottom, counter on top)
   · end card (black, logo, contact). Do not invent a new form.
-- Reels: title on top under the safe zone; lower third bottom left above 420 px; detail callout =
+- Reels: title on top under the safe zone (from y 290); lower third bottom left above 672 px, from x 120; detail callout =
   white 28 px dot, 3 px line, white pill (max. two at once); end card stands 2 s.
 - Overlays on video: solid white panel, radius 32–48, padding 26–40, text left (no semi-transparent
-  white). Subtitles black 72 %, radius 16, Inter 700 48 px white, max. 2 lines of 32 characters,
-  centred above the bottom zone. Hold ≥ 2 s plus 1.2 s per line; in 400 ms with 36 px rise, out
+  white). Subtitles black 72 %, radius 16, Inter 700 48 px white, max. 2 lines, wrapped by width inside
+  the usable area (about 26–30 characters), centred in that area above the bottom zone (`scripts/captions.py`). Hold ≥ 2 s plus 1.2 s per line; in 400 ms with 36 px rise, out
   250 ms opacity only. Logo at start or end, never a permanent watermark. Always subtitles.
 - Never: a plate over the product, text in safe zones, orange strokes/underlines/frames, fake "Jetzt
   kaufen" buttons, other fonts, emoji in the graphic (sparingly allowed in the caption).
 - Captions: German, "Sie", one version per channel — Instagram/Facebook 600–1,200 characters,
   LinkedIn 800–1,600, TikTok 100–150. First line is the hook (~125 characters before "mehr").
   Contact always written out: sales@balter.de, never "Link in der Bio". Hashtags at the end:
-  Instagram 8–15, LinkedIn 3–5.
+  Instagram at most 5 (platform limit since December 2025), LinkedIn 3–5; the search word goes in the first
+  line, on screen and in speech.
 - Workflow: pick template → real pixels → check (safe zones, one orange, Science Gothic once,
   smallest text, rounding intact) → approval by Balter Design und Marketing → publish. Report
   figures 7 days after posting, with the cut-off date.
@@ -560,6 +636,51 @@ from the EVO line EVO-7M-WIFI / -WIFI-BLACK (no front shot of their own), EVO-DL
   File name `BALTER_Thema_v12_9x16.mp4`.
 - Laptop mockups: MacBook, straight front view, lid does not move. Trade-fair and partner logos in
   original colours on their own plate. No orange divider strokes.
+
+### 12a · What makes a short or a tutorial hold (frame-by-frame research, 2026-11-25)
+- **0–3 s:** the result, the measured number or the mistake, plus the sentence an installer searches for
+  ("Türsprechanlage auf 2 Adern nachrüsten"). No intro sting on a Reel.
+- **3–7 s:** who speaks, in one line ("Ich bin Techniker bei Balter, so geht es").
+- **Steps:** hands and top view, 4–7 s per shot; fast cuts (1–2 s) only in the hook and in action.
+- **Name the mistake of each step** (wires swapped, screw too tight, power before the module): it keeps viewers.
+- **Speed up waiting** (app pairing, boot) 4–8× with the real device in frame.
+- **One graphic language:** rubric plate, step card, result card bottom-left (bold number, unit light, what was
+  measured, date), dot-line-pill on the detail, summary table. Highlight what is being said; never decorate.
+- **Real millimetres, real wall box, real terminals in macro** beat renders.
+- **Sound:** close clean voice; keep real device sounds (terminal click, door-opener buzz); music about −18 dB
+  under the voice or none; −14 LUFS.
+- **Brand:** logo at start or end only; the product in frame is the brand. CTA at the end, one comment question in
+  the middle. Sponsored creator content carries "Werbung/Anzeige".
+
+### 12b · Production pipeline — automatic or co-pilot in DaVinci Resolve
+Default stack (free first): DaVinci Resolve Studio 21.2 with its built-in MCP (only that one — a community Resolve MCP
+beside it can conflict), WhisperX large-v3 for German word timings (ElevenLabs Scribe as fallback), ffmpeg, this
+skill's scripts. Tools research: `Security/social/research/editing-tools.md` (workspace).
+
+1. **Plan:** rubric, hook, search word, shot list (content-plan row, 11a).
+2. **Ingest (Resolve):** bins raw / B-roll / sound / graphics; clip names `KWnn_Rubrik_Thema_take`; markers on product
+   shots and silences; colour: Custom Curves node, then CST S-Gamut3.Cine/S-Log3 → Rec.709 (no Sony LUT).
+3. **Transcript:** WhisperX word timings (JSON) or Resolve's transcript. Apply `assets/social/caption-glossary.json`.
+4. **Selects:** the agent proposes in/out points from the transcript (hook first, one idea per Reel); **a human
+   approves**.
+5. **Rough cut:** Resolve removes silence; a filler-word pass by timings; the human trims rhythm (Resolve's API cannot
+   cut or move clips on the timeline — in co-pilot mode the editor cuts, the agent prepares).
+6. **Captions:** `python3 scripts/captions.py words.json out.srt` → SRT for the Resolve subtitle track (co-pilot), or
+   `--burn in.mp4 out.mp4 --font Inter-Bold.ttf --format master-9x16` (automatic). **Proof-read numbers and product
+   names before burning in.**
+7. **Graphics:** rubric plate, step/question/result cards as the templates of chapter 11 (HTML rendered with a
+   transparent background, or Fusion titles in Resolve where the editor must retype).
+8. **Sound:** voice up, music ≈ −18 dB under it, normalise to −14 LUFS.
+9. **Formats:** 9:16 master first; 4:5 and 16:9 as their own cuts; Smart Reframe, then a manual check.
+10. **QC:** `scripts/safe_zones.py check` for every text box; overlay PNG on the top track for a visual check (switch
+    off before render); hook visible in the first 3 s; captions ≤ 2 lines; loudness; file name
+    `BALTER_Thema_v12_9x16.mp4`.
+11. **Cover:** 1080 × 1920, title in the centred 1012 × 1350 above y 1300.
+12. **Publish:** Metricool as a draft (Free plan: 20 posts a month in total, no LinkedIn); a human releases it.
+    LinkedIn natively. Link the Short to its long video in YouTube Studio.
+13. **Measure:** day 7, with Stichtag, into the Asana task.
+
+Human decisions: selects, final cut, caption proof, approval to publish. Show the cut on the timeline before rendering.
 
 ## 13 · E-mail (Brevo newsletters)
 
