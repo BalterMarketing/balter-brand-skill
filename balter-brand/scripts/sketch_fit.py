@@ -109,7 +109,7 @@ def material_of(d):
     return "steel"
 
 
-def fit(d, overlay=None):
+def fit(d, overlay=None, ctx=False):
     img4 = cv2.imread(os.path.join(DEV, d["image"]), cv2.IMREAD_UNCHANGED)
     alpha = img4[..., 3] > 40
     img = img4[..., :3]
@@ -283,7 +283,10 @@ def fit(d, overlay=None):
             elif kind == "line":
                 cv2.line(ov, (int(p[0]), int(p[1])), (int(p[2]), int(p[1])), col, 1)
         cv2.imwrite(overlay, ov)
-    return svg, dict(mean=round(mean_err, 2), worst=[worst[0], round(worst[1], 2)], n=len(shapes) - 1, logo=bool(logo))
+    rep = dict(mean=round(mean_err, 2), worst=[worst[0], round(worst[1], 2)], n=len(shapes) - 1, logo=bool(logo))
+    if ctx:
+        return svg, rep, dict(shapes=shapes, logo=logo, img=img, g=g, e=e, alpha=alpha, box=(bx, by, bw, bh), mat=mat, sw=sw, W=W, H=H)
+    return svg, rep
 
 
 if __name__ == "__main__":

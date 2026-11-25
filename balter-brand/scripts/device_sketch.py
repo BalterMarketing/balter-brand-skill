@@ -340,6 +340,7 @@ def din_front(d, s, W, H, label, kind):
 
 
 CHECK = {}
+MAN = []
 
 
 def draw(d):
@@ -354,17 +355,21 @@ def draw(d):
     sw = max(2.0, min(m["W"], m["H"]) * .006)
     s = Sk(m["W"], m["H"], sw)
     if k in ("video-tuerstation", "audio-tuerstation", "erweiterung") and not a.startswith("EVO-HD-TOUCH"):
-        import sketch_fit
-        svg, rep = sketch_fit.fit(d)
+        import station_model
+        svg, rep = station_model.sketch(d, MAN)
         CHECK[a] = rep
         return svg, [m["W"], m["H"]]
-    if k in ("video-tuerstation", "audio-tuerstation", "erweiterung"):
-        station(d, m, s)
-    elif k == "monitor":
-        monitor(d, m, s)
-    elif k == "audiostation":
-        talk(d, m, s)
-    elif k == "pro-modul":
+    if k in ("monitor", "audiostation") or a.startswith("EVO-HD-TOUCH"):
+        import flat_model
+        svg, rep = flat_model.sketch(d, MAN)
+        CHECK[a] = rep
+        return svg, [m["W"], m["H"]]
+    if k in ("pro-modul", "gehaeuse"):
+        import pro_model
+        svg, rep = pro_model.sketch(d)
+        CHECK[a] = rep
+        return svg, [m["W"], m["H"]]
+    if k == "pro-modul":
         pro_module(d, m, s)
     elif k == "gehaeuse":
         housing(d, m, s)
@@ -374,6 +379,10 @@ def draw(d):
 def main():
     path = os.path.join(DEV, "devices.json")
     man = json.load(open(path, encoding="utf-8"))
+    MAN[:] = man["devices"]
+    cpath = os.path.join(DEV, "sketch-check.json")
+    if os.path.exists(cpath):
+        CHECK.update(json.load(open(cpath)))
     only = {x.upper() for x in sys.argv[1:]}
     n = 0
     for d in man["devices"]:
@@ -388,7 +397,7 @@ def main():
         d["vector_px"] = size
         n += 1
     json.dump(man, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    json.dump(CHECK, open(os.path.join(DEV, "sketch-check.json"), "w"), indent=1)
+    json.dump(CHECK, open(cpath, "w"), indent=1)
     for a_, r_ in CHECK.items():
         print(f"{a_:24} mean {r_['mean']:.2f}px  worst {r_['worst'][0]} {r_['worst'][1]:.2f}px  logo {r_['logo']}")
     print(n, "sketches")

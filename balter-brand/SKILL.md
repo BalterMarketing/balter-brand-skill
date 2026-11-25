@@ -326,23 +326,36 @@ Not on any sheet yet (no checked number): maximum cable length for EVO HD, monit
 same file stem** (the article number in lowercase, dots removed):
 
 - `<article>.png` — the **photo**: real pixels, transparent background. For social, website, slides.
-- `<article>.svg` — the **technical sketch** (Skizze). Never a trace and never drawn by eye:
-  `scripts/sketch_fit.py` finds every real outline on the photo (edges with the brushing removed), draws
-  each element as one clean shape exactly on that outline — circle (lens, call button with its dot),
-  rectangle (name plate, status bar, glass), pill (speaker slot, mounting tab), line (microphone) — and
-  then **checks the fit**: the distance from every drawn outline to the photo's edge, in pixels, is
-  written to `assets/devices/sketch-check.json` (stations today: mean 0.1–0.9 px). Three tones only:
-  grey body (steel `#D9D9D9`, white `#F2F2F2`, black finish `#3A3A3A`), black for camera, status bar,
-  glass, RFID / fingerprint, white for name plates; one black outline. The real BALTER logo is placed
-  where it sits on the plate. **DIN-rail modules** (EVO-HD-C5001, EVO-HD-DL, EVO-HD-2WL) are taken
-  from Balter Technik's own straight-on drawings in Figma (`assets/figma/`, `scripts/figma_modules.py`),
-  because their photos are shot at an angle; their labels stay as on the module.
+- `<article>.svg` — the **technical sketch** (Skizze). Never a trace and never drawn by eye. Every
+  device is built from a small set of parts; each part is **found on the photo** and drawn with **one
+  symbol**, so all sketches share one style and sit 1:1 on the photo:
+  - stations, audio stations, extensions — `scripts/station_model.py`: sensor windows, IR light (mesh or
+    its LEDs), camera dome, loudspeaker slots or hole grid, microphone, status display with its icons
+    (bell, call, door), RFID / fingerprint block, name plates, call buttons (one size per station);
+  - monitors, Talk, Touch — `scripts/flat_model.py`: screen (dark), status LEDs (dot, moon, mail),
+    touch rings and the call / hang-up buttons, handset, base, key / bell / apps buttons, cable; the
+    Touch station keeps a plain outline of its call list, because there the screen is how a visitor rings;
+  - EVO HD PRO modules and housings — `scripts/pro_model.py`: grooves, speaker slot, plates, RFID block,
+    camera module (dome, IR bars, icon row); housings take their cut outline and openings from the photo,
+    inner steps and round cable entries where they are found.
+  **Black twins** (EVO-HD-BLACK-8FAM, EVO-BLACK-8EXT/12EXT, 7M/MINI/PRO-7 black, BLACK-TALK) share the
+  geometry of their steel or white twin; what differs (LEDs, display icons, IR pill, logo) is found on
+  the black photo. Where white-on-white hides a part (MINI rings), it is taken from the clearer twin.
+  **Every sketch is checked**: the distance from each drawn outline to the photo's edge, in pixels, goes
+  to `assets/devices/sketch-check.json` (stations mean 0.5–1.3 px). Check it by eye too: photo, sketch
+  and the sketch laid over the photo side by side. Three tones only: grey body (steel `#D9D9D9`, white
+  `#F2F2F2`, black finish `#3A3A3A`), black for camera, screens, display, glass, RFID / fingerprint, white
+  for name plates; one black outline; icons in light grey line. The real BALTER logo is placed where it
+  sits on the device (upright on station plates, horizontal on monitors, Talk, Touch). **DIN-rail
+  modules** (EVO-HD-C5001, EVO-HD-DL, EVO-HD-2WL) are taken from Balter Technik's own straight-on drawings
+  in Figma (`assets/figma/`, `scripts/figma_modules.py`), because their photos are shot at an angle; their
+  labels stay as on the module. `python3 scripts/device_sketch.py [ARTICLE …]` redraws them.
 
 `assets/devices/devices.json` is the index: article, German name (house words), kind, line, colour,
 button count, size in mm where the manual gives it, both file names, and `plan: true` for devices the
 wiring-plan generator may use. **Always pick a device by its article number from this index.** A device
 that is not in it does not exist for you: ask for a real photo, add it with its article number, then
-run `python3 scripts/device_vectors.py` to draw its illustration. Never draw, generate or borrow a
+run `python3 scripts/device_sketch.py <ARTICLE>` to draw its sketch, then look at it over the photo. Never draw, generate or borrow a
 device that is not in the library, and never show a device under another article number.
 
 The wiring-plan generator takes `--style photo` (default) or `--style vector`.
