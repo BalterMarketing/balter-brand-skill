@@ -561,34 +561,40 @@ copy). This section is what an agent needs to plan, cut, design and check a post
 - **WhatsApp:** Channel for updates (followers opt in, anonymous); Business for support; marketing messages only with
   logged double opt-in (UWG).
 
-### 11c · Formats and safe zones
-Data: `assets/social/safe-zones.json` (keep-free px per edge, researched 2026-11-25). Overlays for Resolve / Figma /
-After Effects: `python3 scripts/safe_zones.py png <dir>` (also in `assets/social/overlays/`); check text boxes with
-`python3 scripts/safe_zones.py check x <format-id> x y w h …`.
+### 11c · Formats and safe zones (measured in the real apps)
+Data: `assets/social/safe-zones.json` — measured 2026-11-25 on an iPhone 13 Pro Max (iOS 27) in Instagram, Facebook,
+YouTube, TikTok and LinkedIn from the accessibility frames of every button and text, converted into the 1080 × 1920 file
+with each app's scaling and side crop, plus 24 px air. Formats with a `zone` polygon use that polygon. Overlays for
+Resolve / Figma / After Effects: `python3 scripts/safe_zones.py png <dir>` (also `assets/social/overlays/`); check text
+boxes against the polygon with `python3 scripts/safe_zones.py check x <format-id> x y w h …`.
 
-| Format | Pixels | Keep free (top / bottom / left / right) |
-|---|---|---|
-| 9:16 master (IG, FB, TikTok, Shorts, LinkedIn vertical) | 1080 × 1920 | 270 / 672 / 120 / 192 → text only in x 120–888, y 270–1248 |
-| Instagram Story | 1080 × 1920 | 270 / 340 / 65 / 65 |
-| Reel cover | 1080 × 1920 | title inside the centred 1012 × 1350 and above y 1300 |
-| Feed / carousel 4:5 | 1080 × 1350 | profile grid crops 34 px left and right; layout margin 64 |
-| LinkedIn document | 1080 × 1350 | 60 / 100 / 60 / 60 (viewer controls) |
-| YouTube 16:9 | 1920 × 1080 | lower thirds above y 900 (captions, controls) |
-| YouTube thumbnail | 1280 × 720 | 5 % border; duration badge bottom right ~240 × 100 |
+**The 9:16 master (one file for Reels, Shorts, TikTok, Facebook, LinkedIn) — an L-shape, not a rectangle:**
+- wide part: x 80–1000, y 250–875;
+- below y 875: x 80–858 (the apps' button column; TikTok's starts highest), down to y 1540 (name, caption, friends' avatars);
+- subtitles: centred in x 80–858, bottom edge y 1540 (`scripts/captions.py` does this); rubric plate at x 92, y 270;
+  plates top right up to x 1000; a lower third bottom-left above the subtitle.
 
-Headline at y 300–700, product at y 600–1240 in the 9:16 master. Never a plate or caption over the product.
+| Measured (in the 1080 × 1920 file) | Instagram | YouTube | Facebook | TikTok | LinkedIn |
+|---|---|---|---|---|---|
+| visible width (side crop on tall phones) | 53–1027 | 52–1028 | 55–1025 | ~40–1040 | 18–1062 |
+| top UI ends | 221 | 217 | 224 | 152 | — |
+| button column | x ≥ 907 from y 1025 | x ≥ 882 from y 1090 | x ≥ 898 from y 1202 | x ≥ 923 from y 899 | x ≥ 906 from y 1105 |
+| bottom UI starts | 1565 (friends' avatars), 1724 (name) | 1651 | 1594 | 1673 | 1644 |
 
-Proven on the real apps (iPhone 13 Pro Max, own posts, 2026-11-25; proofs in the brand book, chapter 11):
-- On tall phones Instagram fills 1284 × 2529 px with the 9:16 file and **crops about 6 % of the frame left and right**
-  — keep text off the outer 120 / 192 px anyway.
-- Facebook's share button and Instagram's caption sit exactly where our old subtitles were (below y 1248): subtitles
-  and lower thirds end at y 1248.
-- TikTok briefly shows a "liked by" avatar at the left edge, reaching about 90 px into the frame.
-- Story: header (progress, name, close) in the top 270 px, "send message" below the canvas.
-- Profile grid crops reel covers to 3:4: plates at the edge ("TEIL 1/2") get cut — cover titles in the centred 1012 × 1350.
-- Method for new proofs (any format change): drive the phone with WebDriverAgent (`scripts/iphone-capture/wda.py` in the
-  workspace), find the video rectangle from frame differences (`vrect.py`), lay the zone over it (`proof.py`), blur
-  other people.
+Other formats: Instagram Story — header to y 124, reply bar below the canvas on tall phones (keep 120 px for small
+ones) · feed / carousel 4:5 — the profile grid crops 34 px left and right, layout margin 64 · LinkedIn document — 60 /
+100 / 60 / 60 · YouTube 16:9 — lower thirds above y 900 · YouTube thumbnail 1280 × 720 — 5 % border, duration bottom right.
+
+**Covers and grids (measured):** Instagram profile and TikTok profile show 3:4 tiles (y 240–1680 of the file); Instagram
+reels tab, Facebook reels tab and the LinkedIn feed show the whole 9:16; YouTube's channel Shorts tab y 57–1863. Every
+tile carries the view count bottom-left, YouTube a ⋮ menu top-right. → Cover title in x 80–1000, y 330–1500, nothing in
+the bottom-left 420 × 120 px or the top-right 120 × 120 px of the tile; upload a dedicated 1080 × 1920 cover; same cover
+layout per rubric (plate on top, title centre, product). Instagram's main-feed 4:5 preview (y 285–1635) is from the
+templates, not measured.
+
+Method for new proofs: `scripts/iphone-capture/` in the workspace — `wda.py` drives the phone through WebDriverAgent
+(`source` returns every element's frame), `vrect.py` finds the video rectangle from frame differences, `proof.py` lays
+the zone polygon over a screenshot; blur other people.
 
 ### 11d · Templates, plates, captions
 
@@ -601,11 +607,11 @@ Proven on the real apps (iPhone 13 Pro Max, own posts, 2026-11-25; proofs in the
 - Feed templates: product (frame, window, plate) · infographic (one number per page) · date (fixed
   cells, photo on top) · schema (rules of 9a) · carousel title (panel at the bottom, counter on top)
   · end card (black, logo, contact). Do not invent a new form.
-- Reels: title on top under the safe zone (from y 290); lower third bottom left above 672 px, from x 120; detail callout =
+- Reels: title on top under the top zone (from y 270); lower third bottom left above the subtitle, from x 80; detail callout =
   white 28 px dot, 3 px line, white pill (max. two at once); end card stands 2 s.
 - Overlays on video: solid white panel, radius 32–48, padding 26–40, text left (no semi-transparent
-  white). Subtitles black 72 %, radius 16, Inter 700 48 px white, max. 2 lines, wrapped by width inside
-  the usable area (about 26–30 characters), centred in that area above the bottom zone (`scripts/captions.py`). Hold ≥ 2 s plus 1.2 s per line; in 400 ms with 36 px rise, out
+  white). Subtitles black 72 %, radius 16, Inter 700 48 px white, max. 2 lines, wrapped by width, centred in
+  x 80–858 with the bottom edge at y 1540 (`scripts/captions.py`). Hold ≥ 2 s plus 1.2 s per line; in 400 ms with 36 px rise, out
   250 ms opacity only. Logo at start or end, never a permanent watermark. Always subtitles.
 - Never: a plate over the product, text in safe zones, orange strokes/underlines/frames, fake "Jetzt
   kaufen" buttons, other fonts, emoji in the graphic (sparingly allowed in the caption).

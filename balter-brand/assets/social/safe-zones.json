@@ -1,22 +1,426 @@
 {
- "note": "Keep-free margins in px, measured from each canvas edge. Values are the safe superset of the published templates (Pinterest is the only official source). Researched 2026-11-25; check again twice a year. Backgrounds and video may fill the canvas; text, logo and the product's key details stay inside the usable area.",
+ "note": "Measured 2026-11-25 on the real apps (iPhone 13 Pro Max, iOS 27; Instagram, Facebook, YouTube, TikTok, LinkedIn) from the accessibility frames of every button and text, converted into the 1080 x 1920 file with each app's own scaling and side crop, plus 24 px air. Where a format has a 'zone' polygon, that polygon is the usable area; the edge margins are the bounding box. Backgrounds and video may fill the canvas; text, logo and the product's key details stay inside.",
  "formats": [
-  {"id": "master-9x16", "name": "9:16 Master (Reels, TikTok, Shorts, FB Reels, LinkedIn vertikal)", "w": 1080, "h": 1920, "top": 270, "bottom": 672, "left": 120, "right": 192,
-   "extra": [{"label": "Feed-Vorschau 4:5", "y0": 285, "y1": 1635}, {"label": "Profilraster 3:4", "y0": 240, "y1": 1680}],
-   "note": "Union of Instagram, Facebook, TikTok and YouTube Shorts. Headline y 300–700, product y 600–1240."},
-  {"id": "ig-reel", "name": "Instagram Reel", "w": 1080, "h": 1920, "top": 270, "bottom": 672, "left": 65, "right": 192},
-  {"id": "ig-story", "name": "Instagram / Facebook Story", "w": 1080, "h": 1920, "top": 270, "bottom": 340, "left": 65, "right": 65},
-  {"id": "tiktok", "name": "TikTok", "w": 1080, "h": 1920, "top": 240, "bottom": 660, "left": 120, "right": 180},
-  {"id": "yt-shorts", "name": "YouTube Shorts", "w": 1080, "h": 1920, "top": 240, "bottom": 672, "left": 96, "right": 192},
-  {"id": "reel-cover", "name": "Reel-Cover (Raster und Feed zugleich)", "w": 1080, "h": 1920, "top": 285, "bottom": 620, "left": 34, "right": 34,
-   "note": "Title inside the centred 1012 × 1350 area and above y 1300."},
-  {"id": "ig-feed", "name": "Instagram Feed / Karussell 4:5", "w": 1080, "h": 1350, "top": 0, "bottom": 0, "left": 34, "right": 34,
-   "inner": 64, "note": "The 3:4 profile grid crops 34 px left and right. Layout margin stays 64 px."},
-  {"id": "li-doc", "name": "LinkedIn Dokument 4:5", "w": 1080, "h": 1350, "top": 60, "bottom": 100, "left": 60, "right": 60,
-   "note": "Viewer controls; LinkedIn publishes no values (heuristic)."},
-  {"id": "yt-thumb", "name": "YouTube-Vorschaubild", "w": 1280, "h": 720, "top": 0, "bottom": 0, "left": 0, "right": 0,
-   "boxes": [{"label": "Laufzeit", "x": 1040, "y": 620, "w": 240, "h": 100}], "note": "Keep a 5 % border; the duration badge sits bottom right (size not published)."},
-  {"id": "yt-16x9", "name": "YouTube 16:9", "w": 1920, "h": 1080, "top": 90, "bottom": 150, "left": 96, "right": 96,
-   "note": "Captions and player controls at the bottom; lower thirds above y 900."}
- ]
+  {
+   "id": "master-9x16",
+   "name": "9:16 Master (Reels, TikTok, Shorts, FB Reels, LinkedIn vertikal)",
+   "w": 1080,
+   "h": 1920,
+   "top": 250,
+   "bottom": 380,
+   "left": 80,
+   "right": 80,
+   "extra": [
+    {
+     "label": "Feed-Vorschau 4:5",
+     "y0": 285,
+     "y1": 1635
+    },
+    {
+     "label": "Profilraster 3:4",
+     "y0": 240,
+     "y1": 1680
+    }
+   ],
+   "note": "One file for Reels, Shorts, TikTok, Facebook and LinkedIn. Wide part x 80-1000 from y 250 to 875; below y 875 the right edge is x 858 (the apps' button column starts there). Bottom of all text y 1540 (name, caption, friends' avatars start at 1565).",
+   "zone": [
+    [
+     80,
+     250
+    ],
+    [
+     1000,
+     250
+    ],
+    [
+     1000,
+     875
+    ],
+    [
+     858,
+     875
+    ],
+    [
+     858,
+     1540
+    ],
+    [
+     80,
+     1540
+    ]
+   ]
+  },
+  {
+   "id": "ig-reel",
+   "name": "Instagram Reel",
+   "w": 1080,
+   "h": 1920,
+   "top": 245,
+   "bottom": 355,
+   "left": 77,
+   "right": 53,
+   "zone": [
+    [
+     77,
+     245
+    ],
+    [
+     1003,
+     245
+    ],
+    [
+     1003,
+     1001
+    ],
+    [
+     883,
+     1001
+    ],
+    [
+     883,
+     1541
+    ],
+    [
+     77,
+     1541
+    ]
+   ]
+  },
+  {
+   "id": "ig-story",
+   "name": "Instagram / Facebook Story",
+   "w": 1080,
+   "h": 1920,
+   "top": 148,
+   "bottom": 120,
+   "left": 40,
+   "right": 40,
+   "note": "Header (progress, name, close) ends at y 124; reply bar below the canvas on tall phones, keep 120 px for small ones."
+  },
+  {
+   "id": "tiktok",
+   "name": "TikTok",
+   "w": 1080,
+   "h": 1920,
+   "top": 176,
+   "bottom": 247,
+   "left": 64,
+   "right": 40,
+   "zone": [
+    [
+     64,
+     176
+    ],
+    [
+     1016,
+     176
+    ],
+    [
+     1016,
+     875
+    ],
+    [
+     899,
+     875
+    ],
+    [
+     899,
+     1649
+    ],
+    [
+     64,
+     1649
+    ]
+   ]
+  },
+  {
+   "id": "fb-reel",
+   "name": "Facebook Reel",
+   "w": 1080,
+   "h": 1920,
+   "top": 248,
+   "bottom": 350,
+   "left": 79,
+   "right": 55,
+   "zone": [
+    [
+     79,
+     248
+    ],
+    [
+     1001,
+     248
+    ],
+    [
+     1001,
+     1178
+    ],
+    [
+     874,
+     1178
+    ],
+    [
+     874,
+     1570
+    ],
+    [
+     79,
+     1570
+    ]
+   ]
+  },
+  {
+   "id": "li-video",
+   "name": "LinkedIn Video 9:16",
+   "w": 1080,
+   "h": 1920,
+   "top": 40,
+   "bottom": 300,
+   "left": 42,
+   "right": 42,
+   "zone": [
+    [
+     42,
+     40
+    ],
+    [
+     1038,
+     40
+    ],
+    [
+     1038,
+     1081
+    ],
+    [
+     882,
+     1081
+    ],
+    [
+     882,
+     1620
+    ],
+    [
+     42,
+     1620
+    ]
+   ]
+  },
+  {
+   "id": "yt-shorts",
+   "name": "YouTube Shorts",
+   "w": 1080,
+   "h": 1920,
+   "top": 241,
+   "bottom": 293,
+   "left": 76,
+   "right": 52,
+   "zone": [
+    [
+     76,
+     241
+    ],
+    [
+     1004,
+     241
+    ],
+    [
+     1004,
+     1066
+    ],
+    [
+     858,
+     1066
+    ],
+    [
+     858,
+     1627
+    ],
+    [
+     76,
+     1627
+    ]
+   ]
+  },
+  {
+   "id": "reel-cover",
+   "name": "Reel-Cover (Raster und Feed zugleich)",
+   "w": 1080,
+   "h": 1920,
+   "top": 330,
+   "bottom": 420,
+   "left": 80,
+   "right": 80,
+   "note": "Cover / thumbnail: profile grids of Instagram (posts) and TikTok show 3:4 = y 240-1680; YouTube's Shorts tab y 57-1863; Instagram reels tab, Facebook and LinkedIn the whole frame. View counter sits bottom-left of every tile, YouTube's menu top-right. Title inside x 80-1000, y 330-1500.",
+   "extra": [
+    {
+     "label": "Profilraster 3:4",
+     "y0": 240,
+     "y1": 1680
+    },
+    {
+     "label": "Feed 4:5",
+     "y0": 285,
+     "y1": 1635
+    }
+   ],
+   "boxes": [
+    {
+     "label": "Aufrufe",
+     "x": 0,
+     "y": 1560,
+     "w": 420,
+     "h": 120
+    },
+    {
+     "label": "Menü",
+     "x": 960,
+     "y": 240,
+     "w": 120,
+     "h": 120
+    }
+   ]
+  },
+  {
+   "id": "ig-feed",
+   "name": "Instagram Feed / Karussell 4:5",
+   "w": 1080,
+   "h": 1350,
+   "top": 0,
+   "bottom": 0,
+   "left": 34,
+   "right": 34,
+   "inner": 64,
+   "note": "The 3:4 profile grid crops 34 px left and right. Layout margin stays 64 px."
+  },
+  {
+   "id": "li-doc",
+   "name": "LinkedIn Dokument 4:5",
+   "w": 1080,
+   "h": 1350,
+   "top": 60,
+   "bottom": 100,
+   "left": 60,
+   "right": 60,
+   "note": "Viewer controls; LinkedIn publishes no values (heuristic)."
+  },
+  {
+   "id": "yt-thumb",
+   "name": "YouTube-Vorschaubild",
+   "w": 1280,
+   "h": 720,
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0,
+   "boxes": [
+    {
+     "label": "Laufzeit",
+     "x": 1040,
+     "y": 620,
+     "w": 240,
+     "h": 100
+    }
+   ],
+   "note": "Keep a 5 % border; the duration badge sits bottom right (size not published)."
+  },
+  {
+   "id": "yt-16x9",
+   "name": "YouTube 16:9",
+   "w": 1920,
+   "h": 1080,
+   "top": 90,
+   "bottom": 150,
+   "left": 96,
+   "right": 96,
+   "note": "Captions and player controls at the bottom; lower thirds above y 900."
+  }
+ ],
+ "measured": {
+  "instagram-reel": {
+   "visible_x": [
+    53,
+    1027
+   ],
+   "top_ui_until": 221,
+   "right_column": {
+    "x_from": 907,
+    "y": [
+     1025,
+     1879
+    ]
+   },
+   "bottom_ui_from": 1565,
+   "bottom_ui_from_without_friends": 1724
+  },
+  "youtube-shorts": {
+   "visible_x": [
+    52,
+    1028
+   ],
+   "top_ui_until": 217,
+   "right_column": {
+    "x_from": 882,
+    "y": [
+     1090,
+     1920
+    ]
+   },
+   "bottom_ui_from": 1651
+  },
+  "facebook-reel": {
+   "visible_x": [
+    55,
+    1025
+   ],
+   "top_ui_until": 224,
+   "right_column": {
+    "x_from": 898,
+    "y": [
+     1202,
+     1886
+    ]
+   },
+   "bottom_ui_from": 1594
+  },
+  "tiktok": {
+   "visible_x": [
+    40,
+    1040
+   ],
+   "top_ui_until": 152,
+   "right_column": {
+    "x_from": 923,
+    "y": [
+     899,
+     1920
+    ]
+   },
+   "bottom_ui_from": 1673,
+   "note": "from the screenshot (TikTok's accessibility tree times out); a 'liked by' avatar can appear at the left edge around y 1050-1170"
+  },
+  "linkedin-video": {
+   "visible_x": [
+    18,
+    1062
+   ],
+   "top_ui_until": 0,
+   "right_column": {
+    "x_from": 906,
+    "y": [
+     1105,
+     1871
+    ]
+   },
+   "bottom_ui_from": 1644
+  },
+  "instagram-story": {
+   "visible_x": [
+    0,
+    1080
+   ],
+   "top_ui_until": 124,
+   "bottom_ui_from": 1920,
+   "note": "on a tall iPhone the reply bar sits below the canvas"
+  }
+ }
 }

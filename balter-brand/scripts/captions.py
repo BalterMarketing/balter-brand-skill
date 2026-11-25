@@ -106,8 +106,10 @@ def burn(cs, src, dst, font, fmt):
         p = os.path.join(td, f"c{i:04}.png")
         im.save(p)
         inputs += ["-i", p]
-        x = f"{f['left']}+({f['w'] - f['left'] - f['right']}-w)/2"
-        y = f"H-{f['bottom'] + int(24 * k)}-h"
+        poly = SZ.polygon(f)
+        lx0 = min(p[0] for p in poly); lx1 = min(p[0] for p in poly if p[0] > lx0)   # lower part: left edge to the notch
+        x = f"{lx0}+({lx1 - lx0}-w)/2"
+        y = f"{max(p[1] for p in poly) - int(12 * k)}-h"
         out = f"[v{i}]"
         chain.append(f"{last}[{i + 1}:v]overlay={x}:{y}:enable='between(t,{c['start']:.3f},{c['end']:.3f})'{out}")
         last = out
@@ -126,7 +128,9 @@ def set_fit(font, fmt):
     f = SZ.formats()[fmt]
     k = f["w"] / 1080
     fnt = ImageFont.truetype(font, int(48 * k))
-    room = f["w"] - f["left"] - f["right"] - 2 * int(28 * k)
+    poly = SZ.polygon(f)
+    lx0 = min(p[0] for p in poly); lx1 = min(p[0] for p in poly if p[0] > lx0)
+    room = lx1 - lx0 - 2 * int(28 * k)
     FIT = lambda t: len(t) <= MAXC and fnt.getlength(t) <= room  # noqa: E731
 
 
