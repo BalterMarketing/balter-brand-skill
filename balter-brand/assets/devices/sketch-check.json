@@ -1,0 +1,164 @@
+{
+ "EVO-HD-1FAM": {
+  "mean": 0.32,
+  "worst": [
+   "lens",
+   1.37
+  ],
+  "n": 16,
+  "logo": true
+ },
+ "EVO-HD-2FAM": {
+  "mean": 0.23,
+  "worst": [
+   "button",
+   1.37
+  ],
+  "n": 20,
+  "logo": true
+ },
+ "EVO-HD-3FAM": {
+  "mean": 0.35,
+  "worst": [
+   "button",
+   1.37
+  ],
+  "n": 22,
+  "logo": true
+ },
+ "EVO-HD-4FAM": {
+  "mean": 0.39,
+  "worst": [
+   "lens",
+   1.37
+  ],
+  "n": 26,
+  "logo": true
+ },
+ "EVO-HD-6FAM": {
+  "mean": 0.42,
+  "worst": [
+   "lens",
+   1.37
+  ],
+  "n": 30,
+  "logo": true
+ },
+ "EVO-HD-8FAM": {
+  "mean": 0.49,
+  "worst": [
+   "lens",
+   1.37
+  ],
+  "n": 37,
+  "logo": true
+ },
+ "EVO-HD-BLACK-8FAM": {
+  "mean": 0.94,
+  "worst": [
+   "part",
+   2.8
+  ],
+  "n": 34,
+  "logo": true
+ },
+ "EVO-HD-FN-2FAM": {
+  "mean": 0.6,
+  "worst": [
+   "lens",
+   2.32
+  ],
+  "n": 17,
+  "logo": true
+ },
+ "EVO-HD-1FAM-AUDIO": {
+  "mean": 0.06,
+  "worst": [
+   "plate",
+   1.37
+  ],
+  "n": 64,
+  "logo": true
+ },
+ "EVO-HD-2FAM-AUDIO": {
+  "mean": 0.07,
+  "worst": [
+   "plate",
+   1.37
+  ],
+  "n": 67,
+  "logo": true
+ },
+ "EVO-HD-3FAM-AUDIO": {
+  "mean": 0.08,
+  "worst": [
+   "plate",
+   1.37
+  ],
+  "n": 70,
+  "logo": true
+ },
+ "EVO-HD-4FAM-AUDIO": {
+  "mean": 0.1,
+  "worst": [
+   "plate",
+   1.37
+  ],
+  "n": 73,
+  "logo": true
+ },
+ "EVO-HD-6FAM-AUDIO": {
+  "mean": 0.3,
+  "worst": [
+   "part",
+   1.91
+  ],
+  "n": 42,
+  "logo": true
+ },
+ "EVO-HD-8FAM-AUDIO": {
+  "mean": 0.38,
+  "worst": [
+   "part",
+   1.91
+  ],
+  "n": 50,
+  "logo": true
+ },
+ "EVO-8EXT": {
+  "mean": 0.76,
+  "worst": [
+   "part",
+   2.74
+  ],
+  "n": 27,
+  "logo": false
+ },
+ "EVO-12EXT": {
+  "mean": 0.72,
+  "worst": [
+   "part",
+   1.91
+  ],
+  "n": 22,
+  "logo": false
+ },
+ "EVO-BLACK-8EXT": {
+  "mean": 0.79,
+  "worst": [
+   "button",
+   2.32
+  ],
+  "n": 26,
+  "logo": true
+ },
+ "EVO-BLACK-12EXT": {
+  "mean": 14.05,
+  "worst": [
+   "button",
+   28.67
+  ],
+  "n": 38,
+  "logo": true
+ }
+}

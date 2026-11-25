@@ -69,7 +69,11 @@
      "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
-   "terminal_card": "evo-hd-1fam-klemmen.svg"
+   "terminal_card": "evo-hd-1fam-klemmen.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-2FAM",
@@ -137,7 +141,11 @@
      "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
-   "terminal_card": "evo-hd-2fam-klemmen.svg"
+   "terminal_card": "evo-hd-2fam-klemmen.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-3FAM",
@@ -205,7 +213,11 @@
      "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
-   "terminal_card": "evo-hd-3fam-klemmen.svg"
+   "terminal_card": "evo-hd-3fam-klemmen.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-4FAM",
@@ -273,7 +285,11 @@
      "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
-   "terminal_card": "evo-hd-4fam-klemmen.svg"
+   "terminal_card": "evo-hd-4fam-klemmen.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-6FAM",
@@ -341,7 +357,11 @@
      "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
-   "terminal_card": "evo-hd-6fam-klemmen.svg"
+   "terminal_card": "evo-hd-6fam-klemmen.svg",
+   "vector_px": [
+    342,
+    900
+   ]
   },
   {
    "article": "EVO-HD-8FAM",
@@ -409,7 +429,11 @@
      "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
-   "terminal_card": "evo-hd-8fam-klemmen.svg"
+   "terminal_card": "evo-hd-8fam-klemmen.svg",
+   "vector_px": [
+    342,
+    900
+   ]
   },
   {
    "article": "EVO-HD-BLACK-8FAM",
@@ -477,7 +501,11 @@
      "GND / ALM: Sabotagekontakt. DIP 1–4, RST, Lautstärke SPEAKER auf der Platine."
     ]
    },
-   "terminal_card": "evo-hd-black-8fam-klemmen.svg"
+   "terminal_card": "evo-hd-black-8fam-klemmen.svg",
+   "vector_px": [
+    343,
+    900
+   ]
   },
   {
    "article": "EVO-HD-FN-2FAM",
@@ -492,7 +520,11 @@
    ],
    "buttons": 2,
    "plan": true,
-   "vector": "evo-hd-fn-2fam.svg"
+   "vector": "evo-hd-fn-2fam.svg",
+   "vector_px": [
+    342,
+    900
+   ]
   },
   {
    "article": "EVO-HD-TOUCH-7",
@@ -505,7 +537,11 @@
     441,
     900
    ],
-   "vector": "evo-hd-touch-7.svg"
+   "vector": "evo-hd-touch-7.svg",
+   "vector_px": [
+    441,
+    900
+   ]
   },
   {
    "article": "EVO-HD-1FAM-AUDIO",
@@ -519,7 +555,11 @@
     900
    ],
    "buttons": 1,
-   "vector": "evo-hd-1fam-audio.svg"
+   "vector": "evo-hd-1fam-audio.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-2FAM-AUDIO",
@@ -533,7 +573,11 @@
     900
    ],
    "buttons": 2,
-   "vector": "evo-hd-2fam-audio.svg"
+   "vector": "evo-hd-2fam-audio.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-3FAM-AUDIO",
@@ -547,7 +591,11 @@
     900
    ],
    "buttons": 3,
-   "vector": "evo-hd-3fam-audio.svg"
+   "vector": "evo-hd-3fam-audio.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-4FAM-AUDIO",
@@ -561,7 +609,11 @@
     900
    ],
    "buttons": 4,
-   "vector": "evo-hd-4fam-audio.svg"
+   "vector": "evo-hd-4fam-audio.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-HD-6FAM-AUDIO",
@@ -575,7 +627,11 @@
     900
    ],
    "buttons": 6,
-   "vector": "evo-hd-6fam-audio.svg"
+   "vector": "evo-hd-6fam-audio.svg",
+   "vector_px": [
+    342,
+    900
+   ]
   },
   {
    "article": "EVO-HD-8FAM-AUDIO",
@@ -589,7 +645,11 @@
     900
    ],
    "buttons": 8,
-   "vector": "evo-hd-8fam-audio.svg"
+   "vector": "evo-hd-8fam-audio.svg",
+   "vector_px": [
+    342,
+    900
+   ]
   },
   {
    "article": "EVO-8EXT",
@@ -603,7 +663,11 @@
     900
    ],
    "buttons": 8,
-   "vector": "evo-8ext.svg"
+   "vector": "evo-8ext.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-12EXT",
@@ -617,7 +681,11 @@
     900
    ],
    "buttons": 12,
-   "vector": "evo-12ext.svg"
+   "vector": "evo-12ext.svg",
+   "vector_px": [
+    343,
+    900
+   ]
   },
   {
    "article": "EVO-BLACK-8EXT",
@@ -631,7 +699,11 @@
     900
    ],
    "buttons": 8,
-   "vector": "evo-black-8ext.svg"
+   "vector": "evo-black-8ext.svg",
+   "vector_px": [
+    477,
+    900
+   ]
   },
   {
    "article": "EVO-BLACK-12EXT",
@@ -645,7 +717,11 @@
     900
    ],
    "buttons": 12,
-   "vector": "evo-black-12ext.svg"
+   "vector": "evo-black-12ext.svg",
+   "vector_px": [
+    343,
+    900
+   ]
   },
   {
    "article": "EVO-HD-7M",
@@ -689,7 +765,11 @@
      "Endwiderstand = DIP 8: Stern an jedem Monitor, Reihe nur am letzten."
     ]
    },
-   "terminal_card": "evo-hd-7m-klemmen.svg"
+   "terminal_card": "evo-hd-7m-klemmen.svg",
+   "vector_px": [
+    700,
+    487
+   ]
   },
   {
    "article": "EVO-HD-7M-BLACK",
@@ -733,7 +813,11 @@
      "Endwiderstand = DIP 8: Stern an jedem Monitor, Reihe nur am letzten."
     ]
    },
-   "terminal_card": "evo-hd-7m-black-klemmen.svg"
+   "terminal_card": "evo-hd-7m-black-klemmen.svg",
+   "vector_px": [
+    700,
+    484
+   ]
   },
   {
    "article": "EVO-HD-MINI-4.3M",
@@ -786,7 +870,11 @@
      "DIP 1–8 (DIP 8 = Endwiderstand), Adresse über Drehschalter X1 / X10 / X100."
     ]
    },
-   "terminal_card": "evo-hd-mini-43m-klemmen.svg"
+   "terminal_card": "evo-hd-mini-43m-klemmen.svg",
+   "vector_px": [
+    700,
+    700
+   ]
   },
   {
    "article": "EVO-HD-MINI-BLACK-4.3M",
@@ -839,7 +927,11 @@
      "DIP 1–8 (DIP 8 = Endwiderstand), Adresse über Drehschalter X1 / X10 / X100."
     ]
    },
-   "terminal_card": "evo-hd-mini-black-43m-klemmen.svg"
+   "terminal_card": "evo-hd-mini-black-43m-klemmen.svg",
+   "vector_px": [
+    699,
+    700
+   ]
   },
   {
    "article": "EVO-HD-TALK",
@@ -890,7 +982,11 @@
      "DIP 1–6 Block, DIP 7–8 Master / Slave; Adresse X1 / X10 / X100."
     ]
    },
-   "terminal_card": "evo-hd-talk-klemmen.svg"
+   "terminal_card": "evo-hd-talk-klemmen.svg",
+   "vector_px": [
+    256,
+    700
+   ]
   },
   {
    "article": "EVO-HD-BLACK-TALK",
@@ -941,7 +1037,11 @@
      "DIP 1–6 Block, DIP 7–8 Master / Slave; Adresse X1 / X10 / X100."
     ]
    },
-   "terminal_card": "evo-hd-black-talk-klemmen.svg"
+   "terminal_card": "evo-hd-black-talk-klemmen.svg",
+   "vector_px": [
+    256,
+    700
+   ]
   },
   {
    "article": "EVO-HD-C5001",
@@ -1006,7 +1106,12 @@
      "BUS 32 V DC · 3,5 A."
     ]
    },
-   "terminal_card": "evo-hd-c5001-klemmen.svg"
+   "terminal_card": "evo-hd-c5001-klemmen.svg",
+   "vector_px": [
+    3318,
+    2496
+   ],
+   "vector_source": "Figma Tech-Schemas (Balter Technik)"
   },
   {
    "article": "EVO-HD-DL",
@@ -1063,7 +1168,12 @@
      "Weitere Klemmen am Modul im Plan unbeschriftet."
     ]
    },
-   "terminal_card": "evo-hd-dl-klemmen.svg"
+   "terminal_card": "evo-hd-dl-klemmen.svg",
+   "vector_px": [
+    1644,
+    2490
+   ],
+   "vector_source": "Figma Tech-Schemas (Balter Technik)"
   },
   {
    "article": "EVO-HD-2WL",
@@ -1076,7 +1186,12 @@
     900,
     749
    ],
-   "vector": "evo-hd-2wl.svg"
+   "vector": "evo-hd-2wl.svg",
+   "vector_px": [
+    245,
+    725
+   ],
+   "vector_source": "Figma Tech-Schemas (Balter Technik)"
   },
   {
    "article": "EVO-HD-PRO-7W",
@@ -1089,7 +1204,11 @@
     706,
     435
    ],
-   "vector": "evo-hd-pro-7w.svg"
+   "vector": "evo-hd-pro-7w.svg",
+   "vector_px": [
+    706,
+    435
+   ]
   },
   {
    "article": "EVO-HD-PRO-7B",
@@ -1102,7 +1221,11 @@
     707,
     435
    ],
-   "vector": "evo-hd-pro-7b.svg"
+   "vector": "evo-hd-pro-7b.svg",
+   "vector_px": [
+    707,
+    435
+   ]
   },
   {
    "article": "EVO-HD-PRO-CAM",
@@ -1115,7 +1238,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-cam.svg"
+   "vector": "evo-hd-pro-cam.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-AUD-0",
@@ -1128,7 +1255,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-aud-0.svg"
+   "vector": "evo-hd-pro-aud-0.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-AUD-1K",
@@ -1141,7 +1272,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-aud-1k.svg"
+   "vector": "evo-hd-pro-aud-1k.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-AUD-1KN",
@@ -1154,7 +1289,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-aud-1kn.svg"
+   "vector": "evo-hd-pro-aud-1kn.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-AUD-2K",
@@ -1167,7 +1306,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-aud-2k.svg"
+   "vector": "evo-hd-pro-aud-2k.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-AUD-2KN",
@@ -1180,7 +1323,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-aud-2kn.svg"
+   "vector": "evo-hd-pro-aud-2kn.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-KEY-4K",
@@ -1193,7 +1340,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-key-4k.svg"
+   "vector": "evo-hd-pro-key-4k.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-KEY-4KN",
@@ -1206,7 +1357,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-key-4kn.svg"
+   "vector": "evo-hd-pro-key-4kn.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-INF",
@@ -1219,7 +1374,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-inf.svg"
+   "vector": "evo-hd-pro-inf.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-INF-KN",
@@ -1232,7 +1391,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-inf-kn.svg"
+   "vector": "evo-hd-pro-inf-kn.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-RFG",
@@ -1245,7 +1408,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-rfg.svg"
+   "vector": "evo-hd-pro-rfg.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-COVER",
@@ -1258,7 +1425,11 @@
     512,
     512
    ],
-   "vector": "evo-hd-pro-cover.svg"
+   "vector": "evo-hd-pro-cover.svg",
+   "vector_px": [
+    512,
+    512
+   ]
   },
   {
    "article": "EVO-HD-PRO-F1M",
@@ -1271,7 +1442,11 @@
     781,
     900
    ],
-   "vector": "evo-hd-pro-f1m.svg"
+   "vector": "evo-hd-pro-f1m.svg",
+   "vector_px": [
+    781,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-F3M",
@@ -1284,7 +1459,11 @@
     343,
     900
    ],
-   "vector": "evo-hd-pro-f3m.svg"
+   "vector": "evo-hd-pro-f3m.svg",
+   "vector_px": [
+    343,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-FJB-3M",
@@ -1297,7 +1476,11 @@
     311,
     900
    ],
-   "vector": "evo-hd-pro-fjb-3m.svg"
+   "vector": "evo-hd-pro-fjb-3m.svg",
+   "vector_px": [
+    311,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-FRAME-3M",
@@ -1310,7 +1493,11 @@
     351,
     900
    ],
-   "vector": "evo-hd-pro-frame-3m.svg"
+   "vector": "evo-hd-pro-frame-3m.svg",
+   "vector_px": [
+    351,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-JB2M-NO",
@@ -1323,7 +1510,11 @@
     446,
     900
    ],
-   "vector": "evo-hd-pro-jb2m-no.svg"
+   "vector": "evo-hd-pro-jb2m-no.svg",
+   "vector_px": [
+    446,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-JB2M-L",
@@ -1336,7 +1527,11 @@
     446,
     900
    ],
-   "vector": "evo-hd-pro-jb2m-l.svg"
+   "vector": "evo-hd-pro-jb2m-l.svg",
+   "vector_px": [
+    446,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-JB2M-R",
@@ -1349,7 +1544,11 @@
     446,
     900
    ],
-   "vector": "evo-hd-pro-jb2m-r.svg"
+   "vector": "evo-hd-pro-jb2m-r.svg",
+   "vector_px": [
+    446,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-JB2M-LR",
@@ -1362,7 +1561,11 @@
     446,
     900
    ],
-   "vector": "evo-hd-pro-jb2m-lr.svg"
+   "vector": "evo-hd-pro-jb2m-lr.svg",
+   "vector_px": [
+    446,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-JB3M-NO",
@@ -1375,7 +1578,11 @@
     297,
     900
    ],
-   "vector": "evo-hd-pro-jb3m-no.svg"
+   "vector": "evo-hd-pro-jb3m-no.svg",
+   "vector_px": [
+    297,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-S3M",
@@ -1388,7 +1595,11 @@
     297,
     900
    ],
-   "vector": "evo-hd-pro-s3m.svg"
+   "vector": "evo-hd-pro-s3m.svg",
+   "vector_px": [
+    297,
+    900
+   ]
   },
   {
    "article": "EVO-HD-PRO-ML",
@@ -1401,7 +1612,11 @@
     900,
     639
    ],
-   "vector": "evo-hd-pro-ml.svg"
+   "vector": "evo-hd-pro-ml.svg",
+   "vector_px": [
+    900,
+    639
+   ]
   }
  ]
 }

@@ -43,8 +43,10 @@ def device(article, need_plan=True):
 
 def dev_img(article, need_plan=True):
     d = device(article, need_plan)
-    f = d.get("vector") if STYLE["v"] == "vector" and d.get("vector") else d["image"]
-    return "devices/" + f, d["px"][0] / d["px"][1]
+    if STYLE["v"] == "vector" and d.get("vector"):
+        px = d.get("vector_px", d["px"])
+        return "devices/" + d["vector"], px[0] / px[1]
+    return "devices/" + d["image"], d["px"][0] / d["px"][1]
 
 # ---------------------------------------------------------------- facts (sourced)
 FACTS = {

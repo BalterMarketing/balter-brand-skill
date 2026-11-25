@@ -326,11 +326,17 @@ Not on any sheet yet (no checked number): maximum cable length for EVO HD, monit
 same file stem** (the article number in lowercase, dots removed):
 
 - `<article>.png` — the **photo**: real pixels, transparent background. For social, website, slides.
-- `<article>.svg` — the **vector illustration**, measured from the photo by `scripts/device_vectors.py`
-  (never drawn by eye, never by AI): the photo is split into flat tones, every element (glass, screen,
-  plates, buttons, seams, LEDs) is found where it sits on the photo and drawn there as a clean shape
-  or traced outline. Same canvas, same positions and proportions one to one; only the surface is flat.
-  For technical plans, manuals, small print sizes, animation. Needs numpy, scipy, Pillow and potrace.
+- `<article>.svg` — the **technical sketch** (Skizze). Never a trace and never drawn by eye:
+  `scripts/sketch_fit.py` finds every real outline on the photo (edges with the brushing removed), draws
+  each element as one clean shape exactly on that outline — circle (lens, call button with its dot),
+  rectangle (name plate, status bar, glass), pill (speaker slot, mounting tab), line (microphone) — and
+  then **checks the fit**: the distance from every drawn outline to the photo's edge, in pixels, is
+  written to `assets/devices/sketch-check.json` (stations today: mean 0.1–0.9 px). Three tones only:
+  grey body (steel `#D9D9D9`, white `#F2F2F2`, black finish `#3A3A3A`), black for camera, status bar,
+  glass, RFID / fingerprint, white for name plates; one black outline. The real BALTER logo is placed
+  where it sits on the plate. **DIN-rail modules** (EVO-HD-C5001, EVO-HD-DL, EVO-HD-2WL) are taken
+  from Balter Technik's own straight-on drawings in Figma (`assets/figma/`, `scripts/figma_modules.py`),
+  because their photos are shot at an angle; their labels stay as on the module.
 
 `assets/devices/devices.json` is the index: article, German name (house words), kind, line, colour,
 button count, size in mm where the manual gives it, both file names, and `plan: true` for devices the
