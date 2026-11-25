@@ -344,6 +344,15 @@ same file stem** (the article number in lowercase, dots removed):
   - EVO HD PRO modules and housings — `scripts/pro_model.py`: grooves, speaker slot, plates, RFID block,
     camera module (dome, IR bars, icon row); housings take their cut outline and openings from the photo,
     inner steps and round cable entries where they are found.
+  **Printed icons** are never drawn from a generic icon set. Each icon is traced once, enlarged, from the
+  clearest photo that carries it, and kept in `assets/icons/icon-library.json` (`scripts/icon_library.py`
+  rebuilds it): the display icons bell · call · door (EVO-HD-2FAM-AUDIO), apps · person · key · call-wave
+  (EVO-QUICK-4.3M), call-key · hang-up (EVO-HD-MINI-BLACK-4.3M), bell-talk (EVO-HD-TALK), moon · mail (EVO-HD-7M).
+  On every other device the icon is found on its own photo, matched to the library by shape, and the library
+  drawing is placed in the box measured there — the same icon looks the same on every device and sits where
+  it sits on the product. The status display is one part on every station: its icons sit at 25 · 50 · 75 % of
+  its width; the round light sensor at its right end is drawn only where the photo shows one. An icon that is
+  not in the library keeps its own trace (`sketch_fit.trace_icon`).
   **Black twins** (EVO-HD-BLACK-8FAM, EVO-BLACK-8EXT/12EXT, 7M/MINI/PRO-7 black, BLACK-TALK) share the
   geometry of their steel or white twin; what differs (LEDs, display icons, IR pill, logo) is found on
   the black photo. Where white-on-white hides a part (MINI rings), it is taken from the clearer twin.

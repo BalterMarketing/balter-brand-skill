@@ -349,10 +349,14 @@ def render(m):
             (cx, cy), r = mk["c"], mk["r"]
             if mk["t"] == "button":
                 C(cx, cy, r, body, "#6b6b6b" if black else INK, sw * .8)
-                if mk.get("glyph"):
+                if mk.get("trace"):
+                    o.append(f'<path d="{mk["trace"]}" fill="{light if black else INK}" fill-rule="evenodd"/>')
+                elif mk.get("glyph"):
                     G(mk["glyph"], cx, cy, r * 1.15, light if black else INK, sw * .7)
             elif mk["t"] == "ring":
                 C(cx, cy, r * .86, "none", light if black else INK, sw * .9)
+            elif mk.get("trace"):
+                o.append(f'<path d="{mk["trace"]}" fill="#9a9a9a" fill-rule="evenodd"/>')
             elif mk.get("glyph"):
                 G(mk["glyph"], cx, cy, r * 2.2, "#9a9a9a", sw * .6)
             else:
@@ -366,9 +370,13 @@ def render(m):
         if m["led"]:
             lx, ly, lw, lh = m["led"]
             R(lx, ly, lw, lh, lw / 2, "#FFFFFF", INK, sw * .5)
-        for (cx, cy, r), name in zip(m["buttons"], ["key", "bell", "apps"]):
+        tr = m.get("btn_traces") or []
+        for i, ((cx, cy, r), name) in enumerate(zip(m["buttons"], ["key", "bell", "apps"])):
             C(cx, cy, r, "#2A2A2A" if name != "key" else DARK, INK, sw * .8)
-            G(name, cx, cy, r * 1.05, light, sw * .7)
+            if i < len(tr) and tr[i]:
+                o.append(f'<path d="{tr[i]}" fill="{light}" fill-rule="evenodd"/>')
+            else:
+                G(name, cx, cy, r * 1.05, light, sw * .7)
         c = m["cable"]
         if c:
             ww = min(max(c["ww"] * .5, 2), 4)
@@ -459,8 +467,68 @@ def check(m):
     return dict(mean=round(mean, 2), worst=[worst[0], round(worst[1], 2)], n=len(errs), logo=bool(m.get("logo")))
 
 
+ICON_FROM = {"EVO-HD-MINI-4.3M": "EVO-HD-MINI-BLACK-4.3M"}   # white-on-white print: shape taken from the black twin
+
+
+def _move_path(path, src_c, src_r, dst_c, dst_r):
+    import re as _re
+    k = dst_r / src_r
+
+    def pt(mo):
+        x, y = float(mo.group(1)), float(mo.group(2))
+        return f"{dst_c[0] + (x - src_c[0]) * k:.2f} {dst_c[1] + (y - src_c[1]) * k:.2f}"
+    return _re.sub(r"(-?\d+\.?\d*) (-?\d+\.?\d*)", pt, path)
+
+
+def add_traces(m, man=None, reuse=True):
+    """Printed icons on buttons, status LEDs and the Talk keys: found on this device's own photo; an icon that
+    is already in the icon library is drawn from there (same drawing on every device), placed in the box
+    measured here."""
+    _trace(m, man)
+    if not reuse:
+        return
+    import icon_library as IL
+    for mk in m.get("marks", []):
+        if mk.get("trace"):
+            mk["trace"] = IL.reuse(mk["trace"])[0]
+    m["btn_traces"] = [IL.reuse(t)[0] if t else t for t in m.get("btn_traces", [])]
+
+
+def _trace(m, man=None):
+    img = m["img"]
+    g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    v = img.max(-1)
+    black = m["mat"] == "black"
+    if m["type"] == "monitor":
+        for mk in m["marks"]:
+            if not mk.get("glyph"):
+                continue
+            (cx, cy), r = mk["c"], mk["r"]
+            if mk["t"] == "button":
+                k = r * .72
+                mk["trace"] = F.trace_icon(v if black else g, (cx - k, cy - k, 2 * k, 2 * k), light=black, tophat=True, level=.45)
+            else:            # status icon (moon, mail): coloured LED print, a little larger frame
+                k = r * 1.6
+                mk["trace"] = F.trace_icon(g, (cx - k, cy - k, 2 * k, 2 * k), light=black, tophat=True, level=.4)
+        src = ICON_FROM.get(m["article"])
+        if src and man:
+            t = model(next(x for x in man if x["article"] == src), man)
+            _trace(t)
+            sb = sorted([q for q in t["marks"] if q["t"] == "button"], key=lambda q: q["c"][1])
+            db = sorted([q for q in m["marks"] if q["t"] == "button"], key=lambda q: q["c"][1])
+            for a_, b_ in zip(sb, db):
+                if a_.get("trace"):
+                    b_["trace"] = _move_path(a_["trace"], a_["c"], a_["r"], b_["c"], b_["r"])
+    elif m["type"] == "talk":
+        m["btn_traces"] = []
+        for cx, cy, r in m["buttons"]:
+            k = r * .72
+            m["btn_traces"].append(F.trace_icon(v, (cx - k, cy - k, 2 * k, 2 * k), light=True, tophat=True, level=.45))
+
+
 def sketch(d, man):
     m = model(d, man)
+    add_traces(m, man)
     return render(m), check(m)
 
 

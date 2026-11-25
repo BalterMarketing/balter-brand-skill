@@ -345,7 +345,7 @@ MAN = []
 
 def draw(d):
     k, a = d["kind"], d["article"]
-    if a in ("EVO-HD-C5001", "EVO-HD-DL", "EVO-HD-2WL"):
+    if a in ("EVO-HD-C5001", "EVO-HD-DL", "EVO-HD-2WL", "EVO-C4001"):
         return None, None   # taken from Balter Technik's Figma drawings: scripts/figma_modules.py
         W, H = 520, 357
         s = Sk(W, H, 2.2)

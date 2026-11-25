@@ -19,8 +19,10 @@ from scipy import ndimage
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import flat_model as FM  # noqa: E402
+import icon_library as IL  # noqa: E402
 import sketch_fit as F  # noqa: E402
 
+REUSE = True
 INK = "#111111"
 BODY = {"white": "#F2F2F2", "black": "#3A3A3A"}
 
@@ -84,20 +86,67 @@ def model(d):
     if logo:
         x, y, w, h = logo
         m[y - 8:y + h + 8, max(0, int(x - h * 2.2)):x + w + 14] = False
-    m = cv2.morphologyEx(m.astype(np.uint8), cv2.MORPH_CLOSE, np.ones((3, 3)))
-    cnts, hier = cv2.findContours(m, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
+    m = cv2.morphologyEx(m.astype(np.uint8), cv2.MORPH_OPEN, np.ones((2, 2)))
+    # each printed symbol: found here, then traced enlarged from the photo (smooth, true shape and place)
+    kk = max(9, int(bw * .028)) | 1           # pieces of one faint symbol belong together
+    grp = cv2.dilate(m.astype(np.uint8), np.ones((kk, kk)))
+    lab, n = ndimage.label(grp)
     marks = []
-    for i, c in enumerate(cnts):
-        a = cv2.contourArea(c)
-        x, y, w, h = cv2.boundingRect(c)
-        if hier[0][i][3] != -1:      # holes are kept with their parent below
+    for i, sl in enumerate(ndimage.find_objects(lab) or [], 1):
+        ink = (m[sl] > 0) & (lab[sl] == i)
+        a = int(ink.sum())
+        y, x = sl[0].start, sl[1].start
+        h, w = sl[0].stop - y, sl[1].stop - x
+        if a < (25 if boost else 12) or w * h > bw * bh * .03 or w > bw * .5:
             continue
-        if a < (25 if boost else 12) or a > bw * bh * .02 or w > bw * .5:
-            continue
-        path = [c] + [cnts[j] for j in range(len(cnts)) if hier[0][j][3] == i]
-        marks.append(path)
+        pad = 8
+        lightmark = black or float((ge[sl].astype(int) - bg[sl])[ink].mean()) > 0   # white print on a white face
+        t = F.trace_icon(ge, (x - pad, y - pad, w + 2 * pad, h + 2 * pad), light=lightmark, tophat=True, level=.4)
+        if t:
+            marks.append(t)
+    # traced pieces whose boxes touch are one symbol (a handset and its sound waves)
+    merged = True
+    while merged:
+        merged = False
+        for i in range(len(marks)):
+            for j in range(i + 1, len(marks)):
+                a_, b_ = IL.bbox(IL.polys_of(marks[i])), IL.bbox(IL.polys_of(marks[j]))
+                if a_[0] - kk < b_[0] + b_[2] and b_[0] - kk < a_[0] + a_[2] and a_[1] - kk < b_[1] + b_[3] and b_[1] - kk < a_[1] + a_[3]:
+                    marks[i] = marks[i] + " " + marks.pop(j)
+                    merged = True
+                    break
+            if merged:
+                break
+    if REUSE:         # the same icon as on another device: the library drawing, placed in the box found here
+        marks = [IL.reuse(t, .5)[0] for t in marks]
+    # rings round the touch keys (faint grey outlines)
+    rings = []
+    face = ge.copy()
+    if screen:
+        x, y, w, h = screen
+        face[max(0, y - 10):y + h + 10, max(0, x - 10):x + w + 10] = int(np.median(ge[inner]))
+    cs = cv2.HoughCircles(cv2.GaussianBlur(face, (5, 5), 1.5), cv2.HOUGH_GRADIENT, 1.2, bw * .12, param1=60, param2=28,
+                          minRadius=int(bw * .04), maxRadius=int(bw * .075))
+    if cs is not None:
+        for cx, cy, r in cs[0]:
+            if not (bx + bw * .05 < cx < bx + bw * .95 and by + bh * .05 < cy < by + bh * .95):
+                continue
+            ang = np.linspace(0, 2 * np.pi, 90, endpoint=False)
+            on = ge[np.clip((cy + r * np.sin(ang)).astype(int), 0, ge.shape[0] - 1), np.clip((cx + r * np.cos(ang)).astype(int), 0, ge.shape[1] - 1)].astype(int)
+            off = ge[np.clip((cy + r * 1.25 * np.sin(ang)).astype(int), 0, ge.shape[0] - 1), np.clip((cx + r * 1.25 * np.cos(ang)).astype(int), 0, ge.shape[1] - 1)].astype(int)
+            if np.mean(np.abs(on - off) > 6) > .6:
+                rings.append((float(cx), float(cy), float(r)))
+    # a key in the same column as a found ring has the same ring
+    import icon_library as _IL
+    for cx, cy, r in list(rings):
+        for t in marks:
+            x, y, w, h = _IL.bbox(_IL.polys_of(t))
+            mx, my = x + w / 2, y + h / 2
+            if abs(mx - cx) < r * .4 and abs(my - cy) > r * 1.5 and max(w, h) < r * 1.6 \
+                    and not any(np.hypot(mx - a, my - b) < c for a, b, c in rings):
+                rings.append((cx, my, r))
     return dict(article=d["article"], name=d["name"], W=g.shape[1], H=g.shape[0], box=box, black=black,
-                rx=FM.corner_r(alpha, box), screen=screen, step=step, logo=logo, marks=marks, g=g, alpha=alpha)
+                rx=FM.corner_r(alpha, box), screen=screen, step=step, rings=rings, logo=logo, marks=marks, g=g, alpha=alpha)
 
 
 def _d(c):
@@ -118,8 +167,10 @@ def render(m):
         o.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" rx="2" fill="#111111" stroke="{INK}" stroke-width="{sw:.1f}"/>')
     if m.get("step"):
         o.append(f'<line x1="{bx + sw:.1f}" y1="{m["step"]:.1f}" x2="{bx + bw - sw:.1f}" y2="{m["step"]:.1f}" stroke="{INK}" stroke-width="{sw * .7:.1f}"/>')
+    for cx, cy, r in m.get("rings", []):
+        o.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="none" stroke="{mark}" stroke-width="{sw * .6:.1f}"/>')
     for path in m["marks"]:
-        o.append(f'<path d="{" ".join(_d(c) for c in path)}" fill="{mark}" fill-rule="evenodd"/>')
+        o.append(f'<path d="{path}" fill="{mark}" fill-rule="evenodd"/>')
     if m["logo"]:
         o.append(FM.logo_h(m["logo"], "#E5E5E5" if m["black"] else "#111111"))
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
@@ -132,6 +183,7 @@ def check(m):
     a = m["alpha"].astype(np.uint8)
     e |= (cv2.morphologyEx(a, cv2.MORPH_GRADIENT, np.ones((3, 3))) > 0).astype(np.uint8) * 255
     H, W = e.shape
+    e[0, :] = e[-1, :] = e[:, 0] = e[:, -1] = 255     # a full-bleed cut-out ends at the image edge
     dist = cv2.distanceTransform((e == 0).astype(np.uint8), cv2.DIST_L2, 3)
     errs = []
     for role, b in (("body", m["box"]), ("screen", m["screen"])):

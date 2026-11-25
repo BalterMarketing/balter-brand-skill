@@ -209,26 +209,30 @@ def leds_in(g, b):
 
 
 def icons_in(g, b):
+    """Printed icons and the round light sensor on the status display. A sensor is a filled round blob;
+    an icon is line art (low fill). Icons are named bell, call, door from left to right."""
     x, y, w, h = [int(round(v)) for v in b]
     roi = g[y + 2:y + h - 2, x + 2:x + w - 2]
     th = cv2.morphologyEx(roi, cv2.MORPH_TOPHAT, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(h * .7) | 1,) * 2))
-    m = th > 28
-    m = cv2.dilate(m.astype(np.uint8), np.ones((5, 5))) > 0
+    raw = th > 28
+    m = cv2.dilate(raw.astype(np.uint8), np.ones((5, 5))) > 0
     lab, n = ndimage.label(m)
-    out = []
+    found = []
     for i, sl in enumerate(ndimage.find_objects(lab), 1):
         hh, ww = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
         if hh < h * .3:
             continue
-        out.append((x + 2 + sl[1].start + ww / 2, y + 2 + sl[0].start + hh / 2, max(ww, hh), ww / hh))
-    out.sort()
+        fill = float(raw[sl][lab[sl] == i].mean())
+        found.append((x + 2 + sl[1].start + ww / 2, y + 2 + sl[0].start + hh / 2, max(ww, hh), ww / hh, fill))
+    found.sort()
     names = ["bell", "call", "door"]
-    res = []
-    for k, (cx, cy, s, ar) in enumerate(out):
-        if k >= 3 and .7 < ar < 1.4:
-            res.append(("dot", cx, cy, s))
+    res, k = [], 0
+    for cx, cy, s_, ar, fill in found:
+        if .7 < ar < 1.4 and fill > .5:
+            res.append(("dot", cx, cy, s_))
         elif k < 3:
-            res.append((names[k], cx, cy, s))
+            res.append((names[k], cx, cy, s_))
+            k += 1
     return res
 
 
@@ -452,7 +456,12 @@ def render(m):
         elif t == "display":
             x, y, w, h = p["b"]
             R(x, y, w, h, h * .1, DARK)
-            for name, cx, cy, s in p.get("icons", []):
+            if p.get("trace"):
+                o.append(f'<path d="{p["trace"]}" fill="{glyph}" fill-rule="evenodd"/>')
+            if p.get("trace"):
+                for cx, cy, s in p.get("dots", []):
+                    C(cx, cy, s * .45, "#3a3a3a", None)
+            for name, cx, cy, s in ([] if p.get("trace") else p.get("icons", [])):
                 if name == "dot":
                     C(cx, cy, s * .4, "#3a3a3a", None)
                     continue
@@ -462,6 +471,9 @@ def render(m):
         elif t == "rfidlite":
             x, y, w, h = p["b"]
             R(x, y, w, h, h * .06, "#F7F7F7")
+            if p.get("trace"):
+                o.append(f'<path d="{p["trace"]}" fill="#6b6b6b" fill-rule="evenodd"/>')
+                continue
             cx, cy, sz = p["sign"]
             k = sz * 1.1 / 24
             o.append(f'<path d="{GLYPH["rfid"]}" transform="translate({cx - 12 * k:.1f} {cy - 12 * k:.1f}) scale({k:.3f})" '
@@ -469,7 +481,9 @@ def render(m):
         elif t == "rfid":
             x, y, w, h = p["b"]
             R(x, y, w, h, w * .04, DARK)
-            if p.get("sign"):
+            if p.get("trace"):
+                o.append(f'<path d="{p["trace"]}" fill="{glyph}" fill-rule="evenodd"/>')
+            elif p.get("sign"):
                 cx, cy, s = p["sign"]
                 k = s * 1.1 / 24
                 o.append(f'<path d="{GLYPH["rfid"]}" transform="translate({cx - 12 * k:.1f} {cy - 12 * k:.1f}) scale({k:.3f})" '
@@ -536,8 +550,92 @@ def check(m):
     return dict(mean=round(mean, 2), worst=[worst[0], round(worst[1], 2)], parts=count, logo=bool(m["logo"]))
 
 
+ICON_MASTER = "EVO-HD-2FAM-AUDIO"   # cleanest photo of the status display; the same part sits on every station
+_MASTER = {}
+
+
+def _icon_paths(man):
+    """The three display icons of the master photo, each as its own traced path (left to right)."""
+    d = next(x for x in man if x["article"] == ICON_MASTER)
+    mm = model(d, man)
+    v = mm["img"].max(-1)
+    disp = next(p for p in mm["parts"] if p["t"] == "display")
+    h = disp["b"][3]
+    out = []
+    for name, cx, cy, sz in icons_in(v, disp["b"]):
+        if name == "dot":
+            continue
+        half = min(sz * .75, h * .5 - 3)
+        out.append(F.trace_icon(v, (cx - half, cy - half, 2 * half, 2 * half), light=True, tophat=True, level=.42))
+    return out
+
+
+def _master_icons(man):
+    """The display icons (bell, call, door) traced once from the master photo, in display-relative units."""
+    if "icons" in _MASTER:
+        return _MASTER["icons"]
+    d = next(x for x in man if x["article"] == ICON_MASTER)
+    mm = model(d, man)
+    v = mm["img"].max(-1)
+    disp = next(p for p in mm["parts"] if p["t"] == "display")
+    x, y, w, h = disp["b"]
+    polys = []
+    for name, cx, cy, sz in icons_in(v, disp["b"]):
+        if name == "dot":
+            continue
+        half = min(sz * .75, h * .5 - 3)
+        path = F.trace_icon(v, (cx - half, cy - half, 2 * half, 2 * half), light=True, tophat=True, level=.42)
+        for seg in path.split("Z"):
+            pts = [tuple(map(float, q.strip().lstrip("ML").split())) for q in seg.replace("M", "L").split("L") if q.strip()]
+            if len(pts) >= 3:
+                polys.append([((px - x) / w, (py - y) / h) for px, py in pts])
+    _MASTER["icons"] = polys
+    return polys
+
+
+def sensor_in(v, b):
+    """The round light sensor at the right end of the display, if this station has one."""
+    x, y, w, h = [int(round(q)) for q in b]
+    x0 = x + int(w * .84)
+    roi = cv2.GaussianBlur(v[y + 2:y + h - 2, x0:x + w - 3], (3, 3), 0)
+    if roi.size == 0:
+        return None
+    cs = cv2.HoughCircles(roi, cv2.HOUGH_GRADIENT, 1.2, h, param1=60, param2=10,
+                          minRadius=max(2, int(h * .13)), maxRadius=int(h * .32))
+    if cs is None:
+        return None
+    cx, cy, r = cs[0][0]
+    yy, xx = np.mgrid[0:roi.shape[0], 0:roi.shape[1]]
+    rr = np.hypot(xx - cx, yy - cy)
+    inside, ring = roi[rr < r * .8], roi[(rr > r * 1.25) & (rr < r * 1.8)]
+    if inside.size == 0 or ring.size == 0 or float(inside.mean()) - float(ring.mean()) < 6:
+        return None
+    return (x0 + cx, y + 2 + cy, r)
+
+
+def add_traces(m, man):
+    """Printed icons: the display icons come from the master trace, placed in this station's measured
+    display frame; the light sensor, RFID and card signs are found on this device's own photo."""
+    g = cv2.cvtColor(m["img"], cv2.COLOR_BGR2GRAY)
+    v = m["img"].max(-1)          # coloured print (blue icons) is bright in its own channel
+    for p in m["parts"]:
+        if p["t"] == "display":
+            x, y, w, h = p["b"]
+            polys = _master_icons(man)
+            p["trace"] = " ".join("M" + " L".join(f"{x + u * w:.2f} {y + t * h:.2f}" for u, t in pl) + "Z" for pl in polys)
+            sen = sensor_in(v, p["b"])
+            p["dots"] = [(sen[0], sen[1], sen[2] / .45)] if sen else []
+        elif p["t"] == "rfid":
+            x, y, w, h = p["b"]
+            p["trace"] = F.trace_icon(v, (x + 3, y + 3, w - 6, h - 6), light=True)
+        elif p["t"] == "rfidlite":
+            x, y, w, h = p["b"]
+            p["trace"] = F.trace_icon(g, (x + 4, y + 4, w - 8, h - 8), light=False)
+
+
 def sketch(d, man):
     m = model(d, man)
+    add_traces(m, man)
     return render(m), check(m)
 
 

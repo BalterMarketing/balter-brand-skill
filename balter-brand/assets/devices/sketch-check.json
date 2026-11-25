@@ -866,20 +866,20 @@
   "logo": true
  },
  "EVO-QUICK-4.3M": {
-  "mean": 0.96,
+  "mean": 0.48,
   "worst": [
-   "body",
+   "screen",
    0.96
   ],
   "parts": {
-   "marks": 6
+   "marks": 5
   },
   "logo": true
  },
  "EVO-QUICK-BLACK": {
-  "mean": 0.96,
+  "mean": 0.48,
   "worst": [
-   "body",
+   "screen",
    0.96
   ],
   "parts": {
@@ -888,13 +888,13 @@
   "logo": true
  },
  "EVO-MINI-4.3M": {
-  "mean": 10.51,
+  "mean": 0.48,
   "worst": [
-   "body",
-   20.06
+   "screen",
+   0.96
   ],
   "parts": {
-   "marks": 9
+   "marks": 6
   },
   "logo": true
  },
@@ -905,7 +905,7 @@
    0.0
   ],
   "parts": {
-   "marks": 14
+   "marks": 9
   },
   "logo": false
  }

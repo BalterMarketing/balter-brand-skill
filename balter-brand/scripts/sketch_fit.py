@@ -296,3 +296,44 @@ if __name__ == "__main__":
     d = next(x for x in man["devices"] if x["article"].upper() == art)
     svg, rep = fit(d, ov)
     print(art, rep)
+
+
+def trace_icon(g, box, light=True, up=6, tophat=True, keep_border=False, level=.45, min_area=1.2):
+    """A printed icon, traced from the photo: the crop is enlarged `up` times, separated from its ground
+    (top-hat for light print on dark glass, its inverse for dark print on a light face), cut at `level`
+    between ground and ink, and its contours are simplified. Returns an SVG path in device pixels
+    (even-odd fill) so the icon keeps its real shape, size and place."""
+    H, W = g.shape
+    x, y, w, h = [int(round(v)) for v in box]
+    x0, y0, x1, y1 = max(0, x), max(0, y), min(W, x + w), min(H, y + h)
+    if x1 - x0 < 3 or y1 - y0 < 3:
+        return ""
+    roi = g[y0:y1, x0:x1].astype(np.float32)
+    big = cv2.resize(roi, None, fx=up, fy=up, interpolation=cv2.INTER_CUBIC)
+    big = cv2.GaussianBlur(big, (0, 0), up * .3)
+    if not light:
+        big = 255 - big
+    if tophat:
+        k = max(3, int(min(big.shape) * .6)) | 1
+        big = cv2.morphologyEx(big, cv2.MORPH_TOPHAT, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (k, k)))
+    lo, hi = np.percentile(big, 50), np.percentile(big, 99.5)
+    if hi - lo < 12:
+        return ""
+    m = (big > lo + (hi - lo) * level).astype(np.uint8)
+    lab, n = ndimage.label(m)
+    for i, sl in enumerate(ndimage.find_objects(lab) or [], 1):
+        comp = lab[sl] == i
+        touches = sl[0].start == 0 or sl[1].start == 0 or sl[0].stop == m.shape[0] or sl[1].stop == m.shape[1]
+        if comp.sum() < (up * min_area) ** 2 or (touches and not keep_border):
+            m[sl][comp] = 0
+    cnts, hier = cv2.findContours(m, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
+    parts = []
+    for c in cnts:
+        if len(c) < 4:
+            continue
+        c = cv2.approxPolyDP(c, up * .28, True).reshape(-1, 2).astype(float)
+        if len(c) < 3:
+            continue
+        c = c / up + (x0, y0)
+        parts.append("M" + " L".join(f"{px:.2f} {py:.2f}" for px, py in c) + "Z")
+    return " ".join(parts)
