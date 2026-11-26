@@ -537,11 +537,33 @@ copy). This section is what an agent needs to plan, cut, design and check a post
   reel (y 120 in a feed post), episode "3/8" after the name. Fixed forms: step card (R1, R7), question card (R2),
   Falsch/Richtig with black ✕ / white ✓ marks (R3, no red), schema (R4), result card bottom-left (R5), installer credit
   (R6), product on black (R8).
+- **Two layers, three jobs.** Reach layer (new installers): R1, R3, R5. Trust layer (dealers, planners, customers): R2,
+  R4, R6, R7, R8. Every post also carries a **job** — *Weiterleiten* (send to a colleague: a mistake, a quiz, trade humour;
+  metric sends per reach), *Speichern* (reference: checklist, schema, comparison; saves per reach), *Ansehen* (a process
+  with a result at the end; 3-s hold, watch time). R1 Ansehen/Speichern · R2 Speichern · R3 Weiterleiten · R4 Speichern
+  · R5 Ansehen/Weiterleiten · R6 Ansehen · R7 Ansehen · R8 information.
+- **Reach formats inside the rubrics (to test):** "Ist das richtig?" quiz — one frame of an install, 2–5 big words,
+  answer in part 2 or the comments (R3) · myth or fact / either-or (R3, R4) · one function in the hand, no talking, macro
+  (R1, R8; at fairs one function per clip, never a stand tour) · trade humour in our own words, never at customers'
+  expense (R3) · practitioners' debate with faces, e.g. 2-Draht or IP (R2). Weak in our figures and the benchmark:
+  announcement cards, stand tours (ours: 53–122 views), corporate cards, talking-head series without use.
+- **Knowledge unit → many formats.** One problem, one answer, one proof on the real device; skeleton problem → typical
+  mistake → right way → proof → next step. Reel 20–45 s (whole skeleton), carousel 6–8 slides (1 promise, 2 answer,
+  middle steps, last a concrete send/save), YouTube (extended, chapters, query in the title), LinkedIn PDF (time, cost,
+  planning certainty). Each format gets its own layout. Brief before filming: unit · rubric · job · audience
+  (installer/dealer/planner) · problem · mistake · right way · proof (facts checked against balter.de and glossary.md) ·
+  hook (mistake / result first / number / installer's question / myth-fact) · first frame (what is seen + 2–5 words) ·
+  formats · next step. Captions: one line or one long story, never a mid-length ad text; end with a question or nothing.
+- **Six-week test before rules harden:** same units as Reel and carousel, four hook types in turn, one variable at a time
+  (same day, time, length), Trial Reels for hooks; per post 3-s hold, sends/reach, saves/reach, share of non-followers,
+  follows/reach; no thresholds in advance — set them after two weeks from our own values.
+- **Creators:** before the first deal get fee, usage rights, "Werbung/Anzeige" labelling and responsibility for product
+  claims on camera checked legally (not researched yet).
 - **Rhythm (1–2 people):** Instagram 3/week (2 Reels + 1 carousel, Stories on posting days) · Facebook cross-post ·
   Shorts 2/week · YouTube long 2/month · LinkedIn 2 page posts + 1 personal each from sales and management + newsletter
   monthly · WhatsApp Channel 2–4/month. Week: Mon LinkedIn doc (R4) · Tue Reel (R1) · Wed carousel (R3/R4/R6) · Thu Reel
   (R2/R5) · Fri Stories/WhatsApp (R8). One filming day a month ≈ 8 reel masters + 1–2 tutorials.
-- **Content-plan row:** KW/date · rubric · channels · format · hook (first caption line + first 2 s) · search word ·
+- **Content-plan row:** KW/date · rubric + layer · job · audience · channels · format · hook (first caption line + first 2 s) · search word ·
   article numbers · footage + consent · CTA · status · result after 7 days (views, reach, watch time, sends, saves,
   comments, profile visits, follows, Stichtag). Asana "Content & Newsletter Planung", task `SM-YYYY-KWnn - <topic>`.
 
@@ -600,7 +622,7 @@ the zone polygon over a screenshot; blur other people.
 
 - Grid 1080: margin 64, 6 columns of 136, gutter 24, baseline 8. 4:5 and 9:16 each get their own
   layout; never stretch or pad a feed post to 9:16.
-- Smallest text 28 px feed, 32 px reel.
+- Smallest text 36 px feed, 40 px reel (28 px is about 10 pt on a phone) — kickers, plates and pills included.
 - Radii at 1080 px: window in the frame 64 (frame 12 px black) · image card, panel 48 · product
   plate, cell 32 · subtitle box, chip 16 · pills round. Concentric inward with 16 px steps. Never
   cut a rounded corner; no text closer than 32 px to a corner; no zoom that moves the rounding.
@@ -612,7 +634,7 @@ the zone polygon over a screenshot; blur other people.
 - Overlays on video: solid white panel, radius 32–48, padding 26–40, text left (no semi-transparent
   white). Subtitles black 72 %, radius 16, Inter 700 48 px white, max. 2 lines, wrapped by width, centred in
   x 80–858 with the bottom edge at y 1540 (`scripts/captions.py`). Hold ≥ 2 s plus 1.2 s per line; in 400 ms with 36 px rise, out
-  250 ms opacity only. Logo at start or end, never a permanent watermark. Always subtitles.
+  250 ms opacity only. Logo at start or end, never a permanent watermark. Always subtitles (no "80 % watch without sound" claim — there is no reliable source).
 - Never: a plate over the product, text in safe zones, orange strokes/underlines/frames, fake "Jetzt
   kaufen" buttons, other fonts, emoji in the graphic (sparingly allowed in the caption).
 - Captions: German, "Sie", one version per channel — Instagram/Facebook 600–1,200 characters,
@@ -621,7 +643,7 @@ the zone polygon over a screenshot; blur other people.
   Instagram at most 5 (platform limit since December 2025), LinkedIn 3–5; the search word goes in the first
   line, on screen and in speech.
 - Workflow: pick template → real pixels → check (safe zones, one orange, Science Gothic once,
-  smallest text, rounding intact) → approval by Balter Design und Marketing → publish. Report
+  smallest text 36/40 px, rounding intact) → approval by Balter Design und Marketing → publish. Report
   figures 7 days after posting, with the cut-off date.
 
 ## 12 · Video
